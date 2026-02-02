@@ -1,0 +1,57 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  /* Premium Light Colors */
+  --soft-bg: #fafafa;
+  --soft-gray: #f4f4f5;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-soft-bg: var(--soft-bg);
+  --color-soft-gray: var(--soft-gray);
+
+  --font-sans: var(--font-opensans);
+  --font-heading: var(--font-quicksand);
+  /* Switched generally to Quicksand for headings */
+
+  --color-primary: #ffbf0f;
+  --color-secondary: #ff660f;
+  --color-accent: #442211;
+  --color-gold: #D4AF37;
+  /* New Gold Accent */
+}
+
+/* Enforcing Light Mode for Premium Feel */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-opensans), sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-quicksand), sans-serif;
+  font-weight: 700;
+  /* Bold/Heavy specific for Premium look */
+}
+
+/* Custom Utilities for Premium Shadows/Gradients */
+.shadow-soft {
+  box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
+}
