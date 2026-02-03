@@ -2,20 +2,26 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { Product } from '@/data/products';
+import { Product, slugify } from '@/data/products';
 import { ArrowRight } from 'lucide-react';
 
 interface ProductCardProps {
     product: Product;
+    categorySlug?: string;
 }
 
-export default function ProductCard({ product }: ProductCardProps) {
+export default function ProductCard({ product, categorySlug }: ProductCardProps) {
     // Extract top 3 nutrition facts for the grid
     const nutritionEntries = Object.entries(product.nutrition).slice(0, 3);
 
+    // Determine category slug: either passed explicitly or derived from product
+    const finalCategorySlug = categorySlug || slugify(product.category);
+
+    const productUrl = `/categories/${finalCategorySlug}/${product.slug}`;
+
     return (
         <Link
-            href={`/products/${product.slug}`}
+            href={productUrl}
             className="group h-full flex flex-col bg-white rounded-2xl border border-gray-200 hover:border-primary overflow-hidden transition-all duration-300"
         >
             {/* Image Section */}

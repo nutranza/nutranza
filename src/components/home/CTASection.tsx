@@ -3,32 +3,22 @@ import { ArrowRight } from "lucide-react";
 
 export default function CTASection() {
     return (
-        <section className="relative py-24 overflow-hidden">
-            {/* Soft Gradient Background */}
-            <div className="absolute inset-0 bg-linear-to-r from-orange-50 to-yellow-50" />
+        <section className="relative md:pb-20 pb-16 overflow-hidden">
+            <div className="container">
+                <div className="relative z-10 bg-accent lg:p-20 md:p-12 p-8 rounded-3xl">
+                    <div className="text-center space-y-8 ">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white lg:max-w-2xl max-w-lg mx-auto">
+                            Join the Nutranza Performance Community
+                        </h2>
+                        <p className="text-lg md:text-xl text-white leading-relaxed">
+                            Get exclusive access to nutritional guides, early product drops, and <br />15% off your first order.
+                        </p>
 
-            <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 className="text-4xl md:text-6xl font-heading font-bold text-neutral-900 mb-6 leading-tight">
-                    Ready to Elevate <br /> Your Product Line?
-                </h2>
-                <p className="text-xl text-neutral-600 max-w-2xl mx-auto mb-10">
-                    Join hundreds of brands who trust Nutranza for premium manufacturing and global export.
-                </p>
-
-                <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <Link
-                        href="/contact"
-                        className="inline-flex items-center justify-center h-16 px-10 rounded-full bg-neutral-900 text-white font-bold text-lg hover:bg-neutral-800 hover:scale-105 transition-all shadow-xl"
-                    >
-                        Get a Custom Quote
-                        <ArrowRight className="ml-2 w-5 h-5" />
-                    </Link>
-                    <Link
-                        href="/products"
-                        className="inline-flex items-center justify-center h-16 px-10 rounded-full bg-white text-neutral-900 font-bold text-lg hover:bg-neutral-50 transition-all border border-neutral-200 shadow-sm"
-                    >
-                        Browse Products
-                    </Link>
+                        <div className="flex flex-col sm:flex-row items-center w-full sm:max-w-md mx-auto gap-3">
+                            <input className="w-full bg-white/20 border-white/20 rounded-full px-4 py-3 focus:outline-none focus:ring-1 focus:ring-white text-white" placeholder="Your email address" type="email" />
+                            <button className="sm:w-auto w-full px-6 py-3 rounded-full bg-primary text-neutral-900 font-semibold hover:bg-primary/80 transition-all duration-300 cursor-pointer">Subscribe</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

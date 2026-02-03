@@ -1,6 +1,5 @@
-import { Metadata } from 'next';
-import { notFound } from 'next/navigation';
-import { products } from '@/data/products';
+'use client';
+
 import Breadcrumb from '@/components/product/Breadcrumb';
 import ProductGallery from '@/components/product/ProductGallery';
 import ProductHeader from '@/components/product/ProductHeader';
@@ -11,53 +10,22 @@ import NutritionTable from '@/components/product/NutritionTable';
 import CertificationsGrid from '@/components/product/CertificationsGrid';
 import SidebarContact from '@/components/product/SidebarContact';
 import SimilarProducts from '@/components/product/SimilarProducts';
+import type { Product } from '@/data/products';
 
-interface ProductPageProps {
-    params: Promise<{ slug: string }>;
+interface ProductDetailProps {
+    product: Product;
+    breadcrumbCategory?: string;
 }
 
-// Generate static params for all products at build time
-export async function generateStaticParams() {
-    return products.map((product) => ({
-        slug: product.slug,
-    }));
-}
-
-// Generate dynamic metadata for SEO
-export async function generateMetadata({ params }: ProductPageProps): Promise<Metadata> {
-    const { slug } = await params;
-    const product = products.find((p) => p.slug === slug);
-
-    if (!product) {
-        return {
-            title: 'Product Not Found | Nutranza',
-        };
-    }
-
-    return {
-        title: `${product.name} | Nutranza`,
-        description: product.description,
-        openGraph: {
-            title: product.name,
-            description: product.description,
-            images: [product.image],
-        },
-    };
-}
-
-export default async function ProductPage({ params }: ProductPageProps) {
-    const { slug } = await params;
-    const product = products.find((p) => p.slug === slug);
-
-    if (!product) {
-        notFound();
-    }
-
+export default function ProductDetail({ product, breadcrumbCategory }: ProductDetailProps) {
     return (
         <div className="bg-white py-20">
             <main className="container">
                 {/* Breadcrumb Navigation */}
-                <Breadcrumb productName={product.name} category={product.category} />
+                <Breadcrumb
+                    productName={product.name}
+                    category={breadcrumbCategory || product.category}
+                />
 
                 {/* Main Product Section */}
                 <div className="flex lg:flex-row flex-col gap-10">

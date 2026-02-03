@@ -165,7 +165,7 @@ export default function Header() {
     const links = [
         { name: "Home", href: "/" },
         { name: "About Us", href: "/about" },
-        { name: "Products", href: "/products" },
+        { name: "Categories", href: "/categories" },
         { name: "Contact", href: "/contact" },
     ];
 
@@ -195,7 +195,7 @@ export default function Header() {
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden md:flex items-center gap-8">
+                        <nav className="hidden lg:flex items-center gap-8">
                             {links.map((link) => (
                                 <Link
                                     key={link.name}

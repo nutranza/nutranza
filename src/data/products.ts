@@ -435,3 +435,88 @@ export const filterCategories = [
 
 export const allCategories = filterCategories; // Backward compatibility if needed temporarily
 
+// Helper function to create URL-friendly slugs
+export function slugify(text: string): string {
+    return text
+        .toLowerCase()
+        .replace(/\s+/g, '-')
+        .replace(/[^\w-]+/g, '');
+}
+
+// Helper function to check if a product matches a category filter
+export function matchesCategory(product: Product, category: string): boolean {
+    if (category === 'Peanut butter') return product.subCategory === 'Peanut Butter';
+    if (category === 'Protein Oats') return product.subCategory === 'Oats' && product.name.toLowerCase().includes('protein');
+    if (category === 'Muesli') return product.subCategory === 'Muesli' || product.category === 'Muesli';
+    if (category === 'Shilajit') return product.subCategory === 'Ayurveda' || product.name.toLowerCase().includes('shilajit');
+    if (category === 'Rice Cake') return product.subCategory === 'Rice Cakes' || product.name.toLowerCase().includes('rice cake');
+    if (category === 'Protein Bar') return product.subCategory === 'Protein Bars' || product.name.toLowerCase().includes('bar');
+    return false;
+}
+
+// Get all categories with product counts
+export function getCategories() {
+    const categoryMap = new Map<string, number>();
+
+    filterCategories.forEach(cat => {
+        const count = products.filter(p => matchesCategory(p, cat)).length;
+        if (count > 0) {
+            categoryMap.set(cat, count);
+        }
+    });
+
+    return Array.from(categoryMap.entries()).map(([name, count]) => ({
+        id: slugify(name),
+        name,
+        slug: slugify(name),
+        count
+    }));
+}
+
+// Get category by slug
+export function getCategoryBySlug(slug: string) {
+    const categories = getCategories();
+    return categories.find(cat => cat.slug === slug) || null;
+}
+
+// Get category name from slug
+export function getCategoryNameFromSlug(slug: string): string | null {
+    const category = getCategoryBySlug(slug);
+    return category ? category.name : null;
+}
+
+// Mapping of category slugs to image paths
+const categoryImages: Record<string, string> = {
+    'breakfast-cereals': '/images/categories/Protein-Oats.png',
+    'nut-butters': '/images/categories/Peanut-Butter.png',
+};
+
+// Get actual categories from products (not filterCategories)
+export function getCategoriesWithProducts() {
+    const categoryMap = new Map<string, number>();
+
+    products.forEach(product => {
+        const catName = product.category;
+        categoryMap.set(catName, (categoryMap.get(catName) || 0) + 1);
+    });
+
+    return Array.from(categoryMap.entries()).map(([name, count]) => ({
+        id: slugify(name),
+        name,
+        slug: slugify(name),
+        count,
+        image: categoryImages[slugify(name)]
+    }));
+}
+
+// Get products for a specific category by slug
+export function getProductsByCategory(categorySlug: string) {
+    return products.filter(product => slugify(product.category) === categorySlug);
+}
+
+// Get category info by slug
+export function getCategoryInfo(slug: string) {
+    const categories = getCategoriesWithProducts();
+    return categories.find(cat => cat.slug === slug) || null;
+}
+

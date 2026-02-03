@@ -15,8 +15,8 @@ export default function HeroSection() {
                         </p>
 
                         {/* Headline */}
-                        <h1 className="text-4xl md:text-5xl xl:text-6xl font-bold text-neutral-900">
-                            Clean Nutrition for a <br className="hidden md:block" />
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900">
+                            Clean Nutrition for a <br className="hidden lg:block" />
                             <span className="text-primary">Premium</span> Lifestyle
                         </h1>
 
