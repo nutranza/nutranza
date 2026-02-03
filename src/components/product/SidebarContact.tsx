@@ -4,9 +4,9 @@ export default function SidebarContact() {
     return (
         <div className="sticky top-24 space-y-6">
             {/* Custom Labeling Card */}
-            <div className="bg-primary/10 rounded-xl p-6 border border-primary/20">
-                <h3 className="font-bold text-lg mb-2 text-gray-900">Need Custom Labeling?</h3>
-                <p className="text-sm text-gray-700 mb-4">
+            <div className="bg-primary/10 rounded-xl p-6 border border-primary/50">
+                <h3 className="font-bold text-lg mb-2 text-neutral-900">Need Custom Labeling?</h3>
+                <p className="text-sm text-neutral-700 mb-4">
                     We offer private labeling services for orders exceeding 5,000 units. Customize
                     jars, lids, and labels.
                 </p>
@@ -23,15 +23,15 @@ export default function SidebarContact() {
                         RK
                     </div>
                     <div>
-                        <p className="font-bold text-gray-900">Rajesh Kumar</p>
-                        <p className="text-xs text-gray-600">Head of Sourcing</p>
+                        <p className="font-bold text-neutral-900">Rajesh Kumar</p>
+                        <p className="text-xs text-neutral-700">Head of Sourcing</p>
                     </div>
                 </div>
-                <p className="text-sm text-gray-700 italic mb-4">
+                <p className="text-sm text-neutral-700 italic mb-4">
                     &quot;Our peanuts are sourced directly from Gujarat farms, ensuring the highest
                     oil content and richest flavor profile for export markets.&quot;
                 </p>
-                <button className="w-full py-2 border border-gray-300 rounded-lg text-sm font-semibold hover:bg-gray-100 transition-colors">
+                <button className="w-full px-8 py-3 rounded-full border border-secondary bg-gray-50 text-secondary font-medium hover:bg-white transition-all duration-300 cursor-pointer">
                     Message Rajesh
                 </button>
             </div>

@@ -99,7 +99,7 @@ export default function ProductFilter({
             <div className="flex flex-col gap-3 p-4 border-t border-gray-200 shrink-0 mt-auto bg-white">
                 <button
                     onClick={onApply}
-                    className="w-full inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium text-lg hover:bg-primary/80 transition-all duration-300 cursor-pointer"
+                    className="w-full inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium hover:bg-primary/80 transition-all duration-300 cursor-pointer"
                 >
                     View Results
                 </button>

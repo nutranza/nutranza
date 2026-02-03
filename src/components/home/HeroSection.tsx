@@ -30,13 +30,13 @@ export default function HeroSection() {
                         {/* Buttons */}
                         <div className="flex flex-col sm:flex-row gap-4 pt-4">
                             <button
-                                className="inline-flex items-center justify-center h-14 px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium text-lg hover:bg-primary/80 transition-all duration-300 cursor-pointer"
+                                className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium hover:bg-primary/80 transition-all duration-300 cursor-pointer"
                             >
                                 Try Peanut Butter
                             </button>
 
                             <button
-                                className="inline-flex items-center justify-center h-14 px-8 py-3 rounded-full bg-white border border-gray-200 text-neutral-900 font-medium text-lg hover:bg-gray-50 transition-all duration-300 cursor-pointer"
+                                className="inline-flex items-center justify-center px-8 py-3 rounded-full bg-white border border-gray-200 text-neutral-900 font-medium hover:bg-gray-50 transition-all duration-300 cursor-pointer"
                             >
                                 View Collection
                             </button>

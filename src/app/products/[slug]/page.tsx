@@ -79,31 +79,31 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 <div className="mt-16 lg:mt-24">
                     {/* Tab Navigation - Static for now */}
                     <div className="border-b border-gray-200 mb-8">
-                        <div className="flex gap-8 overflow-x-auto pb-1">
-                            <button className="pb-3 border-b-2 border-primary text-gray-900 font-bold whitespace-nowrap">
+                        <div className="flex gap-8 overflow-x-auto pb-2">
+                            <button className=" text-neutral-900 font-bold whitespace-nowrap">
                                 Nutritional Facts
                             </button>
-                            <button className="pb-3 border-b-2 border-transparent text-gray-600 font-medium hover:text-gray-900 transition-colors whitespace-nowrap">
+                            <button className="border-transparent text-neutral-600 font-medium hover:text-neutral-900 transition-colors whitespace-nowrap">
                                 Certifications
                             </button>
-                            <button className="pb-3 border-b-2 border-transparent text-gray-600 font-medium hover:text-gray-900 transition-colors whitespace-nowrap">
+                            <button className="border-transparent text-neutral-600 font-medium hover:text-neutral-900 transition-colors whitespace-nowrap">
                                 Manufacturing Quality
                             </button>
-                            <button className="pb-3 border-b-2 border-transparent text-gray-600 font-medium hover:text-gray-900 transition-colors whitespace-nowrap">
+                            <button className="border-transparent text-neutral-600 font-medium hover:text-neutral-900 transition-colors whitespace-nowrap">
                                 Export Logistics
                             </button>
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
+                    <div className="flex flex-col lg:flex-row gap-10">
                         {/* Main Content Area */}
-                        <div className="lg:col-span-2 space-y-8">
+                        <div className="lg:w-2/3 w-full space-y-8">
                             <NutritionTable product={product} />
                             <CertificationsGrid product={product} />
                         </div>
 
                         {/* Sidebar */}
-                        <div className="lg:col-span-1">
+                        <div className="lg:w-1/3 w-full">
                             <SidebarContact />
                         </div>
                     </div>

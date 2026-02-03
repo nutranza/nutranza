@@ -24,10 +24,10 @@ export default function SimilarProducts({ currentProduct }: SimilarProductsProps
     return (
         <div className="mt-20 border-t border-gray-200 pt-10">
             <div className="flex items-center justify-between mb-6">
-                <h2 className="text-2xl font-bold text-gray-900">Similar Products</h2>
+                <h2 className="text-2xl font-bold text-secondary">Similar Products</h2>
                 <Link
                     href="/products"
-                    className="text-primary font-bold hover:underline text-sm"
+                    className="text-secondary font-bold hover:underline text-sm"
                 >
                     View All
                 </Link>

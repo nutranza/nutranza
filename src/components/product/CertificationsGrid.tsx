@@ -20,7 +20,7 @@ const certificationIcons: Record<string, React.ReactNode> = {
 export default function CertificationsGrid({ product }: CertificationsGridProps) {
     return (
         <section className="pt-6">
-            <h2 className="text-xl font-bold mb-4 text-gray-900">Certifications & Compliance</h2>
+            <h2 className="text-xl font-bold mb-4 text-neutral-900">Certifications & Compliance</h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {product.certifications.map((cert, index) => (
                     <div
@@ -28,7 +28,7 @@ export default function CertificationsGrid({ product }: CertificationsGridProps)
                         className="p-4 border border-gray-200 rounded-lg flex flex-col items-center justify-center gap-2 text-center hover:shadow-md transition-shadow bg-white"
                     >
                         {certificationIcons[cert] || <Award className="w-10 h-10 text-gray-600" />}
-                        <span className="text-sm font-bold text-gray-900">{cert}</span>
+                        <span className="text-sm font-bold text-neutral-900">{cert}</span>
                     </div>
                 ))}
             </div>
