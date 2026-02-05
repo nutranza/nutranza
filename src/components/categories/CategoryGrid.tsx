@@ -20,7 +20,7 @@ export default function CategoryGrid({ categories }: CategoryGridProps) {
                 >
                     {/* Image Section */}
                     {category.image ? (
-                        <div className="relative h-64 w-full overflow-hidden">
+                        <div className="relative h-96 w-full overflow-hidden">
                             <Image
                                 src={category.image}
                                 alt={category.name}
@@ -49,7 +49,7 @@ export default function CategoryGrid({ categories }: CategoryGridProps) {
 
                         {/* Action */}
                         <div className="mt-auto">
-                            <span className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-neutral-900 font-medium text-base hover:bg-primary/80 transition-all duration-300 cursor-pointer">
+                            <span className="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-neutral-900 font-medium hover:bg-primary/80 transition-all duration-300 cursor-pointer">
                                 <span>View Category</span>
                                 <ArrowRight className="w-4 h-4" />
                             </span>

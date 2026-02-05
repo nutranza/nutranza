@@ -10,10 +10,10 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <HeroSection />
-      <FeatureCards />
+      {/* <FeatureCards /> */}
       <FeaturesSection />
-      <NutritionalBenefits /> {/* New Section: Why Us (Data) */}
       <ProductShowcase />
+      <NutritionalBenefits /> {/* New Section: Why Us (Data) */}
       <AboutSection />
       <CTASection />
     </main>

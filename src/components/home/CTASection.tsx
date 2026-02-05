@@ -6,7 +6,7 @@ export default function CTASection() {
         <section className="relative md:pb-20 pb-16 overflow-hidden">
             <div className="container">
                 <div className="relative z-10 bg-accent lg:p-20 md:p-12 p-8 rounded-3xl">
-                    <div className="text-center space-y-8 ">
+                    <div className="text-center space-y-5">
                         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white lg:max-w-2xl max-w-lg mx-auto">
                             Join the Nutranza Performance Community
                         </h2>

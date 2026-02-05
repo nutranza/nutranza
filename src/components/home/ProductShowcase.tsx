@@ -1,245 +1,91 @@
-// import Image from "next/image";
-// import Link from "next/link";
-// import { ArrowUpRight } from "lucide-react";
-// import { products } from "@/data/products";
-
-// interface DisplayProduct {
-//     id: string;
-//     name: string;
-//     slug: string;
-//     category: string;
-//     image: string;
-//     size: string;
-// }
-
-// // Map featured products to display grid with custom sizes for masonry layout
-// const getDisplayProducts = (): DisplayProduct[] => {
-//     const featuredProducts = products.filter((product) => product.featured);
-
-//     // Define custom grid sizes for masonry effect (4 products)
-//     const gridSizes = [
-//         "col-span-1 md:col-span-2 row-span-2", // Large card
-//         "col-span-1 row-span-1",
-//         "col-span-1 row-span-1",
-//         "col-span-1 md:col-span-2 row-span-1", // Wide card
-//     ];
-
-//     return featuredProducts.slice(0, 4).map((product, index) => ({
-//         id: product.id,
-//         name: product.name,
-//         slug: product.slug,
-//         category: product.category,
-//         image: product.image,
-//         size: gridSizes[index] || "col-span-1 row-span-1",
-//     }));
-// };
-
-// export default function ProductShowcase() {
-//     const displayProducts = getDisplayProducts();
-
-//     return (
-//         <section className="py-24 bg-white">
-//             <div className="container">
-//                 <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-//                     <div>
-//                         <span className="text-secondary font-bold tracking-wider uppercase text-sm">
-//                             Our Collection
-//                         </span>
-//                         <h2 className="mt-2 text-4xl md:text-5xl font-heading font-bold text-neutral-900">
-//                             Curated for <span className="text-primary">Excellence</span>
-//                         </h2>
-//                     </div>
-//                     <Link
-//                         href="/products"
-//                         className="hidden md:flex items-center gap-2 text-neutral-900 font-bold hover:text-secondary transition-colors duration-300"
-//                         aria-label="View all products"
-//                     >
-//                         View All Products <ArrowUpRight className="w-5 h-5" />
-//                     </Link>
-//                 </div>
-
-//                 <div className="grid grid-cols-1 md:grid-cols-4 auto-rows-[300px] gap-6">
-//                     {displayProducts.map((product) => (
-//                         <Link
-//                             key={product.id}
-//                             href={`/products/${product.slug}`}
-//                             className={`group relative rounded-3xl overflow-hidden bg-white shadow-[0_8px_30px_rgb(0,0,0,0.04)] border border-neutral-100 hover:shadow-[0_20px_60px_rgb(0,0,0,0.12)] transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/50 ${product.size}`}
-//                             aria-label={`View ${product.name} in ${product.category} category`}
-//                         >
-//                             {/* Product Image */}
-//                             <div className="absolute inset-0">
-//                                 <Image
-//                                     src={product.image}
-//                                     alt={`${product.name} - Premium ${product.category} product`}
-//                                     fill
-//                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-//                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
-//                                     loading="lazy"
-//                                 />
-//                             </div>
-
-//                             {/* Gradient Overlay */}
-//                             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/70 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-
-//                             {/* Content */}
-//                             <div className="absolute bottom-0 left-0 p-6 w-full">
-//                                 {/* Category Badge */}
-//                                 <span
-//                                     className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 shadow-sm transition-transform duration-300 group-hover:scale-105 ${product.category === "Nut Butters"
-//                                         ? "bg-primary text-neutral-900"
-//                                         : product.category === "Breakfast Cereals"
-//                                             ? "bg-secondary text-white"
-//                                             : "bg-white/90 backdrop-blur-sm text-neutral-900"
-//                                         }`}
-//                                 >
-//                                     {product.category}
-//                                 </span>
-
-//                                 {/* Product Name and Arrow */}
-//                                 <div className="flex justify-between items-end gap-4">
-//                                     <h3 className="text-2xl font-bold text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-//                                         {product.name}
-//                                     </h3>
-//                                     <div
-//                                         className="shrink-0 w-10 h-10 rounded-full bg-white text-neutral-900 flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
-//                                         aria-hidden="true"
-//                                     >
-//                                         <ArrowUpRight className="w-5 h-5" />
-//                                     </div>
-//                                 </div>
-//                             </div>
-//                         </Link>
-//                     ))}
-//                 </div>
-
-//                 {/* Mobile View All Button */}
-//                 <div className="mt-10 text-center md:hidden">
-//                     <Link
-//                         href="/products"
-//                         className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-neutral-900 text-white font-bold hover:bg-neutral-800 transition-colors duration-300"
-//                     >
-//                         View Catalog
-//                     </Link>
-//                 </div>
-//             </div>
-//         </section>
-//     );
-// }
-
-
-
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight } from "lucide-react";
-import { products } from "@/data/products";
+import { products, slugify } from "@/data/products";
 
 interface DisplayProduct {
     id: string;
     name: string;
     slug: string;
     category: string;
+    categorySlug: string;
     image: string;
 }
 
-// Get first 4 featured products for display
 const getDisplayProducts = (): DisplayProduct[] => {
-    const featuredProducts = products.filter((product) => product.featured);
+    // User requested products 2, 3, 4, 9. Assuming IDs are 'p2', 'p3', 'p4', 'p9'.
+    const targetIds = ['p2', 'p3', 'p4', 'p9'];
 
-    return featuredProducts.slice(0, 4).map((product) => ({
-        id: product.id,
-        name: product.name,
-        slug: product.slug,
-        category: product.category,
-        image: product.image,
-    }));
+    return products
+        .filter((product) => targetIds.includes(product.id))
+        .sort((a, b) => targetIds.indexOf(a.id) - targetIds.indexOf(b.id))
+        .map((product) => ({
+            id: product.id,
+            name: product.name,
+            slug: product.slug,
+            category: product.category,
+            categorySlug: slugify(product.category), // Generate slug for routing
+            image: product.image,
+        }));
 };
 
 export default function ProductShowcase() {
     const displayProducts = getDisplayProducts();
 
     return (
-        <section className="py-24 bg-white">
+        <section className="md:py-20 py-16 bg-white" aria-labelledby="gallery-heading">
             <div className="container">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-                    <div>
-                        <span className="text-secondary font-bold tracking-wider uppercase text-sm">
-                            Our Collection
-                        </span>
-                        <h2 className="mt-2 text-4xl md:text-5xl font-heading font-bold text-neutral-900">
-                            Curated for <span className="text-primary">Excellence</span>
+                {/* Header */}
+                <div className="flex flex-col lg:flex-row justify-between items-end mb-12 gap-8">
+                    <div className="space-y-5">
+                        <h2 id="gallery-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900">
+                            Market-Proven <span className="text-secondary">Global Favorites</span>
                         </h2>
+                        <p className="text-lg md:text-xl text-neutral-700 leading-relaxed max-w-3xl">
+                            Our most trusted products for international markets. Premium organic, high-protein foods with proven consumer demand and certified export quality.
+                        </p>
                     </div>
                     <Link
-                        href="/products"
-                        className="hidden md:flex items-center gap-2 text-neutral-900 font-bold hover:text-secondary transition-colors duration-300"
-                        aria-label="View all products"
+                        href="/categories"
+                        className="group flex items-center gap-2 font-medium text-neutral-900 hover:text-secondary hover:underline transition-colors"
                     >
-                        View All Products <ArrowUpRight className="w-5 h-5" />
+                        View Full Catalog
+                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                     </Link>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                {/* Gallery Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
                     {displayProducts.map((product) => (
                         <Link
                             key={product.id}
-                            href={`/products/${product.slug}`}
-                            className="group relative rounded-3xl overflow-hidden bg-white border border-neutral-100 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-primary/50 aspect-square"
-                            aria-label={`View ${product.name} in ${product.category} category`}
+                            href={`/categories/${product.categorySlug}/${product.slug}`}
+                            className="group block"
                         >
-                            {/* Product Image */}
-                            <div className="absolute inset-0">
+                            {/* Image Frame */}
+                            <div className="relative aspect-3/4 w-full overflow-hidden border border-gray-200 rounded-2xl bg-neutral-100 transition-all duration-500 ease-out">
                                 <Image
                                     src={product.image}
-                                    alt={`${product.name} - Premium ${product.category} product`}
+                                    alt={product.name}
                                     fill
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                                    loading="lazy"
+                                    className="object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-105"
+                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                 />
                             </div>
 
-                            {/* Gradient Overlay */}
-                            <div className="absolute inset-x-0 bottom-0 h-1/2 bg-linear-to-t from-black/70 via-black/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-
-                            {/* Content */}
-                            <div className="absolute bottom-0 left-0 p-6 w-full">
-                                {/* Category Badge */}
-                                <span
-                                    className={`inline-block px-3 py-1 rounded-full text-xs font-bold mb-3 shadow-sm transition-transform duration-300 group-hover:scale-105 ${product.category === "Nut Butters"
-                                        ? "bg-primary text-neutral-900"
-                                        : product.category === "Breakfast Cereals"
-                                            ? "bg-secondary text-white"
-                                            : "bg-white/90 backdrop-blur-sm text-neutral-900"
-                                        }`}
-                                >
-                                    {product.category}
-                                </span>
-
-                                {/* Product Name and Arrow */}
-                                <div className="flex justify-between items-end gap-4">
-                                    <h3 className="text-2xl font-bold text-white leading-tight">
+                            {/* Content Below */}
+                            <div className="mt-6 flex justify-between items-start">
+                                <div>
+                                    <h3 className="text-lg font-medium text-neutral-900 leading-snug group-hover:text-neutral-700 transition-colors">
                                         {product.name}
                                     </h3>
-                                    <div
-                                        className="shrink-0 w-10 h-10 rounded-full bg-white text-neutral-900 flex items-center justify-center transform translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300 shadow-lg"
-                                        aria-hidden="true"
-                                    >
-                                        <ArrowUpRight className="w-5 h-5" />
-                                    </div>
+                                    <p className="text-sm text-neutral-500 mt-1">
+                                        {product.category}
+                                    </p>
                                 </div>
                             </div>
                         </Link>
                     ))}
-                </div>
-
-                {/* Mobile View All Button */}
-                <div className="mt-10 text-center md:hidden">
-                    <Link
-                        href="/products"
-                        className="inline-flex items-center justify-center h-12 px-8 rounded-full bg-neutral-900 text-white font-bold hover:bg-neutral-800 transition-colors duration-300"
-                    >
-                        View Catalog
-                    </Link>
                 </div>
             </div>
         </section>

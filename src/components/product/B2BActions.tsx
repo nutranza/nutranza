@@ -1,5 +1,5 @@
 import { Product } from '@/data/products';
-import { Send } from 'lucide-react';
+import { SendHorizonal } from 'lucide-react';
 
 interface B2BActionsProps {
     product: Product;
@@ -18,7 +18,7 @@ export default function B2BActions({ product }: B2BActionsProps) {
             <div className="flex flex-col sm:flex-row gap-3">
                 <button className="w-full inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium hover:bg-primary/80 transition-all duration-300 cursor-pointer">
                     <span>Request Inquiry</span>
-                    <Send className="w-5 h-5" />
+                    <SendHorizonal className="w-5 h-5" />
                 </button>
                 <button className="w-full inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-secondary bg-gray-50 text-secondary font-medium hover:bg-white transition-all duration-300 cursor-pointer">
                     Request Sample

@@ -3,7 +3,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Product, slugify } from '@/data/products';
-import { ArrowRight } from 'lucide-react';
 
 interface ProductCardProps {
     product: Product;
@@ -31,7 +30,7 @@ export default function ProductCard({ product, categorySlug }: ProductCardProps)
                     alt={product.name}
                     width={500}
                     height={500}
-                    className="object-cover group-hover:scale-105 transition-all duration-300"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-300"
                 />
 
                 {/* Featured / Dietary Badge */}
@@ -76,9 +75,8 @@ export default function ProductCard({ product, categorySlug }: ProductCardProps)
 
                 {/* Action */}
                 <div className="mt-auto">
-                    <span className="w-full inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium text-lg hover:bg-primary/80 transition-all duration-300 cursor-pointer">
+                    <span className="w-full inline-flex items-center justify-center px-8 py-3 rounded-full bg-primary text-neutral-900 font-medium hover:bg-primary/80 transition-all duration-300 cursor-pointer">
                         <span>View Details</span>
-                        <ArrowRight className="w-4 h-4" />
                     </span>
                 </div>
             </div>
