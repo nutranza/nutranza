@@ -56,6 +56,21 @@ h6 {
   box-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.05);
 }
 
+.scroll-smooth {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-snap-x {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.scroll-snap-center {
+  scroll-snap-align: center;
+  scroll-snap-stop: always;
+}
+
 @utility container {
   margin-inline: auto;
   padding-inline: 1rem;

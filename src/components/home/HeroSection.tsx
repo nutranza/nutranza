@@ -50,7 +50,7 @@ export default function HeroSection() {
                             <div className="flex flex-col gap-4 w-1/2 pt-12">
                                 <div className="relative w-full aspect-square overflow-hidden border border-gray-200 rounded-2xl">
                                     <Image
-                                        src="/images/products/1.jpg"
+                                        src="/images/products/6.jpg"
                                         alt="Wholesome ingredients"
                                         fill
                                         sizes="(max-width: 768px) 50vw, 25vw"
@@ -59,7 +59,7 @@ export default function HeroSection() {
                                 </div>
                                 <div className="relative w-full aspect-square overflow-hidden border border-gray-200 rounded-2xl">
                                     <Image
-                                        src="/images/products/3.jpg"
+                                        src="/images/products/1.jpg"
                                         alt="Natural nuts"
                                         fill
                                         sizes="(max-width: 768px) 50vw, 25vw"
