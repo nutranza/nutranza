@@ -15,7 +15,7 @@ export default function HeroSection() {
                         </p>
 
                         {/* Headline */}
-                        <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900">
+                        <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-neutral-900">
                             Clean Nutrition for a <br className="hidden lg:block" />
                             <span className="text-primary">Premium</span> Lifestyle
                         </h1>
@@ -43,20 +43,52 @@ export default function HeroSection() {
                         </div>
                     </div>
 
-                    {/* Right: Product Visual */}
+                    {/* Right: Product Visual Grid */}
                     <div className="relative flex justify-center lg:justify-end w-full z-10">
-                        {/* Card Container - Square Aspect Ratio */}
-                        {/* Added bg-neutral-50 to frame the square card visually */}
-                        <div className="w-full aspect-square overflow-hidden">
-                            <Image
-                                src="/images/products/1.jpg"
-                                alt="Premium Peanut Butter Oats"
-                                width={500}
-                                height={500}
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                priority
-                                className="object-contain w-full"
-                            />
+                        <div className="flex gap-4 w-full max-w-2xl">
+                            {/* Column 1 */}
+                            <div className="flex flex-col gap-4 w-1/2 pt-12">
+                                <div className="relative w-full aspect-square overflow-hidden border border-gray-200 rounded-2xl">
+                                    <Image
+                                        src="/images/products/1.jpg"
+                                        alt="Wholesome ingredients"
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, 25vw"
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <div className="relative w-full aspect-square overflow-hidden border border-gray-200 rounded-2xl">
+                                    <Image
+                                        src="/images/products/3.jpg"
+                                        alt="Natural nuts"
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, 25vw"
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </div>
+
+                            {/* Column 2 */}
+                            <div className="flex flex-col gap-4 w-1/2">
+                                <div className="relative w-full aspect-square overflow-hidden border border-gray-200 rounded-2xl">
+                                    <Image
+                                        src="/images/products/2.jpg"
+                                        alt="Premium spices"
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, 25vw"
+                                        className="object-cover"
+                                    />
+                                </div>
+                                <div className="relative w-full aspect-square overflow-hidden border border-gray-200 rounded-2xl">
+                                    <Image
+                                        src="/images/products/4.jpg"
+                                        alt="Quality storage"
+                                        fill
+                                        sizes="(max-width: 768px) 50vw, 25vw"
+                                        className="object-cover"
+                                    />
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

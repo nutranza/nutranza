@@ -1,4 +1,5 @@
-import { Leaf, Award, XCircle, Zap } from "lucide-react";
+import Image from "next/image";
+import { Leaf, XCircle, Zap } from "lucide-react";
 
 export default function NutritionalBenefits() {
     return (
@@ -69,7 +70,13 @@ export default function NutritionalBenefits() {
 
                         {/* Stat Card 4 */}
                         <div className="p-8 rounded-3xl bg-white text-neutral-900 flex flex-col justify-between aspect-square relative overflow-hidden">
-                            <img src="/images/products/2.jpg" alt="Protein" className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[140%] max-w-none opacity-20 rotate-12" />
+                            <Image
+                                src="/images/products/2.jpg"
+                                alt="Protein"
+                                width={300}
+                                height={300}
+                                className="absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 w-[140%] max-w-none opacity-20 rotate-12"
+                            />
                             <div className="relative z-10 h-full flex flex-col justify-end">
                                 <span className="font-bold text-xl">Lab Tested <br /> for Purity</span>
                             </div>

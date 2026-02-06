@@ -1,5 +1,5 @@
 import { Product } from '@/data/products';
-import { BadgeCentIcon, BadgeCheck, Earth } from 'lucide-react';
+import { BadgeCheck, Earth } from 'lucide-react';
 
 interface ProductHeaderProps {
     product: Product;

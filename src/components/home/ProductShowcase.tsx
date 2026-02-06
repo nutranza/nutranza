@@ -14,7 +14,7 @@ interface DisplayProduct {
 
 const getDisplayProducts = (): DisplayProduct[] => {
     // User requested products 2, 3, 4, 9. Assuming IDs are 'p2', 'p3', 'p4', 'p9'.
-    const targetIds = ['p2', 'p3', 'p4', 'p9'];
+    const targetIds = ['p2', 'p3', 'p4', 'p10'];
 
     return products
         .filter((product) => targetIds.includes(product.id))

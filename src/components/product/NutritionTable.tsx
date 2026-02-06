@@ -5,7 +5,7 @@ interface NutritionTableProps {
 }
 
 export default function NutritionTable({ product }: NutritionTableProps) {
-    const nutritionEntries = Object.entries(product.nutrition).filter(([_, value]) => value);
+    const nutritionEntries = Object.entries(product.nutrition).filter(([, value]) => value);
 
     return (
         <section>
