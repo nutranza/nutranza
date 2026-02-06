@@ -13,7 +13,7 @@ export default function Home() {
       {/* <FeatureCards /> */}
       <FeaturesSection />
       <ProductShowcase />
-      <NutritionalBenefits /> {/* New Section: Why Us (Data) */}
+      {/* <NutritionalBenefits />  */}
       <AboutSection />
       <CTASection />
     </main>
