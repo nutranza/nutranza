@@ -173,13 +173,13 @@ export default function Header() {
 
     return (
         <header
-            className="sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/80 backdrop-blur-md shadow-sm py-4 border-b border-gray-100/50"
+            className="sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-[#EBE6DE] py-4"
         >
             <div className="container">
                 <div className="flex items-center justify-between gap-8">
 
                     {/* Left Section: Logo + Navigation */}
-                    <div className="flex items-center gap-12">
+                    <div className="flex items-center gap-8">
                         {/* Logo */}
                         <Link href="/" className="shrink-0 block">
                             <div className="relative">
@@ -195,12 +195,12 @@ export default function Header() {
                         </Link>
 
                         {/* Desktop Navigation */}
-                        <nav className="hidden lg:flex items-center gap-8">
+                        <nav className="hidden lg:flex items-center gap-6">
                             {links.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
-                                    className={`font-medium transition-colors duration-200 relative group text-base ${isActiveLink(link.href) ? "text-secondary" : "text-black hover:text-secondary"
+                                    className={` transition-colors duration-200 relative group text-lg tracking-wider font-heading font-semibold ${isActiveLink(link.href) ? "text-secondary" : "text-neutral-900 hover:text-secondary"
                                         }`}
                                 >
                                     {link.name}
@@ -263,7 +263,7 @@ export default function Header() {
 
                 {/* Mobile Navigation */}
                 <div
-                    className={`md:hidden absolute top-full left-0 right-0 bg-white/95 backdrop-blur-md shadow-lg border-t border-gray-100 transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                    className={`md:hidden absolute top-full left-0 right-0 bg-[#EBE6DE] backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
                         }`}
                 >
                     <div className="flex flex-col px-4 py-4 space-y-4">
@@ -271,7 +271,7 @@ export default function Header() {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`font-medium text-lg border-b border-gray-50 pb-2 transition-colors ${isActiveLink(link.href) ? "text-secondary" : "text-black hover:text-secondary"
+                                className={`text-lg pb-2 transition-colors font-heading font-semibold ${isActiveLink(link.href) ? "text-secondary" : "text-black hover:text-secondary"
                                     }`}
                                 onClick={() => setIsMobileMenuOpen(false)}
                             >

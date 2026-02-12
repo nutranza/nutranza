@@ -35,6 +35,17 @@ const quicksand = localFont({
   variable: "--font-quicksand",
 });
 
+const boogaloo = localFont({
+  src: [
+    {
+      path: "./fonts/Boogaloo-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-boogaloo",
+});
+
 const openSans = localFont({
   src: [
     {
@@ -89,7 +100,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${openSans.variable} ${quicksand.variable} antialiased`}
+        className={`${openSans.variable} ${quicksand.variable} ${boogaloo.variable} antialiased`}
       >
         <Header />
         {children}

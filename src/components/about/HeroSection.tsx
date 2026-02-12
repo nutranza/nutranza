@@ -6,7 +6,7 @@ export default function HeroSection() {
     ];
 
     return (
-        <section className="md:py-20 py-16 bg-white">
+        <section className="md:py-20 py-16">
             <div className="container max-w-5xl">
                 {/* Main Content */}
                 <div className="text-center space-y-8">

@@ -16,6 +16,7 @@
 
   --font-sans: var(--font-opensans);
   --font-heading: var(--font-quicksand);
+  --font-heading2: var(--font-boogaloo);
   /* Switched generally to Quicksand for headings */
 
   --color-primary: #ffbf0f;
@@ -48,6 +49,7 @@ h5,
 h6 {
   font-family: var(--font-quicksand), sans-serif;
   font-weight: 700;
+  /* letter-spacing: 0.1em; */
   /* Bold/Heavy specific for Premium look */
 }
 
@@ -69,6 +71,19 @@ h6 {
 .scroll-snap-center {
   scroll-snap-align: center;
   scroll-snap-stop: always;
+}
+
+/* Hide scrollbar for mobile carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 @utility container {
