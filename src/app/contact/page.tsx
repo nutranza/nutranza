@@ -18,7 +18,7 @@ export default function ContactPage() {
                         Contact Us
                     </h1>
                     <p className="text-lg md:text-xl text-neutral-700 leading-relaxed max-w-3xl mx-auto">
-                        Have questions about our products or services? We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                        Have questions about our products or services? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
                     </p>
                 </div>
 

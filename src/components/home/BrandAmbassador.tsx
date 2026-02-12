@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function BrandAmbassador() {
     return (
-        <section className="w-full py-16 bg-white">
+        <section className="w-full lg:py-20 py-16 overflow-hidden">
             <div className="container">
                 {/* 
                     Wrapper div for positioning. 
@@ -60,7 +60,7 @@ export default function BrandAmbassador() {
                                 src="/images/brand-ambassador.png"
                                 alt="Nutranza Brand Ambassador"
                                 fill
-                                className="object-contain lg:scale-[1.5] xl:-mt-10 lg:-mt-12"
+                                className="object-contain xl:scale-[1.5] lg:scale-[1.4] lg:-mt-10"
                                 sizes="(max-width: 768px) 100vw, 50vw"
                                 priority
                             />

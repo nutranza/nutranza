@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import HeroSection from "@/components/about/HeroSection";
 import CompanyHistory from "@/components/about/CompanyHistory";
 import ExportExperience from "@/components/about/ExportExperience";
-import QualityCertifications from "@/components/about/QualityCertifications";
+
 import WhyChooseUs from "@/components/about/WhyChooseUs";
 
 export const metadata: Metadata = {

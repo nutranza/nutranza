@@ -18,7 +18,7 @@ export default function HeroSection() {
                     </h1>
 
                     <p className="text-neutral-900 text-base md:text-lg lg:text-xl mb-8 font-medium leading-relaxed max-w-lg">
-                       Experience the perfect blend of taste and health with our Peanut Butter Protein Oats. No added sugar, 100% natural, and designed for those who demand more.
+                        Experience the perfect blend of taste and health with our Peanut Butter Protein Oats. No added sugar, 100% natural, and designed for those who demand more.
                     </p>
 
                     <button className="bg-secondary text-white px-10 py-4 rounded-full font-bold text-base lg:text-lg shadow-lg hover:bg-secondary/80 transition-all transform hover:scale-105">

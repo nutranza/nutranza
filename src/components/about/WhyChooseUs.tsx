@@ -1,8 +1,6 @@
 "use client";
 
-import { Award, DollarSign, Users, Truck, TrendingUp, Shield, Package, Headphones, CheckCircle2 } from "lucide-react";
-import Link from "next/link";
-import { cn } from "@/lib/utils";
+import { Award, DollarSign, Truck, TrendingUp, Shield, Package, Headphones } from "lucide-react";
 
 interface Strength {
     title: string;

@@ -47,9 +47,9 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-boogaloo), sans-serif;
+  font-family: var(--font-quicksand), sans-serif;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  /* letter-spacing: 0.1em; */
   /* Bold/Heavy specific for Premium look */
 }
 
@@ -71,6 +71,19 @@ h6 {
 .scroll-snap-center {
   scroll-snap-align: center;
   scroll-snap-stop: always;
+}
+
+/* Hide scrollbar for mobile carousel */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+  /* Chrome, Safari, Opera */
 }
 
 @utility container {

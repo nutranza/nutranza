@@ -33,7 +33,7 @@ export default function ProductShowcase() {
     const displayProducts = getDisplayProducts();
 
     return (
-        <section className="md:py-20 py-16 bg-white" aria-labelledby="gallery-heading">
+        <section className="lg:py-20 py-16 " aria-labelledby="gallery-heading">
             <div className="container">
                 {/* Header */}
                 <div className="flex flex-col lg:flex-row justify-between items-end mb-12 gap-8">
@@ -55,7 +55,7 @@ export default function ProductShowcase() {
                 </div>
 
                 {/* Gallery Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
                     {displayProducts.map((product) => (
                         <Link
                             key={product.id}
@@ -63,25 +63,25 @@ export default function ProductShowcase() {
                             className="group block"
                         >
                             {/* Image Frame */}
-                            <div className="relative aspect-3/4 w-full overflow-hidden border border-gray-200 rounded-2xl bg-neutral-100 transition-all duration-500 ease-out">
+                            <div className="relative w-full h-[300px]">
                                 <Image
                                     src={product.image}
                                     alt={product.name}
                                     fill
-                                    className="object-cover object-center transition-transform duration-700 ease-in-out group-hover:scale-105"
+                                    className="object-contain transition-transform duration-700 ease-in-out group-hover:scale-105"
                                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
                                 />
                             </div>
 
                             {/* Content Below */}
-                            <div className="mt-6 flex justify-between items-start">
-                                <div>
-                                    <h3 className="text-lg font-medium text-neutral-900 leading-snug group-hover:text-neutral-700 transition-colors">
+                            <div className="mt-6 flex justify-center items-center">
+                                <div className="text-center space-y-4">
+                                    <p className="text-lg font-medium text-neutral-900 leading-snug transition-colors text-wrap">
                                         {product.name}
-                                    </h3>
-                                    <p className="text-sm text-neutral-500 mt-1">
-                                        {product.category}
                                     </p>
+                                    <button className="bg-secondary text-white px-8 py-3 rounded-full font-semibold text-base hover:bg-secondary/80">
+                                        View Product
+                                    </button>
                                 </div>
                             </div>
                         </Link>

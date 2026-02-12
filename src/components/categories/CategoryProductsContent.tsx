@@ -1,8 +1,6 @@
 'use client';
 
 import { useState, useMemo } from 'react';
-import Link from 'next/link';
-import type { Product } from '@/data/products';
 import type { CategoryProductsContentProps } from '@/types/products';
 import ProductGrid from '@/components/products/ProductGrid';
 import CategoryFilter from '@/components/categories/CategoryFilter';
@@ -46,7 +44,8 @@ export default function CategoryProductsContent({
                 : [...current, value];
 
             if (updated.length === 0) {
-                const { [category]: _, ...rest } = prev;
+                // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                const { [category]: _removed, ...rest } = prev;
                 return rest;
             }
             return { ...prev, [category]: updated };

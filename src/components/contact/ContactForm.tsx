@@ -40,7 +40,7 @@ export default function ContactForm() {
                     Get In Touch
                 </h2>
                 <p className="text-lg text-neutral-900">
-                    Fill out the form below and we'll get back to you as soon as possible.
+                    Fill out the form below and we&apos;ll get back to you as soon as possible.
                 </p>
             </div>
 
@@ -149,8 +149,8 @@ export default function ContactForm() {
                 {message && (
                     <div
                         className={`p-4 rounded-xl text-sm font-medium animate-in fade-in duration-300 ${message.type === "success"
-                                ? "bg-green-50 text-green-800 border border-green-200"
-                                : "bg-red-50 text-red-800 border border-red-200"
+                            ? "bg-green-50 text-green-800 border border-green-200"
+                            : "bg-red-50 text-red-800 border border-red-200"
                             }`}
                     >
                         {message.text}

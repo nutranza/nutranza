@@ -54,9 +54,9 @@ const stats = [
 
 export default function ShopByCategory() {
     return (
-        <section className="bg-[#5C6AAE] py-16 md:py-24">
+        <section className="bg-[#EBE6DE] py-16 lg:py-20">
             <div className="container">
-                <h2 className="text-center text-white font-heading2 text-4xl md:text-5xl lg:text-6xl mb-12 md:mb-16 tracking-wide">
+                <h2 className="text-center text-primary text-4xl md:text-5xl lg:text-6xl mb-12 md:mb-16">
                     SHOP BY CATEGORY
                 </h2>
 
@@ -78,20 +78,20 @@ export default function ShopByCategory() {
                                 </div>
                             </div>
 
-                            <p className="text-center text-sm md:text-base lg:text-lg font-bold text-wrap text-primary">
+                            <p className="text-center text-sm md:text-base lg:text-lg font-bold text-wrap text-neutral-900">
                                 {category.name}
                             </p>
                         </div>
                     ))}
                 </div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mt-20">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 mt-20">
                     {stats.map((stat) => (
                         <div
                             key={stat.id}
-                            className="flex flex-col items-center justify-center text-center sm:p-6 p-4 bg-white rounded-2xl shadow-sm border border-neutral-100/50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
+                            className="flex flex-col items-center justify-center text-center lg:p-6 p-4 bg-white rounded-2xl shadow-sm border border-neutral-100/50 hover:shadow-md transition-all duration-300 transform hover:-translate-y-1"
                         >
-                            <div className="text-4xl md:text-5xl font-bold text-primary mb-2 flex items-baseline">
+                            <div className="text-3xl lg:text-4xl xl:text-5xl font-semibold text-primary mb-2 flex items-baseline">
                                 <CountUp
                                     end={stat.value}
                                     duration={2.5}
@@ -100,7 +100,7 @@ export default function ShopByCategory() {
                                 />
                                 <span className="text-primary">{stat.suffix}</span>
                             </div>
-                            <p className="text-sm md:text-base font-medium text-neutral-900 uppercase tracking-wide">
+                            <p className="text-base font-medium text-neutral-900">
                                 {stat.label}
                             </p>
                         </div>

@@ -54,7 +54,7 @@ export default function AboutSection() {
                         {/* Main Image */}
                         <div className="w-full aspect-square overflow-hidden">
                             <Image
-                                src="/images/products/8.jpg"
+                                src="/images/products/8.png"
                                 alt="Nutranza food production"
                                 width={500}
                                 height={500}
