@@ -14,16 +14,41 @@
   --color-soft-bg: var(--soft-bg);
   --color-soft-gray: var(--soft-gray);
 
-  --font-sans: var(--font-opensans);
-  --font-heading: var(--font-quicksand);
-  --font-heading2: var(--font-boogaloo);
-  /* Switched generally to Quicksand for headings */
+  /* Font Variables */
+  --font-opensans: var(--font-opensans);
+  --font-quicksand: var(--font-quicksand);
+  --font-boogaloo: var(--font-boogaloo);
+  --font-helvetica: var(--font-helvetica-neue);
+  --font-roca: var(--font-roca-one);
 
   --color-primary: #ffbf0f;
   --color-secondary: #ff660f;
   --color-accent: #442211;
   --color-gold: #D4AF37;
-  /* New Gold Accent */
+
+  /* Marquee Animations */
+  --animate-marquee-left: marquee-left var(--marquee-duration, 30s) linear infinite;
+  --animate-marquee-right: marquee-right var(--marquee-duration, 30s) linear infinite;
+
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes marquee-right {
+    from {
+      transform: translateX(-100%);
+    }
+
+    to {
+      transform: translateX(0);
+    }
+  }
 }
 
 /* Enforcing Light Mode for Premium Feel */
@@ -37,7 +62,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-opensans), sans-serif;
+  font-family: var(--font-helvetica-neue), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -47,10 +72,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-quicksand), sans-serif;
-  font-weight: 700;
-  /* letter-spacing: 0.1em; */
-  /* Bold/Heavy specific for Premium look */
+  font-family: var(--font-roca-one), sans-serif;
 }
 
 /* Custom Utilities for Premium Shadows/Gradients */

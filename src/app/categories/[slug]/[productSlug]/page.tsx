@@ -12,7 +12,7 @@ interface CategoryProductPageProps {
 
 // Generate static params for all valid category-product combinations
 export async function generateStaticParams() {
-    return products.map((_) => {
+    return products.map(() => {
         // We need to resolve the category slug from the product's category name
         // Since we don't have a direct map in the product object, we might need a helper
         // But for now, let's assume valid category slugs are generated properly
