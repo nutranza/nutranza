@@ -14,9 +14,12 @@
   --color-soft-bg: var(--soft-bg);
   --color-soft-gray: var(--soft-gray);
 
-  --font-sans: var(--font-opensans);
-  --font-heading: var(--font-quicksand);
-  --font-heading2: var(--font-boogaloo);
+  /* Font Variables */
+  --font-opensans: var(--font-opensans);
+  --font-quicksand: var(--font-quicksand);
+  --font-boogaloo: var(--font-boogaloo);
+  --font-helvetica: var(--font-helvetica-neue);
+  --font-roca: var(--font-roca-one);
   /* Switched generally to Quicksand for headings */
 
   --color-primary: #ffbf0f;
@@ -37,7 +40,7 @@
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-opensans), sans-serif;
+  font-family: var(--font-helvetica-neue), sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -47,8 +50,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: var(--font-quicksand), sans-serif;
-  font-weight: 700;
+  font-family: var(--font-roca-one), sans-serif;
   /* letter-spacing: 0.1em; */
   /* Bold/Heavy specific for Premium look */
 }

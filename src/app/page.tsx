@@ -1,4 +1,4 @@
-import HeroSlider from "@/components/home/HeroSlider";
+import HeroSection from "@/components/home/HeroSection";
 import BrandAmbassador from "@/components/home/BrandAmbassador";
 import ProductShowcase from "@/components/home/ProductShowcase";
 import CTASection from "@/components/home/CTASection";
@@ -10,8 +10,8 @@ import ReviewsSection from "@/components/home/ReviewsSection";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
-      <HeroSlider />
+    <main className="bg-white block">
+      <HeroSection />
       <FeaturesSection />
       <ShopByCategory />
       <WaveSeparator

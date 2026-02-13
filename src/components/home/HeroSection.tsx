@@ -5,41 +5,44 @@ import Image from "next/image";
 
 export default function HeroSection() {
     return (
-        <section className="relative w-full lg:pt-20 pt-16 bg-[#EBE6DE] overflow-hidden flex items-center">
+        <section className="relative lg:h-[90vh] lg:py-20 py-16 bg-[#EBE6DE]">
 
             {/* MAIN CONTENT CONTAINER */}
-            <div className="container  flex flex-col lg:flex-row items-center justify-between h-full gap-10 lg:gap-0">
+            <div className="container">
 
-                {/* LEFT CONTENT (Heading & Text) */}
-                <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left z-10">
-                    <h1 className="text-neutral-900 font-extrabold text-4xl md:text-5xl xl:text-7xl mb-6">
-                        Clean Nutrition for a
-                        <span className="block text-secondary">Premium Lifestyle</span>
-                    </h1>
+                <div className="lg:block flex flex-col items-center justify-center h-full">
+                    {/* LEFT CONTENT (Heading & Text) */}
+                    <div className="lg:max-w-4xl w-full flex flex-col items-center lg:items-start gap-8 text-center lg:text-left relative z-10">
+                        <h1 className="text-neutral-900 text-4xl md:text-6xl lg:text-7xl xl:text-8xl leading-16">
+                            <span className="leading-[10px]">Nutrition for a</span>
+                            <span className="block font-bold text-secondary leading-tight">premium lifestyle</span>
+                        </h1>
 
-                    <p className="text-neutral-900 text-base md:text-lg lg:text-xl mb-8 font-medium leading-relaxed max-w-lg">
-                        Experience the perfect blend of taste and health with our Peanut Butter Protein Oats. No added sugar, 100% natural, and designed for those who demand more.
-                    </p>
+                        <p className="text-neutral-900 text-base md:text-xl font-medium max-w-xl">
+                            Experience the perfect blend of taste and health with our Peanut Butter Protein Oats. No added sugar, 100% natural, and designed for those who demand more.
+                        </p>
 
-                    <button className="bg-secondary text-white px-10 py-4 rounded-full font-bold text-base lg:text-lg shadow-lg hover:bg-secondary/80 transition-all transform hover:scale-105">
-                        Shop Now
-                    </button>
-                </div>
+                        <button className="bg-secondary text-white px-10 py-4 rounded-full font-bold text-base lg:text-lg shadow-lg hover:bg-secondary/80 transition-all transform hover:scale-105">
+                            Shop Now
+                        </button>
+                    </div>
 
-                {/* RIGHT CONTENT (Image) */}
-                <div className="w-full lg:w-1/2 flex justify-center lg:justify-end relative z-0">
-                    <div className="relative w-full max-w-[400px] lg:max-w-[500px] xl:max-w-[600px]">
+                    {/* RIGHT CONTENT (Image) */}
+
+                    <div className="lg:max-w-3/4 lg:h-3/4 w-full h-full lg:absolute xl:top-1/5 top-1/3 right-0 ">
                         <Image
-                            src="/images/hero(1).png"
+                            src="/images/Hero copy.png"
                             alt="Dining Experience"
-                            width={800}
-                            height={1000}
+                            width={0}
+                            height={0}
                             priority
-                            className="object-contain w-full h-auto drop-shadow-2xl"
-                            sizes="(max-width: 768px) 100vw, 50vw"
+                            className="object-contain w-full h-full"
+                            sizes="100vw"
                         />
                     </div>
+
                 </div>
+
 
             </div>
         </section>
