@@ -71,7 +71,7 @@ export default function NutritionalBenefits() {
                         {/* Stat Card 4 */}
                         <div className="p-8 rounded-3xl bg-white text-neutral-900 flex flex-col justify-between aspect-square relative overflow-hidden">
                             <Image
-                                src="/images/products/2.jpg"
+                                src="/assets/images/products/2.jpg"
                                 alt="Protein"
                                 width={300}
                                 height={300}

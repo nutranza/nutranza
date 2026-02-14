@@ -1,91 +1,102 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Star } from "lucide-react";
 import { products, slugify } from "@/data/products";
 
-interface DisplayProduct {
-    id: string;
-    name: string;
-    slug: string;
-    category: string;
-    categorySlug: string;
-    image: string;
-}
-
-const getDisplayProducts = (): DisplayProduct[] => {
-    // User requested products 2, 3, 4, 9. Assuming IDs are 'p2', 'p3', 'p4', 'p9'.
-    const targetIds = ['p2', 'p3', 'p4', 'p10'];
-
-    return products
-        .filter((product) => targetIds.includes(product.id))
-        .sort((a, b) => targetIds.indexOf(a.id) - targetIds.indexOf(b.id))
-        .map((product) => ({
-            id: product.id,
-            name: product.name,
-            slug: product.slug,
-            category: product.category,
-            categorySlug: slugify(product.category), // Generate slug for routing
-            image: product.image,
-        }));
-};
+// Product Showcase Component
+// Displays highlighted products with custom styling per flavor/variant
 
 export default function ProductShowcase() {
-    const displayProducts = getDisplayProducts();
+    // Select specific products
+    const selectedProducts = products.filter(p => ['p1', 'p2', 'p3'].includes(p.id));
+
+    // Custom styles and descriptions mapping (shortened from actual product data)
+    const productConfig: Record<string, { bg: string; titleColor: string; description: string; buttonBg: string }> = {
+        'p1': { // High Protein Chocolate Oats
+            bg: 'bg-[linear-gradient(#5471d2,#7da0f2)]',
+            titleColor: 'text-white',
+            description: 'Rolled Oats with Vegan Protein, Cocoa, and Nuts.',
+            buttonBg: 'bg-[#355cdd]'
+        },
+        'p2': { // High Protein Coffee Oats
+            bg: 'bg-[linear-gradient(#8d5a41,#b58066)]',
+            titleColor: 'text-white',
+            description: 'Energizing Coffee infused Oats with High Fiber.',
+            buttonBg: 'bg-accent'
+        },
+        'p3': { // High Protein Strawberry Oats
+            bg: 'bg-[linear-gradient(#d64d56,#f38990)]',
+            titleColor: 'text-white',
+            description: 'Delicious Strawberry flavored Oats with Vegan Protein.',
+            buttonBg: 'bg-[#eb3c47]'
+        }
+    };
 
     return (
-        <section className="lg:py-20 py-16 " aria-labelledby="gallery-heading">
+        <section className="py-20 bg-[#ffefc4]">
             <div className="container">
-                {/* Header */}
-                <div className="flex flex-col lg:flex-row justify-between items-end mb-12 gap-8">
-                    <div className="space-y-5">
-                        <h2 id="gallery-heading" className="text-3xl md:text-4xl lg:text-5xl font-bold text-neutral-900">
-                            Market-Proven <span className="text-secondary">Global Favorites</span>
-                        </h2>
-                        <p className="text-lg md:text-xl text-neutral-700 leading-relaxed max-w-3xl">
-                            Our most trusted products for international markets. Premium organic, high-protein foods with proven consumer demand and certified export quality.
-                        </p>
+                {/* Section Header */}
+                <div className="flex flex-col items-center justify-center gap-6">
+                    <div className="flex items-center justify-center gap-2 text-lg text-secondary uppercase font-medium font-roca">
+                        <Star className="w-5 h-5 fill-secondary" />
+                        <span>Top Rated</span>
                     </div>
-                    <Link
-                        href="/categories"
-                        className="group flex items-center gap-2 font-medium text-neutral-900 hover:text-secondary hover:underline transition-colors"
-                    >
-                        View Full Catalog
-                        <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
-                    </Link>
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-primary text-center">
+                        <span className="font-black">Our Best Sellers </span><br className="sm:block hidden"/>
+                        <span>loved by everyone</span>
+                    </h2>
                 </div>
 
-                {/* Gallery Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8">
-                    {displayProducts.map((product) => (
-                        <Link
-                            key={product.id}
-                            href={`/categories/${product.categorySlug}/${product.slug}`}
-                            className="group block"
-                        >
-                            {/* Image Frame */}
-                            <div className="relative w-full h-[300px]">
-                                <Image
-                                    src={product.image}
-                                    alt={product.name}
-                                    fill
-                                    className="object-contain transition-transform duration-700 ease-in-out group-hover:scale-105"
-                                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
-                                />
-                            </div>
+                {/* Product Cards Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-16">
+                    {selectedProducts.map((product) => {
+                        const config = productConfig[product.id] || {
+                            bg: 'bg-gray-200',
+                            titleColor: 'text-gray-900',
+                            description: product.description, // Fallback to full description
+                            buttonBg: 'bg-black'
+                        };
 
-                            {/* Content Below */}
-                            <div className="mt-6 flex justify-center items-center">
-                                <div className="text-center space-y-4">
-                                    <p className="text-lg font-medium text-neutral-900 leading-snug transition-colors text-wrap">
-                                        {product.name}
+                        return (
+                            <Link
+                                key={product.id}
+                                href={`/categories/${slugify(product.category)}/${product.slug}`}
+                                className={`group relative ${config.bg} rounded-[2.5rem] px-5 sm:py-10 py-5 flex flex-col items-center justify-between text-center gap-2`}
+                            >
+                                {/* Top Content: Name & Description */}
+                                <div className="space-y-2 z-10">
+                                    <h3 className={`text-3xl sm:text-4xl ${config.titleColor} leading-tight`}>
+                                        {product.name.replace('High Protein ', '')} {/* Keep 'Chocolate Oats' but remove 'High Protein' for cleaner look based on image reference, or use raw if preferred */}
+                                    </h3>
+                                    <p className={`font-light text-base sm:text-lg ${config.titleColor}`}>
+                                        {config.description}
                                     </p>
-                                    <button className="bg-secondary text-white px-8 py-3 rounded-full font-semibold text-base hover:bg-secondary/80">
-                                        View Product
+                                </div>
+
+                                {/* Middle: Floating Image */}
+                                <div className="w-full relative flex items-center justify-center">
+                                    <div className="relative w-full h-[400px]">
+                                        <Image
+                                            src={product.image}
+                                            alt={product.name}
+                                            fill
+                                            className="object-contain drop-shadow-2xl"
+                                            sizes="(max-width: 768px) 100vw, 33vw"
+                                            priority
+                                        />
+                                    </div>
+                                </div>
+
+                                {/* Bottom: Button */}
+                                <div>
+                                    <button className={` ${config.buttonBg} text-white px-8 py-3 rounded-full font-medium uppercase flex items-center gap-2 `}>
+                                        View Now
+                                        <ArrowUpRight className="w-4 h-4" />
                                     </button>
                                 </div>
-                            </div>
-                        </Link>
-                    ))}
+                            </Link>
+                        );
+                    })}
                 </div>
             </div>
         </section>

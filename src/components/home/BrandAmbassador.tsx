@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function BrandAmbassador() {
     return (
-        <section className="w-full lg:py-20 py-16 overflow-hidden">
+        <section className="bg-[#ffefc4] w-full lg:py-20 py-16 overflow-hidden">
             <div className="container">
                 {/* 
                     Wrapper div for positioning. 

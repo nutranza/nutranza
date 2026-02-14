@@ -11,8 +11,8 @@ export default function HeroSection() {
                     {/* LEFT CONTENT (Heading & Text) */}
                     <div className="lg:max-w-4xl w-full flex flex-col items-center lg:items-start gap-8 text-center lg:text-left relative z-10">
                         <h1 className="text-neutral-900 text-4xl sm:text-6xl lg:text-7xl xl:text-8xl sm:leading-16">
-                            <span className="leading-[10px]">Nutrition for a</span>
-                            <span className="block font-bold text-secondary leading-tight">premium lifestyle</span>
+                            <span>Nutrition for a</span>
+                            <span className="block font-black text-secondary leading-tight">premium lifestyle</span>
                         </h1>
 
                         <p className="text-neutral-900 text-base sm:text-xl font-medium max-w-xl">
@@ -28,10 +28,10 @@ export default function HeroSection() {
 
                     <div className="xl:max-w-fit lg:max-w-2xl lg:h-3/4 w-full h-full lg:absolute xl:top-1/5 top-1/3 xl:right-20 right-10 z-10 pointer-events-none">
                         <Image
-                            src="/images/Hero-1.png"
+                            src="/assets/images/Hero-1.png"
                             alt="Dining Experience"
-                            width={0}
-                            height={0}
+                            width={800}
+                            height={800}
                             priority
                             className="object-contain w-full h-full"
                             sizes="100vw"
@@ -44,7 +44,7 @@ export default function HeroSection() {
             {/* Top Right - Peanut Spoon */}
             <div className="lg:absolute top-10 right-0 xl:right-0 z-0 lg:block hidden pointer-events-none">
                 <Image
-                    src="/images/floating-images/Peanut_Spoone.png"
+                    src="/assets/images/floating-images/Peanut_Spoone.png"
                     alt=""
                     width={250}
                     height={250}
@@ -55,7 +55,7 @@ export default function HeroSection() {
             {/* Bottom Left - Chocolate */}
             <div className="lg:absolute xl:bottom-0 left-0 xl:left-20 2xl:left-1/6 z-0 rotate-90 lg:block hidden pointer-events-none">
                 <Image
-                    src="/images/floating-images/Chocolate.png"
+                    src="/assets/images/floating-images/Chocolate.png"
                     alt=""
                     width={250}
                     height={250}

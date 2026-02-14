@@ -20,7 +20,7 @@ const Marquee: React.FC<MarqueeProps> = ({
             className={`group flex w-full overflow-hidden select-none ${className}`}
         >
             <div
-                className={`flex min-w-full shrink-0 gap-2 items-center justify-start p-2 ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
+                className={`flex min-w-full shrink-0 gap-6 items-center justify-start p-2 ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
                     } ${pauseOnHover ? 'group-hover:[animation-play-state:paused]' : ''}`}
                 style={{ '--marquee-duration': `${speed}s` } as React.CSSProperties}
             >
@@ -28,7 +28,7 @@ const Marquee: React.FC<MarqueeProps> = ({
             </div>
             <div
                 aria-hidden="true"
-                className={`flex min-w-full shrink-0 gap-2 items-center justify-start p-2 ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
+                className={`flex min-w-full shrink-0 gap-6 items-center justify-start p-2 ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'
                     } ${pauseOnHover ? 'group-hover:[animation-play-state:paused]' : ''}`}
                 style={{ '--marquee-duration': `${speed}s` } as React.CSSProperties}
             >

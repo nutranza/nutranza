@@ -14,46 +14,16 @@ export default function Home() {
     <main className="bg-white block">
       <HeroSection />
       <MarqueeSection />
-      <FeaturesSection />
       <ShopByCategory />
-      <WaveSeparator
-        isAbsolute={false}
-        position="bottom"
-        backgroundColor="#EBE6DE"
-        color="#EDC375" // Matching the next section's background
-        height="h-[60px] md:h-[100px]"
-      />
-      <div className="bg-[#EDC375]">
-        <ProductShowcase />
-        <BrandAmbassador />
-      </div>
-      <WaveSeparator
-        isAbsolute={false}
-        position="bottom"
-        backgroundColor="#EDC375"
-        color="#E96569" // Matching the next section's background
-        height="h-[60px] md:h-[100px]"
-      />
+      <FeaturesSection />
+      <ProductShowcase />
+      <BrandAmbassador />
       <div className="bg-[linear-gradient(0deg,#825640,#E96569)]">
         <ReviewsSection />
         <RecipeSection />
       </div>
       {/* <AboutSection /> */}
-      <WaveSeparator
-        isAbsolute={false}
-        position="bottom"
-        backgroundColor="#825640"
-        color="#FEFDF7" // Matching the next section's background
-        height="h-[60px] md:h-[100px]"
-      />
       <CTASection />
-      <WaveSeparator
-        isAbsolute={false}
-        position="bottom"
-        backgroundColor="#FEFDF7"
-        color="#EBE6DE" // Matching the next section's background
-        height="h-[60px] md:h-[100px]"
-      />
     </main>
   );
 }

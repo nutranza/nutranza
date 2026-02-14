@@ -25,7 +25,7 @@ const PRODUCT_TAGS = [
 
 const Tag = ({ text, className }: { text: string; className: string }) => (
     <span
-        className={`px-6 py-2 rounded-full font-quicksand font-bold text-sm sm:text-base whitespace-nowrap shadow-sm ${className}`}
+        className={`px-7 py-2.5 rounded-full font-roca font-bold sm:text-xl text-base whitespace-nowrap ${className}`}
     >
         {text}
     </span>
@@ -33,17 +33,17 @@ const Tag = ({ text, className }: { text: string; className: string }) => (
 
 const MarqueeSection = () => {
     return (
-        <section className="w-full lg:py-20 py-16 bg-[#FEFDF7] border-y border-stone-100 overflow-hidden">
+        <section className="w-full pt-12 bg-[#FEFDF7] overflow-hidden">
             <div className="flex flex-col">
                 {/* Row 1: Right to Left (Standard) */}
-                <Marquee direction="left" speed={80}>
+                <Marquee direction="left" speed={150}>
                     {[...ATTR_TAGS, ...ATTR_TAGS, ...ATTR_TAGS, ...ATTR_TAGS].map((tag, index) => (
                         <Tag key={`attr-${index}`} text={tag.text} className={tag.className} />
                     ))}
                 </Marquee>
 
                 {/* Row 2: Left to Right */}
-                <Marquee direction="right" speed={80}>
+                <Marquee direction="right" speed={150}>
                     {[...PRODUCT_TAGS, ...PRODUCT_TAGS, ...PRODUCT_TAGS, ...PRODUCT_TAGS].map((tag, index) => (
                         <Tag key={`prod-${index}`} text={tag.text} className={tag.className} />
                     ))}

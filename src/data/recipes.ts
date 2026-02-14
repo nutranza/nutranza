@@ -8,21 +8,21 @@ export const recipes: Recipe[] = [
     {
         id: "recipe-1",
         name: "No-Bake Energy Bites",
-        image: "/images/recipes/recipe-1.png",
+        image: "/assets/images/recipes/recipe-1.png",
     },
     {
         id: "recipe-2",
         name: "Mango PB Smoothie",
-        image: "/images/recipes/recipe-2.png",
+        image: "/assets/images/recipes/recipe-2.png",
     },
     {
         id: "recipe-3",
         name: "Quick Chocolate Oat Mug",
-        image: "/images/recipes/recipe-3.png",
+        image: "/assets/images/recipes/recipe-3.png",
     },
     {
         id: "recipe-4",
         name: "Overnight Muesli",
-        image: "/images/recipes/recipe-4.png",
+        image: "/assets/images/recipes/recipe-4.png",
     },
 ];
