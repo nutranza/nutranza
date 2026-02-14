@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function BrandAmbassador() {
     return (
-        <section className="bg-[#ffefc4] w-full lg:py-20 py-16 overflow-hidden">
+        <section className="bg-[#ffefc4] w-full xl:py-28 lg:py-20 py-16 overflow-hidden">
             <div className="container">
                 {/* 
                     Wrapper div for positioning. 
@@ -12,23 +12,19 @@ export default function BrandAmbassador() {
                 <div className="relative w-full rounded-[2.5rem] shadow-2xl bg-accent">
 
                     {/* Content Layer - sits on top of background (z-10), allows overflow */}
-                    <div className="flex flex-col lg:flex-row items-stretch md:p-12 p-8 relative lg:gap-0 gap-8">
+                    <div className="flex flex-col lg:flex-row items-stretch md:p-12 sm:p-8 p-6 relative lg:gap-0 gap-8">
 
                         {/* Text Content Side */}
-                        <div className="w-full lg:w-1/2 flex flex-col items-center lg:items-start text-center lg:text-left space-y-5 order-last lg:order-first">
-                            {/* Handwritten/Script Style Header */}
-                            {/* <span className="font-heading2 text-white/90 text-3xl md:text-4xl lg:text-5xl -rotate-2">
-                                Go Global with Nutranza
-                            </span> */}
+                        <div className="w-full lg:w-3/5 flex flex-col items-center lg:items-start text-center lg:text-left gap-8 order-last lg:order-first">
 
                             {/* Main Headline */}
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary">
-                                Join Our Global <br />
+                            <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-primary">
+                                <span className="font-black">Join Our Global</span> <br />
                                 <span className="text-white">Partner Program</span>
                             </h2>
 
                             {/* Subhead / Value Prop */}
-                            <p className="text-lg md:text-xl text-white leading-relaxed">
+                            <p className="text-base sm:text-xl font-medium text-white max-w-xl">
                                 Unlock exclusive access to premium healthcare food products.
                                 Manufactured for excellence, exported to the world.
                             </p>
@@ -55,15 +51,17 @@ export default function BrandAmbassador() {
                             </Link>
                         </div>
 
-                        <div className="w-full lg:w-1/2 relative z-0 min-h-[500px] lg:min-h-full order-first lg:order-last">
-                            <Image
-                                src="/images/brand-ambassador.png"
-                                alt="Nutranza Brand Ambassador"
-                                fill
-                                className="object-contain xl:scale-[1.5] lg:scale-[1.4] lg:-mt-10"
-                                sizes="(max-width: 768px) 100vw, 50vw"
-                                priority
-                            />
+                        <div className="w-full lg:w-2/5 relative z-0 order-first lg:order-last">
+                            <div className="lg:absolute xl:-bottom-12 lg:-bottom-15 right-0 xl:h-[600px] lg:h-[550px] h-[450px] w-full">
+                                <Image
+                                    src="/assets/images/brand-ambassador-1.png"
+                                    alt="Nutranza Brand Ambassador"
+                                    fill
+                                    className="object-contain"
+                                    sizes="(max-width: 768px) 100vw, 50vw"
+                                    priority
+                                />
+                            </div>
                         </div>
 
                     </div>

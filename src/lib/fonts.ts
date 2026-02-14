@@ -8,27 +8,27 @@ import localFont from "next/font/local";
 export const quicksand = localFont({
     src: [
         {
-            path: "../app/fonts/Quicksand-Light.ttf",
+            path: "../../public/assets/fonts/Quicksand-Light.ttf",
             weight: "300",
             style: "normal",
         },
         {
-            path: "../app/fonts/Quicksand-Regular.ttf",
+            path: "../../public/assets/fonts/Quicksand-Regular.ttf",
             weight: "400",
             style: "normal",
         },
         {
-            path: "../app/fonts/Quicksand-Medium.ttf",
+            path: "../../public/assets/fonts/Quicksand-Medium.ttf",
             weight: "500",
             style: "normal",
         },
         {
-            path: "../app/fonts/Quicksand-SemiBold.ttf",
+            path: "../../public/assets/fonts/Quicksand-SemiBold.ttf",
             weight: "600",
             style: "normal",
         },
         {
-            path: "../app/fonts/Quicksand-Bold.ttf",
+            path: "../../public/assets/fonts/Quicksand-Bold.ttf",
             weight: "700",
             style: "normal",
         },
@@ -45,7 +45,7 @@ export const quicksand = localFont({
 export const boogaloo = localFont({
     src: [
         {
-            path: "../app/fonts/Boogaloo-Regular.ttf",
+            path: "../../public/assets/fonts/Boogaloo-Regular.ttf",
             weight: "400",
             style: "normal",
         },
@@ -63,37 +63,37 @@ export const boogaloo = localFont({
 export const openSans = localFont({
     src: [
         {
-            path: "../app/fonts/OpenSans-Light.ttf",
+            path: "../../public/assets/fonts/OpenSans-Light.ttf",
             weight: "300",
             style: "normal",
         },
         {
-            path: "../app/fonts/OpenSans-Regular.ttf",
+            path: "../../public/assets/fonts/OpenSans-Regular.ttf",
             weight: "400",
             style: "normal",
         },
         {
-            path: "../app/fonts/OpenSans-Medium.ttf",
+            path: "../../public/assets/fonts/OpenSans-Medium.ttf",
             weight: "500",
             style: "normal",
         },
         {
-            path: "../app/fonts/OpenSans-SemiBold.ttf",
+            path: "../../public/assets/fonts/OpenSans-SemiBold.ttf",
             weight: "600",
             style: "normal",
         },
         {
-            path: "../app/fonts/OpenSans-Bold.ttf",
+            path: "../../public/assets/fonts/OpenSans-Bold.ttf",
             weight: "700",
             style: "normal",
         },
         {
-            path: "../app/fonts/OpenSans-ExtraBold.ttf",
+            path: "../../public/assets/fonts/OpenSans-ExtraBold.ttf",
             weight: "800",
             style: "normal",
         },
         {
-            path: "../app/fonts/OpenSans-Italic.ttf",
+            path: "../../public/assets/fonts/OpenSans-Italic.ttf",
             weight: "400",
             style: "italic",
         },
@@ -110,37 +110,37 @@ export const openSans = localFont({
 export const helveticaNeueCyr = localFont({
     src: [
         {
-            path: "../app/fonts/HelveticaNeueCyr-Thin.ttf",
+            path: "../../public/assets/fonts/HelveticaNeueCyr-Thin.ttf",
             weight: "100",
             style: "normal",
         },
         {
-            path: "../app/fonts/HelveticaNeueCyr-Light.ttf",
+            path: "../../public/assets/fonts/HelveticaNeueCyr-Light.ttf",
             weight: "300",
             style: "normal",
         },
         {
-            path: "../app/fonts/HelveticaNeueCyr-Roman.ttf",
+            path: "../../public/assets/fonts/HelveticaNeueCyr-Roman.ttf",
             weight: "400",
             style: "normal",
         },
         {
-            path: "../app/fonts/HelveticaNeueCyr-Medium.ttf",
+            path: "../../public/assets/fonts/HelveticaNeueCyr-Medium.ttf",
             weight: "500",
             style: "normal",
         },
         {
-            path: "../app/fonts/HelveticaNeueCyr-Bold.ttf",
+            path: "../../public/assets/fonts/HelveticaNeueCyr-Bold.ttf",
             weight: "700",
             style: "normal",
         },
         {
-            path: "../app/fonts/HelveticaNeueCyr-Heavy.ttf",
+            path: "../../public/assets/fonts/HelveticaNeueCyr-Heavy.ttf",
             weight: "800",
             style: "normal",
         },
         {
-            path: "../app/fonts/HelveticaNeueCyr-Black.ttf",
+            path: "../../public/assets/fonts/HelveticaNeueCyr-Black.ttf",
             weight: "900",
             style: "normal",
         },
@@ -157,37 +157,37 @@ export const helveticaNeueCyr = localFont({
 export const rocaOne = localFont({
     src: [
         {
-            path: "../app/fonts/RocaOne-Th.ttf",
+            path: "../../public/assets/fonts/RocaOne-Th.ttf",
             weight: "100",
             style: "normal",
         },
         {
-            path: "../app/fonts/RocaOne-Lt.ttf",
+            path: "../../public/assets/fonts/RocaOne-Lt.ttf",
             weight: "300",
             style: "normal",
         },
         {
-            path: "../app/fonts/RocaOne-Rg.ttf",
+            path: "../../public/assets/fonts/RocaOne-Rg.ttf",
             weight: "400",
             style: "normal",
         },
         {
-            path: "../app/fonts/RocaOne-It.ttf",
+            path: "../../public/assets/fonts/RocaOne-It.ttf",
             weight: "400",
             style: "italic",
         },
         {
-            path: "../app/fonts/RocaOne-Bold.ttf",
+            path: "../../public/assets/fonts/RocaOne-Bold.ttf",
             weight: "700",
             style: "normal",
         },
         {
-            path: "../app/fonts/RocaOne-Hv.ttf",
+            path: "../../public/assets/fonts/RocaOne-Hv.ttf",
             weight: "800",
             style: "normal",
         },
         {
-            path: "../app/fonts/RocaOne-Bl.ttf",
+            path: "../../public/assets/fonts/RocaOne-Bl.ttf",
             weight: "900",
             style: "normal",
         },
