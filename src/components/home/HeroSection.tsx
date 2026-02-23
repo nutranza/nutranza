@@ -4,7 +4,10 @@ import Image from "next/image";
 
 export default function HeroSection() {
     return (
-        <section className="relative lg:h-screen lg:py-20 py-16 bg-[#EBE6DE] overflow-hidden">
+        <section
+            className="relative lg:h-screen lg:py-20 py-16 overflow-hidden"
+            style={{ background: "linear-gradient(#f3cf6e, #f9e2a3 50%)" }}
+        >
             {/* MAIN CONTENT CONTAINER */}
             <div className="container">
                 <div className="lg:block flex flex-col items-center justify-center h-full">

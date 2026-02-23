@@ -26,7 +26,7 @@ const FEATURES = [
 
 export default function FeaturesSection() {
     return (
-        <section className="relative lg:py-20 py-16 bg-[#912727]">
+        <section className="relative lg:py-20 py-16 bg-accent">
 
             <div className="container relative z-10">
                 {/* Header */}
@@ -66,7 +66,7 @@ export default function FeaturesSection() {
                 {/* Bottom Banner */}
                 <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 flex flex-col sm:flex-row items-center justify-between gap-8 shadow-xl">
                     <div className="flex-1 text-center sm:text-left">
-                        <h3 className="text-3xl md:text-4xl text-[#912727]">
+                        <h3 className="text-3xl md:text-4xl text-accent">
                             Certified care you can rely on
                         </h3>
                     </div>

@@ -1,134 +1,188 @@
 "use client";
 
-import { useRef, useEffect, useState, useMemo, useCallback } from "react";
-import ReviewCard from "./ReviewCard";
-import { reviews, Review } from "@/data/reviews";
-import { motion, useMotionValue } from "framer-motion";
+import React, { useRef } from "react";
+import { Quote, MoveRight, MoveLeft } from "lucide-react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, A11y, Autoplay } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+
+const reviews = [
+    {
+        id: 1,
+        text: "“I didn’t think I could love a protein drink. But this one makes me feel good, not just full.”",
+        bgColor: "bg-[#FF9900]", // Saffron
+        textColor: "text-[#23100c]",
+    },
+    {
+        id: 2,
+        text: "“Finally found a protein that doesn’t fight my gut. It just works, you can feel the difference.”",
+        bgColor: "bg-[#F26B75]", // Dark Pink / Coral
+        textColor: "text-white",
+    },
+    {
+        id: 3,
+        text: "“The cleanest energy I've felt in ages. No bloat, amazing flavor. Highly recommended.”",
+        bgColor: "bg-[#803B2C]", // Umber / Deep Brown
+        textColor: "text-white",
+    },
+    {
+        id: 4,
+        text: "“Truly crave-worthy! It's so creamy and perfect for my morning energy boost.”",
+        bgColor: "bg-[#FBDADF]", // Light Pink
+        textColor: "text-[#23100c]",
+    }
+];
 
 export default function ReviewsSection() {
-    // 1. Optimize Data Stability: Memoize the duplicated array
-    const displayReviews = useMemo(() => [...reviews, ...reviews, ...reviews], []);
+    const swiperRef = useRef<SwiperType | null>(null);
 
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [isReady, setIsReady] = useState(false);
+    // We manually handle progress exactly how donedrinks/splide does for perfectly smooth drag-linked scaling
+    // This binds the layout scale directly to the user's swipe intensity rather than snapping at the end.
+    const handleProgress = (swiper: SwiperType) => {
+        for (let i = 0; i < swiper.slides.length; i++) {
+            const slide = swiper.slides[i] as HTMLElement & { progress: number };
+            // slide.progress is 0 when active, +/-1 when adjacent
+            const progress = slide.progress;
 
-    const handleReady = useCallback(() => setIsReady(true), []);
+            // Calculate continuous scale: 1.1 at center, 0.8 at sides
+            const maxScale = 1.1;
+            const minScale = 0.8;
+
+            // When progress = 0 (center), scale is 1.1
+            // When progress = 1 (1 slide away), scale is 1.1 - 0.3 = 0.8
+            // If progress > 1, we cap scale at 0.8
+            const scale = maxScale - (Math.min(Math.abs(progress), 1) * (maxScale - minScale));
+
+            const innerCard = slide.querySelector('.testimonial-inner-card') as HTMLElement | null;
+            if (innerCard) {
+                innerCard.style.transform = `scale(${scale})`;
+            }
+        }
+    };
+
+    // Sync transition duration natively with Swiper to maintain the extreme liquid smoothness
+    const handleSetTransition = (swiper: SwiperType, duration: number) => {
+        for (let i = 0; i < swiper.slides.length; i++) {
+            const slide = swiper.slides[i] as HTMLElement;
+            const innerCard = slide.querySelector('.testimonial-inner-card') as HTMLElement | null;
+            if (innerCard) {
+                innerCard.style.transitionDuration = `${duration}ms`;
+            }
+        }
+    };
 
     return (
-        <section
-            className="py-20 bg- overflow-hidden relative"
-        >
-            <div className="container mx-auto px-4 mb-12 relative z-10">
-                <div className="text-center max-w-3xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
-                            Loved by <span className="">Thousands</span>
-                        </h2>
-                    </motion.div>
+        <section className="w-full lg:py-20 py-16 overflow-hidden bg-[#f5efe6]">
+            <div className="container">
+                <div className="flex flex-col items-center text-center gap-6">
+                    {/* Badge */}
+                    <div className="flex items-center justify-center gap-2 text-lg text-secondary uppercase font-medium font-roca">
+                        <Quote className="w-5 h-5 fill-current" />
+                        <span>Testimonials</span>
+                    </div>
+
+                    {/* Main Headline */}
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-primary text-center">
+                        <span>Why people keep </span><br className="sm:block hidden" />
+                        <span className="font-black">coming back</span>
+                    </h2>
                 </div>
             </div>
 
-            <div className="relative w-full overflow-hidden" ref={containerRef}>
-                <div className={`flex select-none cursor-grab active:cursor-grabbing transition-opacity duration-500 ${isReady ? 'opacity-100' : 'opacity-0'}`}>
-                    <InfiniteDragSlider
-                        items={displayReviews}
-                        onReady={handleReady}
-                    />
+            <div className="relative w-full lg:mt-18 mt-14">
+                <style dangerouslySetInnerHTML={{
+                    __html: `
+          .pixel-perfect-swiper {
+            overflow: visible !important; 
+          }
+
+          /* Fixed exact dimensions for the track slide to ensure absolute stability */
+          .pixel-perfect-swiper .swiper-slide {
+            display: flex;
+            justify-content: center;
+            height: auto !important;
+          }
+          
+          @media (min-width: 1024px) {
+            .pixel-perfect-swiper .swiper-slide {
+              width: 700px !important; 
+            }
+          }
+          @media (min-width: 768px) and (max-width: 1023px) {
+            .pixel-perfect-swiper .swiper-slide {
+              width: 500px !important; 
+            }
+          }
+          @media (max-width: 767px) {
+            .pixel-perfect-swiper .swiper-slide {
+              width: 85vw !important; 
+            }
+          }
+
+          /* Base CSS for inner card. The scale is set via Javascript onProgress for perfect 60fps drag sync */
+          .pixel-perfect-swiper .swiper-slide .testimonial-inner-card {
+            width: 100%;
+            height: 100%;
+            transition-property: transform;
+            /* smooth out non-drag transitions (like clicking arrows) */
+            transition-timing-function: cubic-bezier(0.25, 1, 0.5, 1);
+          }
+        `}} />
+
+                <Swiper
+                    modules={[Navigation, A11y, Autoplay]}
+                    spaceBetween={0}
+                    slidesPerView="auto"
+                    centeredSlides={true}
+                    loop={true}
+                    speed={1000} // MATCH REFERENCE SLOW PAN: 1 full second transition speed for extreme smoothness
+                    autoplay={{
+                        delay: 2500,
+                        disableOnInteraction: false,
+                    }}
+                    watchSlidesProgress={true} // VITAL: calculates slide.progress
+                    onProgress={handleProgress}
+                    onSetTransition={handleSetTransition}
+                    onBeforeInit={(swiper: SwiperType) => {
+                        swiperRef.current = swiper;
+                    }}
+                    className="pixel-perfect-swiper"
+                >
+                    {[...reviews, ...reviews, ...reviews].map((review, index) => (
+                        <SwiperSlide key={`${review.id}-${index}`} className="cursor-grab active:cursor-grabbing">
+                            <div
+                                className={`testimonial-inner-card rounded-[32px] px-8 md:px-10 lg:px-14 py-10 md:py-12 lg:py-16 flex flex-col justify-center text-center shadow-none ${review.bgColor}`}
+                            >
+                                <div className={`lg:text-3xl md:text-2xl text-xl font-roca ${review.textColor}`}>
+                                    {review.text}
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                {/* Custom Navigation Arrows */}
+                <div className="flex justify-center items-center gap-6 mt-10 w-full z-20 relative px-4">
+                    <button
+                        onClick={() => swiperRef.current?.slidePrev()}
+                        className="w-14 h-14 md:w-18 md:h-18 rounded-full border border-secondary hover:border-primary flex items-center justify-center hover:bg-primary transition-all duration-300 ease-in-out focus:outline-none group"
+                        aria-label="Previous slide"
+                    >
+                        <MoveLeft size={28} className="text-secondary group-hover:text-white" />
+                    </button>
+
+                    <button
+                        onClick={() => swiperRef.current?.slideNext()}
+                        className="w-14 h-14 md:w-18 md:h-18 rounded-full border border-secondary hover:border-primary flex items-center justify-center hover:bg-primary transition-all duration-300 ease-in-out focus:outline-none group"
+                        aria-label="Next slide"
+                    >
+                        <MoveRight size={28} className="text-secondary group-hover:text-white" />
+                    </button>
                 </div>
             </div>
         </section>
-    );
-}
-
-function InfiniteDragSlider({ items, onReady }: { items: Review[], onReady: () => void }) {
-    const x = useMotionValue(0);
-    const containerRef = useRef<HTMLDivElement>(null);
-    const [contentWidth, setContentWidth] = useState(0);
-    const [constraints, setConstraints] = useState({ left: 0, right: 0 });
-
-    useEffect(() => {
-        if (containerRef.current) {
-            const width = containerRef.current.scrollWidth;
-            setContentWidth(width);
-
-            // 2. "Start in Middle" Strategy
-            // We have 3 sets. We want to start at the beginning of Set 2.
-            // Set 1: [0 to -width/3]
-            // Set 2: [-width/3 to -2*width/3]
-            // Set 3: [-2*width/3 to -width]
-
-            const oneSetWidth = width / 3;
-
-            // Initialize Position: Start at the beginning of the second set
-            x.set(-oneSetWidth);
-
-            // Set constraints large enough to never hit them before loop triggers
-            setConstraints({ left: -width * 2, right: width });
-
-            // Signal ready
-            onReady();
-        }
-    }, [items, onReady, x]);
-
-    useEffect(() => {
-        // Infinite loop logic
-        const unsubscribe = x.on("change", (latest) => {
-            if (contentWidth === 0) return;
-
-            const oneSetWidth = contentWidth / 3;
-
-            // Define Loop Boundaries
-            // If we drag RIGHT past the start of Set 2 (into Set 1)...
-            // Position: > -oneSetWidth + buffer? No, simpler:
-            // The "Middle Zone" (Set 2) is from -oneSetWidth to -2*oneSetWidth.
-
-            // Viewport is at X.
-            // If X > 0 (Start of Set 1), wrap to -oneSetWidth (Start of Set 2).
-            // Actually, Set 1 and Set 2 are identical. 
-            // So if x > 0, we can jump to -oneSetWidth.
-
-            // But we initialized at -oneSetWidth.
-            // If we drag RIGHT, x increases (e.g., -900, -800...).
-            // If x hits 0, that is the start of Set 1.
-            // Visually, 0 is identical to -oneSetWidth.
-            // So if x >= 0, set x = -oneSetWidth.
-
-            if (latest >= 0) {
-                x.set(-oneSetWidth);
-            }
-            // If we drag LEFT, x decreases (e.g., -1100, -1200...).
-            // If x hits -2 * oneSetWidth (Start of Set 3).
-            // Visually, -2*oneSetWidth is identical to -oneSetWidth.
-            // So if x <= -2 * oneSetWidth, set x = -oneSetWidth.
-            else if (latest <= -2 * oneSetWidth) {
-                x.set(-oneSetWidth);
-            }
-        });
-
-        return () => unsubscribe();
-    }, [x, contentWidth]);
-
-    return (
-        <motion.div
-            ref={containerRef}
-            className="flex gap-6 px-4"
-            style={{ x }}
-            drag="x"
-            dragConstraints={constraints}
-            dragElastic={0.05}
-            dragMomentum={true}
-            whileTap={{ cursor: "grabbing" }}
-        >
-            {items.map((review, idx) => (
-                <div key={`${review.id}-${idx}`} className="h-full">
-                    <ReviewCard review={review} />
-                </div>
-            ))}
-        </motion.div>
     );
 }

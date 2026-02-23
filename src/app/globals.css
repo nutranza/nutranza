@@ -21,14 +21,15 @@
   --font-helvetica: var(--font-helvetica-neue);
   --font-roca: var(--font-roca-one);
 
+  /* Colors */
   --color-primary: #ffbf0f;
   --color-secondary: #ff660f;
   --color-accent: #442211;
-  --color-gold: #D4AF37;
 
   /* Marquee Animations */
   --animate-marquee-left: marquee-left var(--marquee-duration, 30s) linear infinite;
   --animate-marquee-right: marquee-right var(--marquee-duration, 30s) linear infinite;
+  --animate-marquee-wave: marquee-wave 65s linear infinite;
 
   @keyframes marquee-left {
     from {
@@ -49,6 +50,20 @@
       transform: translateX(0);
     }
   }
+
+  @keyframes marquee-wave {
+    from {
+      transform: translateX(0);
+    }
+
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+.animate-wave-scroll {
+  animation: marquee-wave 65s linear infinite;
 }
 
 /* Enforcing Light Mode for Premium Feel */
