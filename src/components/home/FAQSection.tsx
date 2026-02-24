@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
+import WaveDecoration from "../ui/WaveDecoration";
 
 const faqs = [
     {
@@ -35,61 +36,67 @@ export default function FAQSection() {
     };
 
     return (
-        <section className="w-full bg-[#f5efe6] lg:py-20 py-16 ">
-            <div className="container">
-                <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-black text-accent text-center">
-                    Got questions?
-                </h2>
+        <section className="overflow-hidden">
 
-                <div className="flex flex-col gap-4 md:gap-6 max-w-5xl mx-auto mt-16">
-                    {faqs.map((faq, index) => {
-                        const isOpen = openIndex === index;
+            <div className="bg-[#f5efe6] lg:py-20 py-16 relative z-10 -my-0.5">
+                <div className="container">
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-accent text-center">
+                        Got <span className="font-black">questions?</span>
+                    </h2>
 
-                        return (
-                            <div
-                                key={index}
-                                className={`rounded-[24px] md:rounded-[32px] overflow-hidden transition-colors duration-500 ease-in-out cursor-pointer ${isOpen ? "bg-secondary" : "bg-[#FEFDF7]"
-                                    }`}
-                                onClick={() => toggleFAQ(index)}
-                            >
-                                <div className="px-6 py-6 md:px-10 md:py-8 flex justify-between items-center gap-4">
-                                    <h3
-                                        className={`text-xl md:text-2xl lg:text-3xl font-roca transition-colors duration-500 ease-in-out ${isOpen ? "text-[#fff6ee]" : "text-[#23100c]"
-                                            }`}
-                                    >
-                                        {faq.question}
-                                    </h3>
-                                    <div
-                                        className={`shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-500 ease-in-out ${isOpen ? "bg-white text-secondary rotate-180" : "bg-secondary text-white rotate-0"
-                                            }`}
-                                    >
-                                        {isOpen ? (
-                                            <Minus size={28} className="stroke-[2.5] md:w-8 md:h-8 w-6 h-6" />
-                                        ) : (
-                                            <Plus size={28} className="stroke-[2.5] md:w-8 md:h-8 w-6 h-6" />
-                                        )}
-                                    </div>
-                                </div>
+                    <div className="flex flex-col gap-4 md:gap-6 max-w-5xl mx-auto mt-16">
+                        {faqs.map((faq, index) => {
+                            const isOpen = openIndex === index;
 
-                                <AnimatePresence>
-                                    {isOpen && (
-                                        <motion.div
-                                            initial={{ height: 0, opacity: 0 }}
-                                            animate={{ height: "auto", opacity: 1 }}
-                                            exit={{ height: 0, opacity: 0 }}
-                                            transition={{ duration: 0.4, ease: "easeInOut" }}
+                            return (
+                                <div
+                                    key={index}
+                                    className={`rounded-[24px] md:rounded-[32px] overflow-hidden transition-colors duration-500 ease-in-out cursor-pointer ${isOpen ? "bg-secondary" : "bg-[#FEFDF7]"
+                                        }`}
+                                    onClick={() => toggleFAQ(index)}
+                                >
+                                    <div className="px-6 py-6 md:px-10 md:py-8 flex justify-between items-center gap-4">
+                                        <h3
+                                            className={`text-xl md:text-2xl lg:text-3xl font-roca transition-colors duration-500 ease-in-out ${isOpen ? "text-[#fff6ee]" : "text-[#23100c]"
+                                                }`}
                                         >
-                                            <div className="px-6 pb-6 md:px-10 md:pb-10 pt-0 text-[#fff6ee] font-helvetica text-base md:text-lg leading-relaxed">
-                                                {faq.answer}
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
-                            </div>
-                        );
-                    })}
+                                            {faq.question}
+                                        </h3>
+                                        <div
+                                            className={`shrink-0 w-10 h-10 md:w-14 md:h-14 rounded-full flex items-center justify-center transition-all duration-500 ease-in-out ${isOpen ? "bg-white text-secondary rotate-180" : "bg-secondary text-white rotate-0"
+                                                }`}
+                                        >
+                                            {isOpen ? (
+                                                <Minus size={28} className="stroke-[2.5] md:w-8 md:h-8 w-6 h-6" />
+                                            ) : (
+                                                <Plus size={28} className="stroke-[2.5] md:w-8 md:h-8 w-6 h-6" />
+                                            )}
+                                        </div>
+                                    </div>
+
+                                    <AnimatePresence>
+                                        {isOpen && (
+                                            <motion.div
+                                                initial={{ height: 0, opacity: 0 }}
+                                                animate={{ height: "auto", opacity: 1 }}
+                                                exit={{ height: 0, opacity: 0 }}
+                                                transition={{ duration: 0.4, ease: "easeInOut" }}
+                                            >
+                                                <div className="px-6 pb-6 md:px-10 md:pb-10 pt-0 text-[#fff6ee] font-helvetica text-base md:text-lg leading-relaxed">
+                                                    {faq.answer}
+                                                </div>
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
+            {/* Bottom Wave */}
+            <WaveDecoration position="bottom" color="text-[#f5efe6]" className="bg-[#EBE6DE]" />
+
         </section>
     );
 }

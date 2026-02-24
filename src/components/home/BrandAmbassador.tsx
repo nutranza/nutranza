@@ -6,7 +6,7 @@ import WaveDecoration from "../ui/WaveDecoration";
 export default function BrandAmbassador() {
     return (
         <section className="w-full overflow-hidden relative">
-            <div className="bg-[#ffefc4] xl:pt-28 lg:pt-20 pt-16 relative z-10 -mt-[2px] -mb-[2px]">
+            <div className="bg-[#ffefc4] xl:py-28 lg:py-20 py-16 relative z-10 -my-0.5">
                 <div className="container">
                     {/* 
                         Wrapper div for positioning. 

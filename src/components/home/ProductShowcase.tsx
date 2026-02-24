@@ -38,7 +38,7 @@ export default function ProductShowcase() {
             {/* Top Wave */}
             <WaveDecoration position="top" color="text-[#ffefc4]" className="bg-accent" />
 
-            <div className="lg:pb-20 pb-16 bg-[#ffefc4] relative z-10 -mt-[2px] -mb-[2px]">
+            <div className="lg:py-20 py-16 bg-[#ffefc4] relative z-10 -my-0.5">
                 <div className="container">
                     {/* Section Header */}
                     <div className="flex flex-col items-center justify-center gap-6">

@@ -24,15 +24,15 @@ const reviews = [
     },
     {
         id: 3,
-        text: "“The cleanest energy I've felt in ages. No bloat, amazing flavor. Highly recommended.”",
-        bgColor: "bg-[#803B2C]", // Umber / Deep Brown
-        textColor: "text-white",
-    },
-    {
-        id: 4,
         text: "“Truly crave-worthy! It's so creamy and perfect for my morning energy boost.”",
         bgColor: "bg-[#FBDADF]", // Light Pink
         textColor: "text-[#23100c]",
+    },
+    {
+        id: 4,
+        text: "“The cleanest energy I've felt in ages. No bloat, amazing flavor. Highly recommended.”",
+        bgColor: "bg-[#803B2C]", // Umber / Deep Brown
+        textColor: "text-white",
     }
 ];
 
@@ -85,7 +85,7 @@ export default function ReviewsSection() {
                     </div>
 
                     {/* Main Headline */}
-                    <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-primary text-center">
+                    <h2 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl text-secondary text-center">
                         <span>Why people keep </span><br className="sm:block hidden" />
                         <span className="font-black">coming back</span>
                     </h2>
@@ -168,7 +168,7 @@ export default function ReviewsSection() {
                 <div className="flex justify-center items-center gap-6 mt-10 w-full z-20 relative px-4">
                     <button
                         onClick={() => swiperRef.current?.slidePrev()}
-                        className="w-14 h-14 md:w-18 md:h-18 rounded-full border border-secondary hover:border-primary flex items-center justify-center hover:bg-primary transition-all duration-300 ease-in-out focus:outline-none group"
+                        className="w-14 h-14 md:w-18 md:h-18 rounded-full border border-secondary hover:border-secondary flex items-center justify-center hover:bg-secondary transition-all duration-300 ease-in-out focus:outline-none group cursor-pointer"
                         aria-label="Previous slide"
                     >
                         <MoveLeft size={28} className="text-secondary group-hover:text-white" />
@@ -176,7 +176,7 @@ export default function ReviewsSection() {
 
                     <button
                         onClick={() => swiperRef.current?.slideNext()}
-                        className="w-14 h-14 md:w-18 md:h-18 rounded-full border border-secondary hover:border-primary flex items-center justify-center hover:bg-primary transition-all duration-300 ease-in-out focus:outline-none group"
+                        className="w-14 h-14 md:w-18 md:h-18 rounded-full border border-secondary hover:border-secondary flex items-center justify-center hover:bg-secondary transition-all duration-300 ease-in-out focus:outline-none group cursor-pointer"
                         aria-label="Next slide"
                     >
                         <MoveRight size={28} className="text-secondary group-hover:text-white" />

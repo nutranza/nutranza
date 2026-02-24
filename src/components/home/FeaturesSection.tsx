@@ -1,5 +1,6 @@
 import { Globe, Leaf, Zap, ShieldCheck, Heart } from "lucide-react";
 import Image from "next/image";
+import WaveDecoration from "../ui/WaveDecoration";
 
 const FEATURES = [
     {
@@ -26,7 +27,11 @@ const FEATURES = [
 
 export default function FeaturesSection() {
     return (
-        <section className="relative lg:py-20 py-16 bg-accent">
+        <section className="relative ">
+            {/* Top Wave */}
+            <WaveDecoration position="top" color="text-accent" className="bg-[#FEFDF7]" />
+
+        <div className="lg:py-20 py-16 bg-accent relative z-10 -my-0.5">
 
             <div className="container relative z-10">
                 {/* Header */}
@@ -85,6 +90,7 @@ export default function FeaturesSection() {
                 </div>
 
             </div>
+        </div>
 
         </section>
     );
