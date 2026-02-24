@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function HeroSection() {
     return (
         <section
-            className="relative lg:h-screen lg:py-20 py-16 overflow-hidden"
+            className="relative lg:h-screen sm:pt-36 pt-32 overflow-hidden"
             style={{ background: "linear-gradient(#f3cf6e, #f9e2a3 50%)" }}
         >
             {/* MAIN CONTENT CONTAINER */}
@@ -29,7 +29,7 @@ export default function HeroSection() {
 
                     {/* RIGHT CONTENT (Image) */}
 
-                    <div className="xl:max-w-fit lg:max-w-2xl lg:h-3/4 w-full h-full lg:absolute xl:top-1/5 top-1/3 xl:right-20 right-10 z-10 pointer-events-none">
+                    <div className="xl:max-w-fit lg:max-w-xl lg:h-3/4 w-full h-full lg:absolute xl:top-1/3 top-[35%] xl:right-20 right-10 z-10 pointer-events-none">
                         <Image
                             src="/assets/images/Hero-1.png"
                             alt="Dining Experience"
@@ -45,24 +45,24 @@ export default function HeroSection() {
 
             {/* FLOATING IMAGES */}
             {/* Top Right - Peanut Spoon */}
-            <div className="lg:absolute top-10 right-0 xl:right-0 z-0 lg:block hidden pointer-events-none">
+            <div className="lg:absolute top-32 right-0 xl:right-0 z-0 lg:block hidden pointer-events-none">
                 <Image
                     src="/assets/images/floating-images/Peanut_Spoone.png"
                     alt=""
                     width={250}
                     height={250}
-                    className="object-contain w-full h-full"
+                    className="object-contain h-full"
                 />
             </div>
 
             {/* Bottom Left - Chocolate */}
-            <div className="lg:absolute xl:bottom-0 left-0 xl:left-20 2xl:left-1/6 z-0 rotate-90 lg:block hidden pointer-events-none">
+            <div className="lg:absolute bottom-0 left-0 xl:left-20 2xl:left-1/6 z-0 rotate-90 lg:block hidden pointer-events-none">
                 <Image
                     src="/assets/images/floating-images/Chocolate.png"
                     alt=""
                     width={250}
                     height={250}
-                    className="object-cover w-full h-full"
+                    className="object-cover h-full"
                 />
             </div>
         </section>

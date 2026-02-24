@@ -66,7 +66,7 @@ export default function ProductShowcase() {
                                 <Link
                                     key={product.id}
                                     href={`/categories/${slugify(product.category)}/${product.slug}`}
-                                    className={`group relative ${config.bg} rounded-[2.5rem] px-5 sm:py-10 py-5 flex flex-col items-center justify-between text-center gap-2`}
+                                    className={`group relative ${config.bg} rounded-[2.5rem] px-5 sm:py-10 py-5 flex flex-col items-center justify-between text-center gap-2 focus:outline-none`}
                                 >
                                     {/* Top Content: Name & Description */}
                                     <div className="space-y-2 z-10">

@@ -45,7 +45,7 @@ export default function BrandAmbassador() {
                                 {/* CTA Button */}
                                 <Link
                                     href="/contact"
-                                    className="px-8 py-3 bg-primary hover:bg-primary/80 text-neutral-900 font-medium rounded-full transition-all duration-300 flex items-center gap-2"
+                                    className="px-8 py-3 bg-primary hover:bg-primary/80 text-neutral-900 font-medium rounded-full transition-all duration-300 flex items-center gap-2 focus:outline-none"
                                 >
                                     Become a Partner
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">
