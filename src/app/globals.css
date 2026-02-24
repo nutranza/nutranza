@@ -81,6 +81,12 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Apply focus:outline-none globally to all Links (a) and buttons */
+button:focus,
+button:focus-visible {
+  outline: none;
+}
+
 h1,
 h2,
 h3,

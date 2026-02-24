@@ -6,7 +6,7 @@ import WaveDecoration from "../ui/WaveDecoration";
 export default function BrandAmbassador() {
     return (
         <section className="w-full overflow-hidden relative">
-            <div className="bg-[#ffefc4] xl:pt-28 lg:pt-20 pt-16 relative z-10 -mt-[2px] -mb-[2px]">
+            <div className="bg-[#ffefc4] xl:py-28 lg:py-20 py-16 relative z-10 -my-0.5">
                 <div className="container">
                     {/* 
                         Wrapper div for positioning. 
@@ -45,7 +45,7 @@ export default function BrandAmbassador() {
                                 {/* CTA Button */}
                                 <Link
                                     href="/contact"
-                                    className="px-8 py-3 bg-primary hover:bg-primary/80 text-neutral-900 font-medium rounded-full transition-all duration-300 flex items-center gap-2"
+                                    className="px-8 py-3 bg-primary hover:bg-primary/80 text-neutral-900 font-medium rounded-full transition-all duration-300 flex items-center gap-2 focus:outline-none"
                                 >
                                     Become a Partner
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-5 h-5">

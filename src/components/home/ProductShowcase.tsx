@@ -38,7 +38,7 @@ export default function ProductShowcase() {
             {/* Top Wave */}
             <WaveDecoration position="top" color="text-[#ffefc4]" className="bg-accent" />
 
-            <div className="lg:pb-20 pb-16 bg-[#ffefc4] relative z-10 -mt-[2px] -mb-[2px]">
+            <div className="lg:py-20 py-16 bg-[#ffefc4] relative z-10 -my-0.5">
                 <div className="container">
                     {/* Section Header */}
                     <div className="flex flex-col items-center justify-center gap-6">
@@ -66,7 +66,7 @@ export default function ProductShowcase() {
                                 <Link
                                     key={product.id}
                                     href={`/categories/${slugify(product.category)}/${product.slug}`}
-                                    className={`group relative ${config.bg} rounded-[2.5rem] px-5 sm:py-10 py-5 flex flex-col items-center justify-between text-center gap-2`}
+                                    className={`group relative ${config.bg} rounded-[2.5rem] px-5 sm:py-10 py-5 flex flex-col items-center justify-between text-center gap-2 focus:outline-none`}
                                 >
                                     {/* Top Content: Name & Description */}
                                     <div className="space-y-2 z-10">
