@@ -12,26 +12,44 @@ import "swiper/css";
 const reviews = [
     {
         id: 1,
-        text: "“I didn’t think I could love a protein drink. But this one makes me feel good, not just full.”",
+        text: "“NutranZa's peanut butter and protein bars have been a massive hit in our retail chains. The consistent quality and timely international shipping make them a reliable partner.”",
         bgColor: "bg-[#FF9900]", // Saffron
         textColor: "text-[#23100c]",
     },
     {
         id: 2,
-        text: "“Finally found a protein that doesn’t fight my gut. It just works, you can feel the difference.”",
+        text: "“Their private label services for Muesli and Protein Oats are seamless. NutranZa handled everything from custom formulation to compliance packaging flawlessly.”",
         bgColor: "bg-[#F26B75]", // Dark Pink / Coral
         textColor: "text-white",
     },
     {
         id: 3,
-        text: "“Truly crave-worthy! It's so creamy and perfect for my morning energy boost.”",
-        bgColor: "bg-[#FBDADF]", // Light Pink
-        textColor: "text-[#23100c]",
+        text: "“The shelf life and packaging of their Rice Cakes are perfect for our global distribution network. A highly professional export team that understands international trade.”",
+        bgColor: "bg-[#803B2C]", // Umber / Deep Brown
+        textColor: "text-white",
     },
     {
         id: 4,
-        text: "“The cleanest energy I've felt in ages. No bloat, amazing flavor. Highly recommended.”",
-        bgColor: "bg-[#803B2C]", // Umber / Deep Brown
+        text: "“Finding authentic, lab-tested Shilajit in bulk was a challenge until we partnered with NutranZa. Exceptional purity and excellent B2B support.”",
+        bgColor: "bg-[#FBDADF]", // Light Pink
+        textColor: "text-neutral-900",
+    },
+    {
+        id: 5,
+        text: "“The natural purity of their ingredients is unmatched. Our customers love the 0% added sugar and clean labels on their exported healthy snacks.”",
+        bgColor: "bg-[#718f60]", // Sage / Olive Green
+        textColor: "text-white",
+    },
+    {
+        id: 6,
+        text: "“Their flexible MOQs and comprehensive custom packaging options allowed us to launch our private label snack line seamlessly across European markets.”",
+        bgColor: "bg-[#E6C229]", // Mustard Yellow
+        textColor: "text-neutral-900",
+    },
+    {
+        id: 7,
+        text: "“We've been sourcing bulk Protein Oats from NutranZa for over a year. Their commitment to high manufacturing standards and consistency has drastically improved our supply chain.”",
+        bgColor: "bg-[#4A5D23]", // Dark Olive
         textColor: "text-white",
     }
 ];

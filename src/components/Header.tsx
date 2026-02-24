@@ -65,7 +65,7 @@ export default function Header() {
                 {/* Main header row */}
                 <div className="container">
 
-                    <div className="py-2.5 px-4 bg-[#EBE6DE] rounded-full">
+                    <div className="py-2.5 px-4 bg-[#f5f5f5] rounded-full">
                         {/* --- DESKTOP LAYOUT (lg and up) --- */}
                         {/* Left: Nav, Center: Logo, Right: Call Now */}
                         <div className="hidden lg:flex items-center justify-between w-full gap-4">

@@ -7,24 +7,24 @@ import WaveDecoration from "../ui/WaveDecoration";
 
 const faqs = [
     {
-        question: "What is DONE?",
-        answer: "We all know most protein drinks are hard to love, too sweet, too heavy, too fake. So we made one that tastes good, feels light, and actually works with your body. DONE is packed with protein and prebiotic fiber, with no sugar, no artificial sweeteners, just smooth, clean fuel that makes feeling good feel easy.",
+        question: "What products do you export, and do you offer private labeling?",
+        answer: "We export premium Peanut Butter, Protein Oats, Muesli, Shilajit, Rice Cakes, and Protein Bars. Yes, we offer private labeling (White Label) and custom packaging solutions for our international B2B clients and distributors.",
     },
     {
-        question: "How does DONE support gut health?",
-        answer: "DONE contains prebiotic fiber that supports healthy digestion and gut balance. It’s also lactose-free and made without artificial sweeteners, making it easy on the stomach.",
+        question: "What are your Minimum Order Quantities (MOQs) for international export?",
+        answer: "Our MOQs vary by product category to ensure cost-effective shipping and production. We work flexibly with both emerging distributors and established wholesale buyers. Please contact our sales team for exact MOQs based on your selected products and destination.",
     },
     {
-        question: "What does DONE use instead of sugar or artificial sweeteners?",
-        answer: "DONE is sweetened with stevia and erythritol, clean, plant-based ingredients. There’s no added sugar and no artificial sweeteners. Just smooth, natural flavor.",
+        question: "What quality certifications and standards do your products meet?",
+        answer: "We strictly adhere to international food safety standards, including ISO, HACCP, and GMP certifications. Our export-grade products undergo rigorous quality control, from raw material sourcing to final packaging, ensuring a premium experience for your customers.",
     },
     {
-        question: "When should I drink DONE?",
-        answer: "Whenever you need a boost! It’s perfect post-workout, as an afternoon snack, or whenever you want clean, light protein on the go.",
+        question: "How do you handle international shipping and logistics?",
+        answer: "We partner with experienced global freight forwarders to ensure safe and timely delivery via sea or air freight. We offer both FOB and CIF pricing and support you with all necessary export documentation, including origin certificates, health certificates, and customs clearance paperwork.",
     },
     {
-        question: "Is DONE vegan friendly?",
-        answer: "DONE uses high-quality whey protein isolate, so while it is vegetarian-friendly and lactose-free, it is not vegan.",
+        question: "What is the typical shelf life of your export products?",
+        answer: "We guarantee maximum freshness for our international shipments. Products like our Peanut Butter and Protein Bars have an extended shelf life of 12-18 months, utilizing export-safe, moisture-proof packaging to maintain product integrity throughout the supply chain.",
     }
 ];
 
@@ -57,7 +57,7 @@ export default function FAQSection() {
                                 >
                                     <div className="px-6 py-6 md:px-10 md:py-8 flex justify-between items-center gap-4">
                                         <h3
-                                            className={`text-xl md:text-2xl lg:text-3xl font-roca transition-colors duration-500 ease-in-out ${isOpen ? "text-[#fff6ee]" : "text-[#23100c]"
+                                            className={`text-xl md:text-2xl lg:text-3xl font-roca transition-colors duration-500 ease-in-out ${isOpen ? "text-[#fff6ee]" : "text-neutral-900"
                                                 }`}
                                         >
                                             {faq.question}
