@@ -25,7 +25,7 @@ export default function MobileMenuDrawer({
         <>
             {/* Mobile Navigation Drawer */}
             <div
-                className={`fixed top-[110px] left-4 right-4 bg-[#EBE6DE] rounded-[32px] shadow-2xl z-50 transition-all duration-500 ease-[cubic-bezier(0.3,0.0,0.0,1.0)] lg:hidden flex flex-col h-[calc(100dvh-124px)] overflow-hidden ${isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-8 pointer-events-none"
+                className={`fixed top-[110px] left-4 right-4 bg-[#f5f5f5] rounded-[32px] shadow-2xl z-50 transition-all duration-500 ease-[cubic-bezier(0.3,0.0,0.0,1.0)] lg:hidden flex flex-col h-[calc(100dvh-124px)] overflow-hidden ${isOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-8 pointer-events-none"
                     }`}
             >
                 <div className="flex flex-col flex-1 px-4 py-6 overflow-y-auto gap-2 scrollbar-hide">
@@ -34,8 +34,8 @@ export default function MobileMenuDrawer({
                             key={link.name}
                             href={link.href}
                             className={`group flex items-center justify-between px-6 py-4 rounded-full transition-all duration-300 font-roca font-semibold ${isActiveLink(link.href)
-                                ? "bg-white text-secondary"
-                                : "bg-transparent text-neutral-900 hover:bg-white/60"
+                                ? "text-secondary"
+                                : "bg-transparent text-neutral-900 hover:text-secondary"
                                 }`}
                             onClick={onClose}
                         >
@@ -46,13 +46,13 @@ export default function MobileMenuDrawer({
 
                 {/* Mobile Drawer Footer — Call button only */}
                 <div className="p-6">
-                    <a
+                    <Link
                         href="tel:+1234567890"
-                        className="flex items-center justify-center gap-2 bg-secondary text-white w-full py-4 rounded-full font-medium tracking-wide uppercase shadow-lg shadow-secondary/20 hover:bg-secondary/90 hover:shadow-secondary/40 hover:-translate-y-0.5 transition-all duration-300 text-sm"
+                        className="flex items-center justify-center gap-2 bg-secondary text-white w-full py-4 rounded-full font-medium shadow-lg shadow-secondary/20 hover:bg-secondary/90 transition-all duration-300 text-base"
                     >
-                        <Phone className="w-4 h-4" />
+                        <Phone className="w-5 h-5" />
                         <span>Call +1 234 567 890</span>
-                    </a>
+                    </Link>
                 </div>
             </div>
 
