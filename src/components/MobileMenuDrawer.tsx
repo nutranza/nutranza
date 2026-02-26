@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { Phone } from "lucide-react";
+import { Phone, ChevronDown } from "lucide-react";
+import { useState } from "react";
 
-interface LinkItem {
+export interface LinkItem {
     name: string;
     href: string;
+    subLinks?: { name: string; href: string }[];
 }
 
 interface MobileMenuDrawerProps {
@@ -21,6 +23,13 @@ export default function MobileMenuDrawer({
     links,
     isActiveLink,
 }: MobileMenuDrawerProps) {
+    const [expandedLinks, setExpandedLinks] = useState<Record<string, boolean>>({});
+
+    const toggleExpand = (name: string, e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        setExpandedLinks(prev => ({ ...prev, [name]: !prev[name] }));
+    };
     return (
         <>
             {/* Mobile Navigation Drawer */}
@@ -30,17 +39,48 @@ export default function MobileMenuDrawer({
             >
                 <div className="flex flex-col flex-1 px-4 py-6 overflow-y-auto gap-2 scrollbar-hide">
                     {links.map((link) => (
-                        <Link
-                            key={link.name}
-                            href={link.href}
-                            className={`group flex items-center justify-between px-6 py-4 rounded-full transition-all duration-300 font-roca font-semibold ${isActiveLink(link.href)
-                                ? "text-secondary"
-                                : "bg-transparent text-neutral-900 hover:text-secondary"
-                                }`}
-                            onClick={onClose}
-                        >
-                            <span className="text-xl font-roca">{link.name}</span>
-                        </Link>
+                        <div key={link.name} className="flex flex-col">
+                            <div className="flex items-center justify-between">
+                                <Link
+                                    href={link.href}
+                                    className={`flex-1 group flex items-center px-6 py-4 rounded-full transition-all duration-300 font-roca font-semibold ${isActiveLink(link.href)
+                                        ? "text-secondary"
+                                        : "bg-transparent text-neutral-900 hover:text-secondary"
+                                        }`}
+                                    onClick={onClose}
+                                >
+                                    <span className="text-xl font-roca">{link.name}</span>
+                                </Link>
+
+                                {link.subLinks && (
+                                    <button
+                                        onClick={(e) => toggleExpand(link.name, e)}
+                                        className="p-4 mr-2 text-neutral-500 hover:text-secondary focus:outline-none"
+                                    >
+                                        <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${expandedLinks[link.name] ? "rotate-180" : ""}`} />
+                                    </button>
+                                )}
+                            </div>
+
+                            {link.subLinks && (
+                                <div
+                                    className={`overflow-hidden transition-all duration-300 ease-in-out ${expandedLinks[link.name] ? "max-h-[400px] opacity-100 mb-2" : "max-h-0 opacity-0"}`}
+                                >
+                                    <div className="flex flex-col gap-1 pl-10 pr-6 py-2 border-l-2 border-neutral-200 ml-6">
+                                        {link.subLinks.map(subLink => (
+                                            <Link
+                                                key={subLink.name}
+                                                href={subLink.href}
+                                                className={`block py-2.5 text-lg font-roca transition-colors ${isActiveLink(subLink.href) ? "text-secondary" : "text-neutral-600 hover:text-secondary"}`}
+                                                onClick={onClose}
+                                            >
+                                                {subLink.name}
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
+                        </div>
                     ))}
                 </div>
 

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { getCategoriesWithProducts, getProductsByCategory, getCategoryInfo } from '@/data/products';
 import CategoryProductsContent from '@/components/categories/CategoryProductsContent';
 import type { CategoryPageProps } from '@/types/products';
+import WaveDecoration from '@/components/ui/WaveDecoration';
 
 // Generate static paths at build time for all categories
 export async function generateStaticParams() {
@@ -42,14 +43,22 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     const categoryProducts = getProductsByCategory(slug);
 
     return (
-        <div className="bg-white py-20">
-            <main className="container">
-                <CategoryProductsContent
-                    categoryProducts={categoryProducts}
-                    categoryName={category.name}
-                    categorySlug={category.slug}
-                />
-            </main>
-        </div>
+        <main>
+            <section className='bg-[#FEFDF7] sm:pt-36 pt-32 lg:pb-20 pb-16 relative z-10 -my-0.5'>
+                <div className="container">
+                    <CategoryProductsContent
+                        categoryProducts={categoryProducts}
+                        categoryName={category.name}
+                        categorySlug={category.slug}
+                    />
+                </div>
+            </section>
+            {/* Wave Decoration connecting to Footer */}
+            <WaveDecoration
+                position="bottom"
+                color="text-[#FEFDF7]"
+                className="bg-[#EBE6DE]"
+            />
+        </main>
     );
 }
