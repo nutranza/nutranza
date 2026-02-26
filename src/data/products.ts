@@ -182,7 +182,7 @@ export const products: Product[] = [
         id: 'p4',
         name: 'Mango Chia Peanut Butter',
         slug: 'mango-chia-peanut-butter',
-        category: 'Nut Butters',
+        category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/4.png',
         description: 'Unique blend of Roasted Peanuts, Chia Seeds, and Mango Flavour. Rich in healthy fats and protein.',
@@ -224,7 +224,7 @@ export const products: Product[] = [
         id: 'p5',
         name: 'Chocolate Almond Peanut Butter',
         slug: 'chocolate-almond-peanut-butter',
-        category: 'Nut Butters',
+        category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/5.png',
         description: 'A rich blend of Roasted Peanuts and Almonds with Cocoa. A perfect balance of taste and nutrition.',
@@ -267,7 +267,7 @@ export const products: Product[] = [
         id: 'p6',
         name: 'Strawberry Chia Peanut Butter',
         slug: 'strawberry-chia-peanut-butter',
-        category: 'Nut Butters',
+        category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/6.png',
         description: 'Creamy peanut butter with a fruity twist of Strawberry and crunch of Chia seeds.',
@@ -309,7 +309,7 @@ export const products: Product[] = [
         id: 'p7',
         name: 'Cookies & Cream Peanut Butter',
         slug: 'cookies-and-cream-peanut-butter',
-        category: 'Nut Butters',
+        category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/7.png',
         description: 'Decadent Cookies & Cream flavour blended with premium Roasted Peanuts.',
@@ -352,7 +352,7 @@ export const products: Product[] = [
         id: 'p8',
         name: 'Jaggery Peanut Butter',
         slug: 'jaggery-peanut-butter',
-        category: 'Nut Butters',
+        category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/8.png',
         description: 'Traditional taste of roasted peanuts sweetened with organic jaggery. A healthy alternative to sugar.',
@@ -395,7 +395,7 @@ export const products: Product[] = [
         id: 'p9',
         name: 'Mix Fruit Peanut Butter',
         slug: 'mix-fruit-peanut-butter',
-        category: 'Nut Butters',
+        category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/9.png',
         description: 'Exotic blend of peanuts with mixed fruit powder and raisin seeds for a unique tangy-sweet flavor.',
@@ -437,7 +437,7 @@ export const products: Product[] = [
         id: 'p10',
         name: 'Classic Creamy/Crunchy Peanut Butter',
         slug: 'classic-creamy-crunchy-peanut-butter',
-        category: 'Nut Butters',
+        category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/10.png',
         description: 'The timeless classic. 100% Roasted Peanuts with just a hint of salt and sugar for the perfect balance.',
@@ -543,13 +543,13 @@ export function getCategoryNameFromSlug(slug: string): string | null {
 // Mapping of category slugs to image paths
 const categoryImages: Record<string, string> = {
     'protein-oats': '/assets/images/categories/Protein-Oats-1.png',
-    'nut-butters': '/assets/images/categories/Peanut-Butter(1).png',
+    'peanut-butter': '/assets/images/categories/Peanut-Butter(1).png',
 };
 
 // Mapping of category slugs to descriptions
 const categoryDescriptions: Record<string, string> = {
     'protein-oats': 'Fuel your mornings with high-performance goodness. Available in multiple flavors.',
-    'nut-butters': 'Rich, creamy, and packed with natural protein. Explore different varieties.',
+    'peanut-butter': 'Rich, creamy, and packed with natural protein. Explore different varieties.',
 };
 
 // Get actual categories from products with images and counts
