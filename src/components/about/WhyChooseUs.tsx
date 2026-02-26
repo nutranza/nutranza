@@ -76,7 +76,7 @@ export default function WhyChooseUs() {
                                 >
                                     {/* Top: Title & Number */}
                                     <div className="flex justify-between items-start w-full gap-4">
-                                        <h3 className="text-xl md:text-2xl text-primary">
+                                        <h3 className="text-2xl md:text-2xl text-primary">
                                             {strength.title}
                                         </h3>
                                         <span
@@ -94,7 +94,7 @@ export default function WhyChooseUs() {
                                     <hr className="border-primary/40 mt-6 mb-8 w-full" />
 
                                     {/* Bottom: Description */}
-                                    <p className="text-neutral-900 leading-relaxed mt-auto">
+                                    <p className="text-neutral-900 text-lg font-medium leading-relaxed mt-auto">
                                         {strength.description}
                                     </p>
                                 </div>

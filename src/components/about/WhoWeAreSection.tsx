@@ -143,7 +143,7 @@ export default function WhoWeAreSection() {
                                     }}
                                     className="flex flex-col sm:items-start gap-4"
                                 >
-                                    <span className="text-2xl sm:text-3xl lg:text-5xl font-medium text-primary flex items-center">
+                                    <span className="text-2xl sm:text-3xl lg:text-5xl font-medium text-primary flex items-center font-roca">
                                         <AnimatedCounter value={stat.value} inView={inView} />
                                         {stat.suffix}
                                     </span>

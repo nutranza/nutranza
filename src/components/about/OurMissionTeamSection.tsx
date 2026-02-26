@@ -17,7 +17,7 @@ export default function OurMissionTeamSection() {
                                 />
                             </div>
                             <div className="w-full rounded-3xl bg-accent p-6 flex flex-col justify-center items-center text-center shadow-sm">
-                                <h3 className="text-3xl font-semibold text-white mb-4">Our Team</h3>
+                                <h3 className="sm:text-3xl text-2xl font-semibold text-white mb-4">Our Team</h3>
                                 <p className="text-white font-medium text-lg">
                                     Our experienced team offers personalized, respectful service to ensure your B2B shipments run smoothly, delivering quality products across borders at every stage.
                                 </p>
@@ -36,7 +36,7 @@ export default function OurMissionTeamSection() {
                         {/* Column 3 */}
                         <div className="flex flex-col gap-6 h-full">
                             <div className="w-full rounded-3xl bg-accent p-6 flex flex-col justify-center items-center text-center shadow-sm">
-                                <h3 className="text-3xl font-semibold text-white mb-4">Our Mission</h3>
+                                <h3 className="sm:text-3xl text-2xl font-semibold text-white mb-4">Our Mission</h3>
                                 <p className="text-white font-medium text-lg">
                                     NutranZa delivers trusted, accessible health-conscious products including peanut butter, protein oats, Shilajit, and rice cakes, ensuring reliable supply chains for B2B clients globally.
                                 </p>

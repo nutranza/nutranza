@@ -5,8 +5,7 @@ import { ContactFormSchema } from "./schema";
 export async function submitContactForm(formData: FormData) {
     // Extract form values for all 6 fields
     const rawData = {
-        firstName: formData.get("firstName"),
-        lastName: formData.get("lastName"),
+        name: formData.get("name"),
         email: formData.get("email"),
         location: formData.get("location"),
         subject: formData.get("subject"),

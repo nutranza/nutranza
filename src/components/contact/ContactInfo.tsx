@@ -1,80 +1,46 @@
-import { MapPin, Mail, Phone, Clock } from "lucide-react";
+import { MapPin, Mail, Phone, MapPinned } from "lucide-react";
 import Link from "next/link";
 
 export default function ContactInfo() {
     return (
-        <div className="p-10 rounded-2xl shadow-sm border border-gray-200 h-fit sticky top-24">
-            <div className="mb-8">
-                <h2 className="text-3xl text-secondary font-bold mb-2">
-                    Contact Information
-                </h2>
-                <p className="text-lg text-neutral-900">
-                    Get in touch with us through any of the following methods.
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 my-16">
+            {/* Address Card */}
+            <div className="bg-primary/10 lg:p-12 p-8 rounded-2xl flex flex-col items-center justify-center gap-4 text-center transition-transform hover:-translate-y-1 duration-300">
+                <div className="flex items-center justify-center">
+                    <MapPinned className="w-12 h-12 text-primary" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-bold text-neutral-900">Location Address</h3>
+                <p className="text-lg text-neutral-900 leading-relaxed">
+                    201 Front St, New York, NY 10038, United States
                 </p>
             </div>
 
-            <div className="space-y-4">
-                {/* Address */}
-                <div className="flex items-start gap-4 pb-4 border-b border-gray-200">
-                    <div className="p-3 bg-secondary/10 rounded-xl">
-                        <MapPin className="w-6 h-6 text-secondary" />
-                    </div>
-                    <div>
-                        <h3 className="font-bold text-neutral-900">Address</h3>
-                        <p className="text-sm text-neutral-700 leading-relaxed">
-                            123 Business Street, Suite 100
-                            <br />
-                            City, State 12345
-                        </p>
-                    </div>
+            {/* Phone Card */}
+            <div className="bg-primary/10 lg:p-12 p-8 rounded-2xl flex flex-col items-center justify-center gap-4 text-center transition-transform hover:-translate-y-1 duration-300">
+                <div className="flex items-center justify-center">
+                    <Phone className="w-12 h-12 text-primary" strokeWidth={1.5} />
                 </div>
+                <h3 className="text-2xl font-bold text-neutral-900">Phone Number</h3>
+                <Link
+                    href="tel:+1 (555) 123-4567"
+                    className="block text-lg text-neutral-900 hover:text-primary transition-colors"
+                >
+                    +1 (555) 123-4567
+                </Link>
+            </div>
 
-                {/* Email */}
-                <div className="flex items-start gap-4 pb-4 border-b border-gray-200">
-                    <div className="p-3 bg-secondary/10 rounded-xl">
-                        <Mail className="w-6 h-6 text-secondary" />
-                    </div>
-                    <div>
-                        <h3 className="font-bold text-neutral-900">Email</h3>
-                        <Link
-                            href="mailto:contact@nutranza.com"
-                            className="text-sm text-secondary hover:underline hover:underline-offset-4 transition-all duration-200"
-                        >
-                            contact@nutranza.com
-                        </Link>
-                    </div>
+            {/* Email Card */}
+            <div className="bg-primary/10 lg:p-12 p-8 rounded-2xl flex flex-col items-center justify-center gap-4 text-center transition-transform hover:-translate-y-1 duration-300">
+                <div className="flex items-center justify-center">
+                    <Mail className="w-12 h-12 text-primary" strokeWidth={1.5} />
                 </div>
-
-                {/* Phone */}
-                <div className="flex items-start gap-4 pb-4 border-b border-gray-200">
-                    <div className="p-3 bg-secondary/10 rounded-xl">
-                        <Phone className="w-6 h-6 text-secondary" />
-                    </div>
-                    <div>
-                        <h3 className="font-bold text-neutral-900">Phone</h3>
-                        <Link
-                            href="tel:+15551234567"
-                            className="text-sm text-secondary hover:underline hover:underline-offset-4 transition-all duration-200"
-                        >
-                            +1 (555) 123-4567
-                        </Link>
-                    </div>
-                </div>
-
-                {/* Business Hours */}
-                <div className="flex items-start gap-4">
-                    <div className="p-3 bg-secondary/10 rounded-xl">
-                        <Clock className="w-6 h-6 text-secondary" />
-                    </div>
-                    <div>
-                        <h3 className="font-bold text-neutral-900">Business Hours</h3>
-                        <p className="text-sm text-neutral-700 leading-relaxed">
-                            Monday - Friday: 9:00 AM - 5:00 PM
-                            <br />
-                            Saturday - Sunday: Closed
-                        </p>
-                    </div>
-                </div>
+                <h3 className="text-2xl font-bold text-neutral-900">Email Contact</h3>
+                <Link
+                    href="mailto:support@nutranza.com"
+                    className="block text-lg text-neutral-900 hover:text-primary transition-colors"
+                >
+                    support@nutranza.com
+                </Link>
             </div>
         </div>
     );

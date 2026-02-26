@@ -34,9 +34,9 @@ export default function ContactForm() {
     };
 
     return (
-        <div className="p-10 border border-gray-200 rounded-2xl">
+        <div className="lg:p-10 sm:p-6 p-4 bg-primary/10 rounded-2xl">
             <div className="mb-8">
-                <h2 className="text-3xl text-secondary font-bold mb-2">
+                <h2 className="sm:text-3xl text-2xl text-primary font-bold mb-2">
                     Get In Touch
                 </h2>
                 <p className="text-lg text-neutral-900">
@@ -45,82 +45,67 @@ export default function ContactForm() {
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4">
-                {/* Row 1: First Name and Last Name */}
+                {/* Row 1: Name and Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                        <label htmlFor="firstName" className="font-semibold block text-neutral-700">
-                            First Name
+                        <label htmlFor="name" className="font-semibold block text-neutral-700">
+                            Name
                         </label>
                         <input
-                            id="firstName"
-                            name="firstName"
+                            id="name"
+                            name="name"
                             type="text"
-                            placeholder="John"
+                            placeholder="John Doe"
                             required
-                            className="w-full px-4 py-3 rounded-full border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all"
+                            className="w-full px-4 py-3 rounded-full border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                         />
                     </div>
                     <div className="space-y-2">
-                        <label htmlFor="lastName" className="font-semibold block text-neutral-700">
-                            Last Name
+                        <label htmlFor="email" className="font-semibold block text-neutral-700">
+                            Email Address
                         </label>
                         <input
-                            id="lastName"
-                            name="lastName"
-                            type="text"
-                            placeholder="Doe"
+                            id="email"
+                            name="email"
+                            type="email"
+                            placeholder="john.doe@example.com"
                             required
-                            className="w-full px-4 py-3 rounded-full border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all"
+                            className="w-full px-4 py-3 rounded-full border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                         />
                     </div>
                 </div>
 
-                {/* Row 2: Email */}
-                <div className="space-y-2">
-                    <label htmlFor="email" className="font-semibold block text-neutral-700">
-                        Email Address
-                    </label>
-                    <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="john.doe@example.com"
-                        required
-                        className="w-full px-4 py-3 rounded-full border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all"
-                    />
+                {/* Row 2: Location and Subject */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="space-y-2">
+                        <label htmlFor="location" className="font-semibold block text-neutral-700">
+                            Location
+                        </label>
+                        <input
+                            id="location"
+                            name="location"
+                            type="text"
+                            placeholder="City, Country"
+                            required
+                            className="w-full px-4 py-3 rounded-full border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        />
+                    </div>
+                    <div className="space-y-2">
+                        <label htmlFor="subject" className="font-semibold block text-neutral-700">
+                            Subject
+                        </label>
+                        <input
+                            id="subject"
+                            name="subject"
+                            type="text"
+                            placeholder="How can we help you?"
+                            required
+                            className="w-full px-4 py-3 rounded-full border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
+                        />
+                    </div>
                 </div>
 
-                {/* Row 3: Location */}
-                <div className="space-y-2">
-                    <label htmlFor="location" className="font-semibold block text-neutral-700">
-                        Location
-                    </label>
-                    <input
-                        id="location"
-                        name="location"
-                        type="text"
-                        placeholder="City, Country"
-                        required
-                        className="w-full px-4 py-3 rounded-full border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all"
-                    />
-                </div>
-
-                {/* Row 4: Subject */}
-                <div className="space-y-2">
-                    <label htmlFor="subject" className="font-semibold block text-neutral-700">
-                        Subject
-                    </label>
-                    <input
-                        id="subject"
-                        name="subject"
-                        type="text"
-                        placeholder="How can we help you?"
-                        required
-                        className="w-full px-4 py-3 rounded-full border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all"
-                    />
-                </div>
-
-                {/* Row 5: Message */}
+                {/* Row 3: Message */}
                 <div className="space-y-2">
                     <label htmlFor="message" className="font-semibold block text-neutral-700">
                         Message
@@ -131,7 +116,7 @@ export default function ContactForm() {
                         rows={6}
                         placeholder="Tell us more about your inquiry..."
                         required
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-gray-50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-secondary/20 focus:border-secondary transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                     />
                 </div>
 
@@ -139,7 +124,7 @@ export default function ContactForm() {
                 <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full border border-secondary bg-secondary text-white font-medium hover:bg-secondary/80 transition-all duration-300 cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-primary/80 transition-all duration-300 cursor-pointer"
                 >
                     {isSubmitting ? "Sending..." : "Send Message"}
                     <Send className="w-5 h-5" />
@@ -157,7 +142,7 @@ export default function ContactForm() {
                     </div>
                 )}
 
-                <p className="text-center text-sm text-neutral-700">
+                <p className="text-center text-sm text-neutral-900">
                     We typically respond within 24 hours.
                 </p>
             </form>
