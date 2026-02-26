@@ -44,7 +44,7 @@ export default function FeaturesSection() {
                             <span className="font-black">Why choose Nutranza</span>{" "}<br />
                             <span>for your health</span>
                         </h2>
-                        <p className="text-base sm:text-xl font-medium text-white max-w-4xl mx-auto">
+                        <p className="text-lg md:text-xl font-medium leading-relaxed text-white max-w-4xl mx-auto">
                             Your trusted partner for premium organic, plant-based foods. We deliver certified excellence, complete transparency, and export-ready solutions to fuel healthier markets worldwide.
                         </p>
                     </div>

@@ -35,6 +35,11 @@ export interface Product {
         sugar?: string;
         [key: string]: string | undefined;
     };
+    colorConfig?: {
+        bg: string;
+        titleColor: string;
+        buttonBg: string;
+    };
 }
 
 export const products: Product[] = [
@@ -43,7 +48,7 @@ export const products: Product[] = [
         name: 'High Protein Chocolate Oats',
         slug: 'high-protein-chocolate-oats',
         sku: 'NTZ-OATS-CHOC-001',
-        category: 'Breakfast Cereals',
+        category: 'Protein Oats',
         subCategory: 'Oats',
         image: '/assets/images/products/product-1.png',
         images: [
@@ -85,13 +90,18 @@ export const products: Product[] = [
             "Iron": "6.30mg",
             "Magnesium": "178.00mg"
         },
-        featured: true
+        featured: true,
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#5471d2,#7da0f2)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#355cdd]'
+        }
     },
     {
         id: 'p2',
         name: 'High Protein Coffee Oats',
         slug: 'high-protein-coffee-oats',
-        category: 'Breakfast Cereals',
+        category: 'Protein Oats',
         subCategory: 'Oats',
         image: '/assets/images/products/product-2.png',
         description: 'Energizing Coffee infused Oats with Vegan Protein Blend. High fiber and protein for a powerful start.',
@@ -121,12 +131,17 @@ export const products: Product[] = [
             "Sodium": "45.00mg",
             "Cholesterol": "0.00mg"
         },
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#8d5a41,#b58066)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-accent'
+        }
     },
     {
         id: 'p3',
         name: 'High Protein Strawberry Oats',
         slug: 'high-protein-strawberry-oats',
-        category: 'Breakfast Cereals',
+        category: 'Protein Oats',
         subCategory: 'Oats',
         image: '/assets/images/products/product-3.png',
         description: 'Delicious Strawberry flavored Oats with Vegan Protein Blend. High fiber and protein for a nutritious meal.',
@@ -156,7 +171,12 @@ export const products: Product[] = [
             "Sodium": "45.00mg",
             "Cholesterol": "0.00mg"
         },
-        featured: true
+        featured: true,
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#d64d56,#f38990)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#eb3c47]'
+        }
     },
     {
         id: 'p4',
@@ -194,6 +214,11 @@ export const products: Product[] = [
             "Sodium": "121.00mg",
             "Cholesterol": "0.00mg"
         },
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#ca8a04,#facc15)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#a16207]'
+        }
     },
     {
         id: 'p5',
@@ -231,7 +256,12 @@ export const products: Product[] = [
             "Sodium": "267.00mg",
             "Cholesterol": "0.00mg"
         },
-        featured: true
+        featured: true,
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#273b82,#4862b5)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#1b2a5d]'
+        }
     },
     {
         id: 'p6',
@@ -269,6 +299,11 @@ export const products: Product[] = [
             "Sodium": "121.00mg",
             "Cholesterol": "0.00mg"
         },
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#d64d56,#f38990)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#eb3c47]'
+        }
     },
     {
         id: 'p7',
@@ -306,7 +341,12 @@ export const products: Product[] = [
             "Sodium": "291.00mg",
             "Cholesterol": "0.00mg"
         },
-        featured: true
+        featured: true,
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#273b82,#4862b5)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#1b2a5d]'
+        }
     },
     {
         id: 'p8',
@@ -344,7 +384,12 @@ export const products: Product[] = [
             "Sodium": "197.00mg",
             "Cholesterol": "0.00mg"
         },
-        featured: true
+        featured: true,
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#d4a373,#e6ccb2)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#b08960]'
+        }
     },
     {
         id: 'p9',
@@ -382,6 +427,11 @@ export const products: Product[] = [
             "Sodium": "79.00mg",
             "Cholesterol": "0.00mg"
         },
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#a3252d,#cc3640)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#7c1b21]'
+        }
     },
     {
         id: 'p10',
@@ -419,7 +469,12 @@ export const products: Product[] = [
             "Sodium": "242.00mg",
             "Cholesterol": "0.00mg"
         },
-        featured: true
+        featured: true,
+        colorConfig: {
+            bg: 'bg-[linear-gradient(#4a7c59,#68a078)]',
+            titleColor: 'text-white',
+            buttonBg: 'bg-[#366042]'
+        }
     }
 ];
 
@@ -487,11 +542,17 @@ export function getCategoryNameFromSlug(slug: string): string | null {
 
 // Mapping of category slugs to image paths
 const categoryImages: Record<string, string> = {
-    'breakfast-cereals': '/assets/images/categories/Protein-Oats.png',
-    'nut-butters': '/assets/images/categories/Peanut-Butter.png',
+    'protein-oats': '/assets/images/categories/Protein-Oats-1.png',
+    'nut-butters': '/assets/images/categories/Peanut-Butter(1).png',
 };
 
-// Get actual categories from products (not filterCategories)
+// Mapping of category slugs to descriptions
+const categoryDescriptions: Record<string, string> = {
+    'protein-oats': 'Fuel your mornings with high-performance goodness. Available in multiple flavors.',
+    'nut-butters': 'Rich, creamy, and packed with natural protein. Explore different varieties.',
+};
+
+// Get actual categories from products with images and counts
 export function getCategoriesWithProducts() {
     const categoryMap = new Map<string, number>();
 
@@ -500,13 +561,17 @@ export function getCategoriesWithProducts() {
         categoryMap.set(catName, (categoryMap.get(catName) || 0) + 1);
     });
 
-    return Array.from(categoryMap.entries()).map(([name, count]) => ({
-        id: slugify(name),
-        name,
-        slug: slugify(name),
-        count,
-        image: categoryImages[slugify(name)]
-    }));
+    return Array.from(categoryMap.entries()).map(([name, count]) => {
+        const slug = slugify(name);
+        return {
+            id: slug,
+            name,
+            slug,
+            count,
+            image: categoryImages[slug],
+            description: categoryDescriptions[slug] || `Explore premium ${name.toLowerCase()} for your health.`
+        };
+    });
 }
 
 // Get products for a specific category by slug

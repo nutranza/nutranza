@@ -18,7 +18,7 @@ export default function HeroSection() {
                             <span className="block font-black text-secondary leading-tight">premium lifestyle</span>
                         </h1>
 
-                        <p className="text-neutral-900 text-base sm:text-xl font-medium max-w-xl">
+                        <p className="text-neutral-900 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
                             Experience the perfect blend of taste and health with our Peanut Butter, Protein Oats. No added sugar, 100% natural, and designed for those who demand more.
                         </p>
 
@@ -56,7 +56,7 @@ export default function HeroSection() {
             </div>
 
             {/* Bottom Left - Chocolate */}
-            <div className="lg:absolute bottom-0 left-0 xl:left-20 2xl:left-1/6 z-0 rotate-90 lg:block hidden pointer-events-none">
+            <div className="lg:absolute bottom-0 left-0 lg:left-20 2xl:left-1/6 z-0 rotate-90 lg:block hidden pointer-events-none">
                 <Image
                     src="/assets/images/floating-images/Chocolate.png"
                     alt=""
