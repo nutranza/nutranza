@@ -18,13 +18,13 @@ export default function ProductGallery({ product }: ProductGalleryProps) {
     return (
         <div className="flex flex-col gap-4">
             {/* Main Image */}
-            <div className="aspect-auto h-full w-full flex items-center justify-center rounded-2xl overflow-hidden relative group border border-gray-200">
+            <div className="w-full h-[350px] md:h-[450px] lg:h-[500px] flex items-center justify-center rounded-2xl overflow-hidden relative group border border-gray-200 bg-gray-50/50">
                 <Image
                     src={images[selectedImageIndex]}
                     alt={product.name}
-                    width={600}
-                    height={600}
-                    className="object-contain cursor-zoom-in"
+                    width={500}
+                    height={500}
+                    className="max-h-full w-auto object-contain p-4 md:p-8 cursor-zoom-in hover:scale-105 transition-transform duration-500"
                     priority
                     onClick={() => setIsLightboxOpen(true)}
                 />

@@ -1,14 +1,10 @@
 'use client';
 
-import Breadcrumb from '@/components/product/Breadcrumb';
-import ProductGallery from '@/components/product/ProductGallery';
-import ProductHeader from '@/components/product/ProductHeader';
-import B2BActions from '@/components/product/B2BActions';
-import ProductSpecs from '@/components/product/ProductSpecs';
-import LogisticsEstimator from '@/components/product/LogisticsEstimator';
+import { useState } from 'react';
+import MainProductSection from '@/components/product/MainProductSection';
 import NutritionTable from '@/components/product/NutritionTable';
+import IngredientsSection from '@/components/product/IngredientsSection';
 import CertificationsGrid from '@/components/product/CertificationsGrid';
-import SidebarContact from '@/components/product/SidebarContact';
 import SimilarProducts from '@/components/product/SimilarProducts';
 import type { Product } from '@/data/products';
 
@@ -17,69 +13,81 @@ interface ProductDetailProps {
     breadcrumbCategory?: string;
 }
 
+type ActiveTab = 'nutrition' | 'ingredients' | 'certifications';
+
+const tabs: { id: ActiveTab; label: string }[] = [
+    { id: 'nutrition', label: 'Nutritional Facts' },
+    { id: 'ingredients', label: 'Ingredients & Allergens' },
+    { id: 'certifications', label: 'Certifications' },
+];
+
 export default function ProductDetail({ product, breadcrumbCategory }: ProductDetailProps) {
+    const [activeTab, setActiveTab] = useState<ActiveTab>('nutrition');
+
     return (
-        <div className="bg-white py-20">
-            <main className="container">
-                {/* Breadcrumb Navigation */}
-                <Breadcrumb
-                    productName={product.name}
-                    category={breadcrumbCategory || product.category}
-                />
+        <main>
+            <MainProductSection product={product} breadcrumbCategory={breadcrumbCategory} />
 
-                {/* Main Product Section */}
-                <div className="flex lg:flex-row flex-col gap-10">
-                    {/* Left Column: Images */}
-                    <div className="lg:w-3/5 w-full">
-                        <ProductGallery product={product} />
-                    </div>
+            <section className="bg-[#FEFDF7] lg:pb-20 pb-16">
+                <div className="container">
+                    {/* Detailed Info Section */}
+                    <div>
+                        {/* Tab Navigation */}
+                        <div className="border-b border-gray-200 mb-8">
+                            <div
+                                className="flex gap-0 overflow-x-auto"
+                                role="tablist"
+                                aria-label="Product information tabs"
+                            >
+                                {tabs.map((tab) => (
+                                    <button
+                                        key={tab.id}
+                                        role="tab"
+                                        aria-selected={activeTab === tab.id}
+                                        aria-controls={`tabpanel-${tab.id}`}
+                                        id={`tab-${tab.id}`}
+                                        onClick={() => setActiveTab(tab.id)}
+                                        className={`px-5 py-3 text-sm font-semibold whitespace-nowrap border-b-2 transition-colors duration-200 cursor-pointer ${activeTab === tab.id
+                                            ? '' // Active classes controlled by inline style below
+                                            : 'border-transparent text-neutral-500 hover:text-neutral-900'
+                                            }`}
+                                        style={
+                                            activeTab === tab.id
+                                                ? {
+                                                    borderColor: product.themeColor || '#ff660f',
+                                                    color: product.themeColor || '#ff660f',
+                                                }
+                                                : undefined
+                                        }
+                                    >
+                                        {tab.label}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
 
-                    {/* Right Column: Product Details */}
-                    <div className="lg:w-2/5 w-full flex flex-col gap-6">
-                        <ProductHeader product={product} />
-                        <B2BActions product={product} />
-                        <ProductSpecs product={product} />
-                        <LogisticsEstimator />
+                        {/* Tab Panels — full width, no sidebar */}
+                        <div
+                            id={`tabpanel-${activeTab}`}
+                            role="tabpanel"
+                            aria-labelledby={`tab-${activeTab}`}
+                        >
+                            {activeTab === 'nutrition' && (
+                                <NutritionTable product={product} />
+                            )}
+                            {activeTab === 'ingredients' && (
+                                <IngredientsSection product={product} />
+                            )}
+                            {activeTab === 'certifications' && (
+                                <CertificationsGrid product={product} />
+                            )}
+                        </div>
+
+                        {/* Similar Products */}
+                        <SimilarProducts currentProduct={product} />
                     </div>
                 </div>
-
-                {/* Detailed Info Section */}
-                <div className="mt-16 lg:mt-24">
-                    {/* Tab Navigation - Static for now */}
-                    <div className="border-b border-gray-200 mb-8">
-                        <div className="flex gap-8 overflow-x-auto pb-2">
-                            <button className=" text-neutral-900 font-bold whitespace-nowrap">
-                                Nutritional Facts
-                            </button>
-                            <button className="border-transparent text-neutral-600 font-medium hover:text-neutral-900 transition-colors whitespace-nowrap">
-                                Certifications
-                            </button>
-                            <button className="border-transparent text-neutral-600 font-medium hover:text-neutral-900 transition-colors whitespace-nowrap">
-                                Manufacturing Quality
-                            </button>
-                            <button className="border-transparent text-neutral-600 font-medium hover:text-neutral-900 transition-colors whitespace-nowrap">
-                                Export Logistics
-                            </button>
-                        </div>
-                    </div>
-
-                    <div className="flex flex-col lg:flex-row gap-10">
-                        {/* Main Content Area */}
-                        <div className="lg:w-2/3 w-full space-y-8">
-                            <NutritionTable product={product} />
-                            <CertificationsGrid product={product} />
-                        </div>
-
-                        {/* Sidebar */}
-                        <div className="lg:w-1/3 w-full">
-                            <SidebarContact />
-                        </div>
-                    </div>
-
-                    {/* Similar Products */}
-                    <SimilarProducts currentProduct={product} />
-                </div>
-            </main>
-        </div>
+            </section>
+        </main>
     );
 }
