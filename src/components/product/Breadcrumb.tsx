@@ -1,7 +1,6 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 import { slugify } from '@/data/products';
 
@@ -10,8 +9,7 @@ interface BreadcrumbProps {
     category: string;
 }
 
-export default function Breadcrumb({ productName, category }: BreadcrumbProps) {
-    const pathname = usePathname();
+export default function Breadcrumb({ category }: BreadcrumbProps) {
     const categorySlug = slugify(category);
 
     return (

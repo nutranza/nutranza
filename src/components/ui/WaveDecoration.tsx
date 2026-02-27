@@ -4,12 +4,14 @@ interface WaveDecorationProps {
     position?: 'top' | 'bottom';
     color?: string; // Tailwind text color class, e.g., 'text-[#ffefc4]'
     className?: string; // Additional classes for the container (e.g., bg color)
+    style?: React.CSSProperties; // Inline styles for dynamic colors
 }
 
 export default function WaveDecoration({
     position = 'bottom',
     color = 'text-current',
-    className = ''
+    className = '',
+    style
 }: WaveDecorationProps) {
     // 6 waves to ensure it covers even ultra-wide 4k screens smoothly.
     // Each wave is 1442px wide. Track width is 6 * 1442 = 8652px.
@@ -22,7 +24,10 @@ export default function WaveDecoration({
 
     return (
         <div className={`relative w-full overflow-hidden leading-0 ${className}`}>
-            <div className={`flex w-[8652px] animate-wave-scroll ${position === 'top' ? '-scale-y-100' : ''} ${color}`}>
+            <div
+                className={`flex w-[8652px] animate-wave-scroll ${position === 'top' ? '-scale-y-100' : ''} ${color}`}
+                style={style}
+            >
                 {waves.map((_, i) => (
                     <div key={i} className="w-[1442px] shrink-0 relative h-[151px]">
                         <svg

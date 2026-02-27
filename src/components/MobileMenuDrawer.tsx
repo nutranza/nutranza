@@ -43,8 +43,8 @@ export default function MobileMenuDrawer({
                             <Link
                                 href={link.href}
                                 className={`w-full group flex items-center justify-between px-6 py-4 rounded-full transition-all duration-300 font-roca font-semibold ${isActiveLink(link.href)
-                                    ? "text-secondary"
-                                    : "bg-transparent text-neutral-900 hover:text-secondary"
+                                    ? "text-primary"
+                                    : "bg-transparent text-neutral-900 hover:text-primary"
                                     }`}
                                 onClick={onClose}
                             >
@@ -52,7 +52,7 @@ export default function MobileMenuDrawer({
                                 {link.subLinks && (
                                     <span
                                         onClick={(e) => toggleExpand(link.name, e)}
-                                        className="p-2 -mr-2 text-neutral-500 hover:text-secondary focus:outline-none"
+                                        className="p-2 -mr-2 text-neutral-500 hover:text-primary focus:outline-none"
                                     >
                                         <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${expandedLinks[link.name] ? "rotate-180" : ""}`} />
                                     </span>
@@ -68,7 +68,7 @@ export default function MobileMenuDrawer({
                                             <Link
                                                 key={subLink.name}
                                                 href={subLink.href}
-                                                className={`block py-2.5 text-lg font-roca transition-colors ${isActiveLink(subLink.href) ? "text-secondary" : "text-neutral-600 hover:text-secondary"}`}
+                                                className={`block py-2.5 text-lg font-roca transition-colors ${isActiveLink(subLink.href) ? "text-primary" : "text-neutral-600 hover:text-primary"}`}
                                                 onClick={onClose}
                                             >
                                                 {subLink.name}
@@ -85,7 +85,7 @@ export default function MobileMenuDrawer({
                 <div className="p-6">
                     <Link
                         href="tel:+1234567890"
-                        className="flex items-center justify-center gap-2 bg-secondary text-white w-full py-4 rounded-full font-medium shadow-lg shadow-secondary/20 hover:bg-secondary/90 transition-all duration-300 text-base"
+                        className="flex items-center justify-center gap-2 bg-primary text-white w-full py-4 rounded-full font-medium shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all duration-300 text-base"
                     >
                         <Phone className="w-5 h-5" />
                         <span>Call +1 234 567 890</span>

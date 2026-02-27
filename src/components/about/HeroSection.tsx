@@ -1,4 +1,4 @@
-import { Earth, Info } from "lucide-react";
+import { Earth } from "lucide-react";
 
 export default function HeroSection() {
     return (

@@ -1,5 +1,4 @@
 import { Product } from '@/data/products';
-import { BadgeCheck, Earth } from 'lucide-react';
 import Breadcrumb from '@/components/product/Breadcrumb';
 
 interface ProductHeaderProps {

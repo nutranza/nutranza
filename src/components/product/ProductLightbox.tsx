@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -22,15 +22,15 @@ export default function ProductLightbox({
 
 
 
-    const handlePrevious = (e?: React.MouseEvent) => {
+    const handlePrevious = useCallback((e?: React.MouseEvent) => {
         e?.stopPropagation();
         onIndexChange(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
-    };
+    }, [currentIndex, images.length, onIndexChange]);
 
-    const handleNext = (e?: React.MouseEvent) => {
+    const handleNext = useCallback((e?: React.MouseEvent) => {
         e?.stopPropagation();
         onIndexChange(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
-    };
+    }, [currentIndex, images.length, onIndexChange]);
 
     // Handle escape and arrow keys
     useEffect(() => {

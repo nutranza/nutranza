@@ -1,4 +1,4 @@
-import { MapPin, Mail, Phone, MapPinned } from "lucide-react";
+import { Mail, Phone, MapPinned } from "lucide-react";
 import Link from "next/link";
 
 export default function ContactInfo() {

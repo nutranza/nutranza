@@ -96,7 +96,7 @@ export default function Header() {
                                         >
                                             <Link
                                                 href={link.href}
-                                                className={`flex items-center gap-1 text-lg font-roca font-semibold transition-all duration-300 focus:outline-none py-6 ${isActiveLink(link.href) ? "text-secondary" : "text-neutral-900 hover:text-secondary"
+                                                className={`flex items-center gap-1 text-lg font-roca font-semibold transition-all duration-300 focus:outline-none py-6 ${isActiveLink(link.href) ? "text-primary" : "text-neutral-900 hover:text-primary"
                                                     }`}
                                             >
                                                 {link.name}
@@ -107,12 +107,12 @@ export default function Header() {
 
                                             {link.subLinks && activeDropdown === link.name && (
                                                 <div className="absolute top-full left-0 z-50 animate-in fade-in slide-in-from-top-2 duration-300">
-                                                    <ul className="bg-[#f5f5f5] shadow-xl rounded-2xl p-2 border border-secondary min-w-[200px] flex flex-col gap-1">
+                                                    <ul className="bg-[#f5f5f5] shadow-xl rounded-2xl p-2 border border-primary min-w-[200px] flex flex-col gap-1">
                                                         {link.subLinks.map((subLink) => (
                                                             <li key={subLink.name}>
                                                                 <Link
                                                                     href={subLink.href}
-                                                                    className={`block px-4 py-2.5 rounded-xl font-roca text-base transition-colors duration-200 ${pathname === subLink.href ? "bg-secondary/10 text-secondary" : "text-neutral-700 hover:bg-black/5 hover:text-secondary"}`}
+                                                                    className={`block px-4 py-2.5 rounded-xl font-roca text-base transition-colors duration-200 ${pathname === subLink.href ? "bg-primary/10 text-primary" : "text-neutral-700 hover:bg-black/5 hover:text-primary"}`}
                                                                 >
                                                                     {subLink.name}
                                                                 </Link>
@@ -135,7 +135,7 @@ export default function Header() {
                                             alt="Nutranza Logo"
                                             width={500}
                                             height={500}
-                                            className="h-full w-28 md:w-32 object-contain transition-transform duration-300 group-hover:scale-105"
+                                            className="h-full w-28 md:w-32 object-contain transition-transform duration-300"
                                             priority
                                         />
                                     </div>
@@ -146,7 +146,7 @@ export default function Header() {
                             <div className="flex-1 flex justify-end py-2.5">
                                 <Link
                                     href="tel:+1234567890"
-                                    className="flex items-center gap-2 bg-secondary text-white px-5 py-2 rounded-full font-medium hover:bg-secondary/90 transition-all duration-300 text-lg font-roca focus:outline-none"
+                                    className="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-primary/90 transition-all duration-300 text-lg font-roca focus:outline-none"
                                 >
                                     <Phone className="w-5 h-5" />
                                     <span>Call Now</span>
@@ -168,7 +168,7 @@ export default function Header() {
                                             alt="Nutranza Logo"
                                             width={500}
                                             height={500}
-                                            className="h-full w-32 object-contain transition-transform duration-300 group-hover:scale-105"
+                                            className="h-full w-32 object-contain transition-transform duration-300"
                                             priority
                                         />
                                     </div>
@@ -178,7 +178,7 @@ export default function Header() {
                             {/* Right Section: Hamburger */}
                             <div className="flex items-center justify-end py-2.5">
                                 <button
-                                    className="p-2 text-neutral-900 hover:text-secondary focus:outline-none z-50 relative cursor-pointer"
+                                    className="p-2 text-neutral-900 hover:text-primary focus:outline-none z-50 relative cursor-pointer"
                                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                                     aria-label="Toggle menu"
                                 >
