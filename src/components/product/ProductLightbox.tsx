@@ -1,32 +1,43 @@
-'use client';
-
-import { useState, useRef, useEffect } from 'react';
+import { useEffect } from 'react';
 import Image from 'next/image';
-import { X, ZoomIn, ZoomOut } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface ProductLightboxProps {
     isOpen: boolean;
     onClose: () => void;
-    image: string;
+    images: string[];
+    currentIndex: number;
+    onIndexChange: (index: number) => void;
     alt: string;
 }
 
 export default function ProductLightbox({
     isOpen,
     onClose,
-    image,
+    images,
+    currentIndex,
+    onIndexChange,
     alt,
 }: ProductLightboxProps) {
-    const [isZoomed, setIsZoomed] = useState(false);
-    const [position, setPosition] = useState({ x: 0, y: 0 });
-    const imageRef = useRef<HTMLDivElement>(null);
 
 
 
-    // Handle escape key
+    const handlePrevious = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        onIndexChange(currentIndex === 0 ? images.length - 1 : currentIndex - 1);
+    };
+
+    const handleNext = (e?: React.MouseEvent) => {
+        e?.stopPropagation();
+        onIndexChange(currentIndex === images.length - 1 ? 0 : currentIndex + 1);
+    };
+
+    // Handle escape and arrow keys
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === 'Escape') onClose();
+            if (e.key === 'ArrowLeft') handlePrevious();
+            if (e.key === 'ArrowRight') handleNext();
         };
 
         if (isOpen) {
@@ -38,74 +49,62 @@ export default function ProductLightbox({
             window.removeEventListener('keydown', handleKeyDown);
             document.body.style.overflow = '';
         };
-    }, [isOpen, onClose]);
-
-    const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-        if (!isZoomed || !imageRef.current) return;
-
-        const { left, top, width, height } = imageRef.current.getBoundingClientRect();
-        const x = ((e.clientX - left) / width) * 100;
-        const y = ((e.clientY - top) / height) * 100;
-
-        setPosition({ x, y });
-    };
-
-    const toggleZoom = (e: React.MouseEvent) => {
-        e.stopPropagation();
-        setIsZoomed(!isZoomed);
-    }
+    }, [isOpen, onClose, currentIndex, handlePrevious, handleNext]);
 
     if (!isOpen) return null;
 
     return (
         <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-md transition-opacity duration-300"
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-md transition-opacity duration-300"
             onClick={onClose}
         >
             {/* Close Button */}
             <button
                 onClick={onClose}
-                className="absolute top-6 right-6 p-2 text-white/70 hover:text-white bg-black/20 hover:bg-black/40 rounded-full transition-colors z-50 cursor-pointer"
+                className="absolute top-6 right-6 p-2 text-white/70 hover:text-white bg-black/20 hover:bg-black/40 rounded-full transition-colors z-[60] cursor-pointer"
                 aria-label="Close lightbox"
             >
                 <X className="w-8 h-8" />
             </button>
 
+            {/* Navigation Arrows */}
+            <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 md:px-10 z-50 pointer-events-none">
+                <button
+                    onClick={handlePrevious}
+                    className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all pointer-events-auto cursor-pointer"
+                    aria-label="Previous image"
+                >
+                    <ChevronLeft className="w-8 h-8 md:w-10 md:h-10" />
+                </button>
+                <button
+                    onClick={handleNext}
+                    className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all pointer-events-auto cursor-pointer"
+                    aria-label="Next image"
+                >
+                    <ChevronRight className="w-8 h-8 md:w-10 md:h-10" />
+                </button>
+            </div>
+
             {/* Image Container */}
             <div
-                className={`relative w-full h-full flex items-center justify-center p-4 overflow-hidden cursor-zoom-in ${isZoomed ? 'cursor-zoom-out' : ''
-                    }`}
-                onClick={toggleZoom}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={() => setIsZoomed(false)}
-                ref={imageRef}
+                className="relative w-full h-full flex items-center justify-center p-2 md:p-8"
+                onClick={onClose}
             >
-                <div className="relative w-full h-full max-w-5xl max-h-[90vh] flex items-center justify-center">
+                <div className="relative w-full h-full max-w-7xl max-h-screen flex items-center justify-center">
                     <Image
-                        src={image}
-                        alt={alt}
+                        src={images[currentIndex]}
+                        alt={`${alt} view ${currentIndex + 1}`}
                         fill
                         quality={100}
-                        className={`object-contain transition-transform duration-200 ease-out ${isZoomed ? 'scale-[2]' : 'scale-100'
-                            }`}
-                        style={
-                            isZoomed
-                                ? {
-                                    transformOrigin: `${position.x}% ${position.y}%`,
-                                }
-                                : undefined
-                        }
+                        className="object-contain"
                         priority
                     />
                 </div>
+            </div>
 
-                {/* Hint / Controls */}
-                <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex items-center gap-2 bg-black/50 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 pointer-events-none">
-                    {isZoomed ? <ZoomOut className="w-4 h-4" /> : <ZoomIn className="w-4 h-4" />}
-                    <span className="text-sm font-medium">
-                        {isZoomed ? 'Click to zoom out' : 'Click to zoom in'}
-                    </span>
-                </div>
+            {/* Image Counter */}
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-sm px-4 py-1.5 rounded-full text-white/90 text-sm font-medium">
+                {currentIndex + 1} / {images.length}
             </div>
         </div>
     );

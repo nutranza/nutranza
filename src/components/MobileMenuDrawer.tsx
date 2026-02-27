@@ -40,27 +40,24 @@ export default function MobileMenuDrawer({
                 <div className="flex flex-col flex-1 px-4 py-6 overflow-y-auto gap-2 scrollbar-hide">
                     {links.map((link) => (
                         <div key={link.name} className="flex flex-col">
-                            <div className="flex items-center justify-between">
-                                <Link
-                                    href={link.href}
-                                    className={`flex-1 group flex items-center px-6 py-4 rounded-full transition-all duration-300 font-roca font-semibold ${isActiveLink(link.href)
-                                        ? "text-secondary"
-                                        : "bg-transparent text-neutral-900 hover:text-secondary"
-                                        }`}
-                                    onClick={onClose}
-                                >
-                                    <span className="text-xl font-roca">{link.name}</span>
-                                </Link>
-
+                            <Link
+                                href={link.href}
+                                className={`w-full group flex items-center justify-between px-6 py-4 rounded-full transition-all duration-300 font-roca font-semibold ${isActiveLink(link.href)
+                                    ? "text-secondary"
+                                    : "bg-transparent text-neutral-900 hover:text-secondary"
+                                    }`}
+                                onClick={onClose}
+                            >
+                                <span className="text-xl font-roca">{link.name}</span>
                                 {link.subLinks && (
-                                    <button
+                                    <span
                                         onClick={(e) => toggleExpand(link.name, e)}
-                                        className="p-4 mr-2 text-neutral-500 hover:text-secondary focus:outline-none"
+                                        className="p-2 -mr-2 text-neutral-500 hover:text-secondary focus:outline-none"
                                     >
                                         <ChevronDown className={`w-6 h-6 transition-transform duration-300 ${expandedLinks[link.name] ? "rotate-180" : ""}`} />
-                                    </button>
+                                    </span>
                                 )}
-                            </div>
+                            </Link>
 
                             {link.subLinks && (
                                 <div

@@ -86,22 +86,22 @@ export default function Header() {
 
                             {/* Left Section: Navigation links */}
                             <div className="flex-1 flex justify-start">
-                                <nav className="flex items-center gap-8">
+                                <nav className="flex items-center gap-7">
                                     {links.map((link) => (
                                         <div
                                             key={link.name}
-                                            className="relative flex items-center py-2.5"
+                                            className="relative flex items-center"
                                             onMouseEnter={() => setActiveDropdown(link.name)}
                                             onMouseLeave={() => setActiveDropdown(null)}
                                         >
                                             <Link
                                                 href={link.href}
-                                                className={`flex items-center gap-1 text-lg font-roca font-semibold transition-all duration-300 focus:outline-none ${isActiveLink(link.href) ? "text-secondary" : "text-neutral-900 hover:text-secondary"
+                                                className={`flex items-center gap-1 text-lg font-roca font-semibold transition-all duration-300 focus:outline-none py-6 ${isActiveLink(link.href) ? "text-secondary" : "text-neutral-900 hover:text-secondary"
                                                     }`}
                                             >
                                                 {link.name}
                                                 {link.subLinks && (
-                                                    <ChevronDown className={`w-4 h-4 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                                                    <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
                                                 )}
                                             </Link>
 
