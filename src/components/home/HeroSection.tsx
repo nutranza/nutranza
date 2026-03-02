@@ -5,12 +5,12 @@ import Image from "next/image";
 export default function HeroSection() {
     return (
         <section
-            className="relative lg:h-screen sm:pt-36 pt-32 overflow-hidden"
+            className="relative lg:h-screen sm:pt-36 pt-32 lg:pb-0 pb-16 overflow-hidden"
             style={{ background: "linear-gradient(#f3cf6e, #f9e2a3 50%)" }}
         >
             {/* MAIN CONTENT CONTAINER */}
             <div className="container">
-                <div className="lg:block flex flex-col items-center justify-center h-full">
+                <div className="lg:block flex flex-col items-center justify-center h-full gap-8">
                     {/* LEFT CONTENT (Heading & Text) */}
                     <div className="lg:max-w-4xl w-full flex flex-col items-center lg:items-start gap-8 text-center lg:text-left relative z-10">
                         <h1 className="text-neutral-900 text-4xl sm:text-6xl lg:text-7xl xl:text-8xl sm:leading-16">
@@ -29,12 +29,12 @@ export default function HeroSection() {
 
                     {/* RIGHT CONTENT (Image) */}
 
-                    <div className="xl:max-w-fit lg:max-w-xl lg:h-3/4 w-full h-full lg:absolute xl:top-1/3 top-[35%] xl:right-20 right-10 z-10 pointer-events-none">
+                    <div className="xl:max-w-1/2 lg:max-w-2xl lg:h-4/5 w-full h-full lg:absolute xl:top-1/3 top-[35%] xl:right-20 -right-8 z-10 pointer-events-none">
                         <Image
-                            src="/assets/images/Hero-1.png"
+                            src="/assets/images/Hero-(1).png"
                             alt="Dining Experience"
-                            width={800}
-                            height={800}
+                            width={600}
+                            height={600}
                             priority
                             className="object-contain w-full h-full"
                             sizes="100vw"

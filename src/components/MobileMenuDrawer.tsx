@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, ChevronDown } from "lucide-react";
+import { Phone, ChevronDown, FileDown, ArrowDownToLine } from "lucide-react";
 import { useState } from "react";
 
 export interface LinkItem {
@@ -81,8 +81,18 @@ export default function MobileMenuDrawer({
                     ))}
                 </div>
 
-                {/* Mobile Drawer Footer — Call button only */}
-                <div className="p-6">
+                {/* Mobile Drawer Footer — Call and Brochure buttons */}
+                <div className="p-6 flex flex-col gap-3">
+                    <Link
+                        href="/assets/pdf/CHOCOLATE.pdf"
+                        download
+                        target="_blank"
+                        className="flex items-center justify-center gap-2 bg-transparent border border-primary text-primary w-full py-4 rounded-full font-bold transition-all duration-300 text-base"
+                        onClick={onClose}
+                    >
+                        <ArrowDownToLine className="w-5 h-5"  />
+                        Download Brochure
+                    </Link>
                     <Link
                         href="tel:+1234567890"
                         className="flex items-center justify-center gap-2 bg-primary text-white w-full py-4 rounded-full font-medium shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all duration-300 text-base"
