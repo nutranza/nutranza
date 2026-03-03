@@ -8,7 +8,7 @@ import WaveDecoration from "../ui/WaveDecoration";
 const faqs = [
     {
         question: "What products do you export, and do you offer private labeling?",
-        answer: "We export premium Peanut Butter, Protein Oats, Muesli, Shilajit, Rice Cakes, and Protein Bars. Yes, we offer private labeling (White Label) and custom packaging solutions for our international B2B clients and distributors.",
+        answer: "We export premium Peanut Butter, Protein Oats, Muesli, Shilajit, Rice Cakes, and Protein Bars. Yes, we offer private labeling and custom packaging solutions for our international B2B clients and distributors.",
     },
     {
         question: "What are your Minimum Order Quantities (MOQs) for international export?",

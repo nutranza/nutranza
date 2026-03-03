@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, ChevronDown, FileDown, ArrowDownToLine } from "lucide-react";
+import { Phone, ChevronDown, ArrowDownToLine } from "lucide-react";
 import { useState } from "react";
 
 export interface LinkItem {

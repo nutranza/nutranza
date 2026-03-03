@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Instagram } from "lucide-react";
 
 const Footer = () => {
     return (
@@ -25,14 +25,8 @@ const Footer = () => {
                             <Link href="#" className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300" aria-label="Facebook">
                                 <Facebook size={22} strokeWidth={1.5} className="text-secondary group-hover:text-white" />
                             </Link>
-                            <Link href="#" className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300" aria-label="Twitter">
-                                <Twitter size={22} strokeWidth={1.5} className="text-secondary group-hover:text-white" />
-                            </Link>
                             <Link href="#" className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300" aria-label="Instagram">
                                 <Instagram size={22} strokeWidth={1.5} className="text-secondary group-hover:text-white" />
-                            </Link>
-                            <Link href="#" className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300" aria-label="LinkedIn">
-                                <Linkedin size={22} strokeWidth={1.5} className="text-secondary group-hover:text-white" />
                             </Link>
                         </div>
                     </div>

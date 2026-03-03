@@ -20,7 +20,7 @@ const PRODUCT_TAGS = [
     { text: 'Rice Cakes', className: 'bg-stone-200 text-stone-800' },
     { text: 'Protein Bars', className: 'bg-orange-500 text-white' },
     { text: 'Global Export', className: 'bg-blue-600 text-white' },
-    { text: 'B2B & White Label', className: 'bg-indigo-500 text-white' },
+    { text: 'B2B', className: 'bg-indigo-500 text-white' },
 ];
 
 const Tag = ({ text, className }: { text: string; className: string }) => (

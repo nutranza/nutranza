@@ -42,7 +42,7 @@ export default function ShopByCategory() {
                     </h2>
 
                     {/* Categories - Curved Layout */}
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:flex lg:justify-center lg:items-end gap-x-4 gap-y-10 md:gap-x-8 lg:gap-x-4 xl:gap-x-12 xl:min-h-[360px] lg:min-h-[300px] xl:mt-20 mt-10">
+                    <div className="grid grid-flow-col auto-cols-[50%] sm:auto-cols-[42%] md:grid-flow-row md:grid-cols-3 lg:flex lg:justify-center lg:items-end gap-4 gap-y-10 md:gap-x-8 lg:gap-x-4 xl:gap-x-12 xl:min-h-[360px] lg:min-h-[300px] xl:mt-20 mt-10 overflow-x-auto md:overflow-visible snap-x snap-mandatory md:snap-none scrollbar-hide">
                         {categories.map((category, index) => {
                             // Calculate vertical offset for curve effect
                             // Middle item (index 2) is highest
@@ -54,7 +54,7 @@ export default function ShopByCategory() {
                             return (
                                 <div
                                     key={category.name}
-                                    className={`flex flex-col items-center group cursor-pointer w-full transition-transform duration-500 ease-out ${translateY}`}
+                                    className={`flex flex-col items-center group cursor-pointer w-full snap-start md:snap-none transition-transform duration-500 ease-out ${translateY}`}
                                 >
                                     <div className={`relative w-full aspect-square rounded-full ${bgColors[index % bgColors.length]} flex items-center justify-center mb-6 transition-all duration-300 group-hover:shadow-sm`}>
                                         <div className="w-full h-full relative">

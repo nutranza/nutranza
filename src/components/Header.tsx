@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Phone, ChevronDown, FileDown, Download, ArrowDownToLine } from "lucide-react";
+import { Phone, ChevronDown, ArrowDownToLine } from "lucide-react";
 import MobileMenuDrawer from "./MobileMenuDrawer";
 import { getCategories } from "@/data/products";
 
