@@ -21,7 +21,6 @@ export default function Home() {
       {/* <div className="bg-[linear-gradient(0deg,#825640,#E96569)]">
         <RecipeSection />
       </div> */}
-      {/* <AboutSection /> */}
       <FAQSection />
     </main>
   );

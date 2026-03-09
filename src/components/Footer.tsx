@@ -19,7 +19,7 @@ const Footer = () => {
                             />
                         </Link>
                         <p className="text-base font-medium leading-relaxed max-w-xs text-neutral-900">
-                            Nutranza provides trusted, compassionate healthcare for families through clinic, pharmacy, and telehealth services.
+                            Nutranza offers high-quality, protein-rich and nutritious foods crafted for modern, health-conscious consumers around the world.
                         </p>
                         <div className="flex gap-4">
                             <Link href="#" className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300" aria-label="Facebook">
@@ -57,17 +57,17 @@ const Footer = () => {
                         <h4 className="font-bold text-xl text-secondary mb-4">Get In Touch</h4>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="mailto:support@nutranza.com" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block">
-                                    support@nutranza.com
+                                <Link href="mailto:nutranzafoods@gmail.com" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block">
+                                    nutranzafoods@gmail.com
                                 </Link>
                             </li>
                             <li>
-                                <Link href="tel:+15551234567" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block">
-                                    +1 (555) 123-4567
+                                <Link href="tel:+918487036026" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block">
+                                    +91 8487036026
                                 </Link>
                             </li>
                             <li className="text-base font-medium text-neutral-900 block">
-                                123 Nutrition Way,<br /> Wellness City, WC 12345
+                                361, Times Trade Center, Punagam, Surat, Gujarat, India - 395010
                             </li>
                         </ul>
                     </div>

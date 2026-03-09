@@ -1,4 +1,4 @@
-import { Globe, Leaf, Zap, ShieldCheck, Heart } from "lucide-react";
+import { Globe, FlaskConical, Zap, ShieldCheck, Heart } from "lucide-react";
 import Image from "next/image";
 import WaveDecoration from "../ui/WaveDecoration";
 
@@ -6,12 +6,12 @@ const FEATURES = [
     {
         icon: ShieldCheck,
         title: "Certified Excellence",
-        description: "HACCP, ISO 22000, and organic certifications ensure world-class safety standards and international compliance.",
+        description: "ISO, GMP and FDA certifications ensure world-class safety standards and international compliance.",
     },
     {
-        icon: Leaf,
-        title: "100% Natural Purity",
-        description: "Plant-based formulations with zero added sugar, artificial additives, or preservatives. Only pure, traceable ingredients.",
+        icon: FlaskConical,
+        title: "Honest Ingredients",
+        description: "We use sugar and artificial flavors for some flavored peanut butter.",
     },
     {
         icon: Zap,
@@ -22,6 +22,25 @@ const FEATURES = [
         icon: Globe,
         title: "Global Export Ready",
         description: "Proven logistics, complete export documentation, and reliable delivery to 20+ countries. Your trusted B2B partner.",
+    },
+];
+
+const CERTIFICATION_LOGOS = [
+    {
+        src: "/assets/images/fssai_logo.png",
+        alt: "FSSAI Certified",
+    },
+    {
+        src: "/assets/images/iso-logo.png",
+        alt: "ISO Certified",
+    },
+    {
+        src: "/assets/images/gmp-logo.png",
+        alt: "GMP Certified",
+    },
+    {
+        src: "/assets/images/fda-logo.png",
+        alt: "FDA Registered",
     },
 ];
 
@@ -70,23 +89,28 @@ export default function FeaturesSection() {
                     </div>
 
                     {/* Bottom Banner */}
-                    <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 flex flex-col sm:flex-row items-center justify-between gap-8 shadow-xl">
+                    <div className="bg-white rounded-2xl p-6 sm:p-8 lg:p-12 flex flex-col lg:flex-row items-center justify-between gap-8 shadow-xl">
                         <div className="flex-1 text-center sm:text-left">
-                            <h3 className="text-3xl md:text-4xl text-accent">
+                            <h3 className="text-3xl lg:text-4xl text-accent">
                                 Certified care you can rely on
                             </h3>
                         </div>
 
-                        <div className="flex items-center justify-center">
-                            <div className="relative">
-                                <Image
-                                    src="/assets/images/fssai_logo.png"
-                                    alt="FSSAI Certified"
-                                    width={100}
-                                    height={100}
-                                    className="object-contain w-full h-full"
-                                />
-                            </div>
+                        <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
+                            {CERTIFICATION_LOGOS.map((logo) => (
+                                <div
+                                    key={logo.src}
+                                    className="relative flex h-20 w-20 items-center justify-center sm:h-24 sm:w-24"
+                                >
+                                    <Image
+                                        src={logo.src}
+                                        alt={logo.alt}
+                                        width={96}
+                                        height={96}
+                                        className="object-contain w-full h-full"
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </div>
 

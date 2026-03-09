@@ -25,7 +25,6 @@ export interface Product {
     sku?: string; // SKU code
     description: string;
     origin: string;
-    certifications: string[];
     specs: ProductSpecs;
     tags: string[]; // e.g., "Energy Booster", "0% Cholesterol"
     keyBenefits?: KeyBenefit[]; // e.g. [{ icon: '💪', text: '18g Protein' }]
@@ -71,7 +70,6 @@ export const products: Product[] = [
         ],
         description: 'Rolled Oats enriched with Vegan Protein Blend, Cocoa, and premium Nuts & Seeds. A perfect high-protein breakfast.',
         origin: 'India',
-        certifications: ['FSSAI', 'ISO 22000'],
         specs: {
             form: 'Flakes',
             shelfLife: '12 Months',
@@ -155,7 +153,6 @@ export const products: Product[] = [
         image: '/assets/images/products/product-2.png',
         description: 'Energizing Coffee infused Oats with Vegan Protein Blend. High fiber and protein for a powerful start.',
         origin: 'India',
-        certifications: ['ISO 9001', 'GMP', 'Vegan Certified'],
         specs: {
             form: 'Flakes',
             shelfLife: '12 Months',
@@ -226,7 +223,6 @@ export const products: Product[] = [
         image: '/assets/images/products/product-3.png',
         description: 'Delicious Strawberry flavored Oats with Vegan Protein Blend. High fiber and protein for a nutritious meal.',
         origin: 'India',
-        certifications: ['FSSAI', 'ISO 22000'],
         specs: {
             form: 'Flakes',
             shelfLife: '12 Months',
@@ -291,14 +287,13 @@ export const products: Product[] = [
     },
     {
         id: 'p4',
-        name: 'Mango Crispy',
-        slug: 'mango-crispy',
+        name: 'Mango Chia',
+        slug: 'mango-chia',
         category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/4.png',
-        description: 'Unique blend of Roasted Peanuts with Rice Crisp and Mango Flavour. Rich in healthy fats and protein with a satisfying crunch.',
+        description: 'Unique blend of Roasted Peanuts with Chia Seeds and Mango Flavour. Rich in healthy fats and protein with a satisfying crunch.',
         origin: 'India',
-        certifications: ['HACCP', 'ISO 9001'],
         specs: {
             form: 'Paste',
             shelfLife: '12 Months',
@@ -312,7 +307,7 @@ export const products: Product[] = [
             { icon: '💪', text: '27.00g of Protein per 100g' },
             { icon: '🌿', text: 'Rich in Dietary Fiber' },
             { icon: '🚫', text: 'Zero Added Sugar' },
-            { icon: '🥭', text: 'Real Mango Infusion' },
+            { icon: '🥭', text: 'Real Mango Flavour' },
             { icon: '✨', text: 'Satisfying Crunchy Texture' }
         ],
         ingredients: 'Roasted Peanut (79%), Rice Crisp, Milk Solid (SMP&WMP), Sesame Oil, Mango Flavour, Emulsifier E471 (100% Plant Based), Sugar, Antioxidant 322(1). Contains Added Identical Flavour (Mango)',
@@ -372,7 +367,6 @@ export const products: Product[] = [
         image: '/assets/images/products/5.png',
         description: 'A rich blend of Roasted Peanuts and Almonds with Cocoa. A perfect balance of taste and nutrition.',
         origin: 'India',
-        certifications: ['FSSAI', 'ISO 22000'],
         specs: {
             form: 'Paste',
             shelfLife: '12 Months',
@@ -447,7 +441,6 @@ export const products: Product[] = [
         image: '/assets/images/products/6.png',
         description: 'Creamy peanut butter with a fruity twist of Strawberry and crunch of Chia seeds.',
         origin: 'India',
-        certifications: ['HACCP', 'ISO 9001'],
         specs: {
             form: 'Paste',
             shelfLife: '12 Months',
@@ -521,7 +514,6 @@ export const products: Product[] = [
         image: '/assets/images/products/7.png',
         description: 'Decadent Cookies & Cream favour blended with premium Roasted Peanuts.',
         origin: 'India',
-        certifications: ['FSSAI', 'Export Quality'],
         specs: {
             form: 'Paste',
             shelfLife: '12 Months',
@@ -596,7 +588,6 @@ export const products: Product[] = [
         image: '/assets/images/products/8.png',
         description: 'Traditional taste of roasted peanuts sweetened with organic jaggery. A healthy alternative to sugar.',
         origin: 'India',
-        certifications: ['FSSAI', 'Export Quality', 'Organic Friendly'],
         specs: {
             form: 'Paste',
             shelfLife: '12 Months',
@@ -671,7 +662,6 @@ export const products: Product[] = [
         image: '/assets/images/products/9.png',
         description: 'Exotic blend of peanuts with mixed fruit powder and raisin seeds for a unique tangy-sweet flavor.',
         origin: 'India',
-        certifications: ['FSSAI', 'Export Quality'],
         specs: {
             form: 'Paste',
             shelfLife: '12 Months',
@@ -738,14 +728,13 @@ export const products: Product[] = [
     },
     {
         id: 'p10',
-        name: 'Classic Creamy/Crunchy',
-        slug: 'classic-creamy-crunchy',
+        name: 'Classic',
+        slug: 'classic',
         category: 'Peanut Butter',
         subCategory: 'Peanut Butter',
         image: '/assets/images/products/10.png',
-        description: 'The timeless classic. 100% Roasted Peanuts with just a hint of salt and sugar for the perfect balance.',
+        description: 'The timeless classic. Roasted Peanuts with just a hint of salt and sugar for the perfect balance.',
         origin: 'India',
-        certifications: ['FSSAI', 'Export Quality', 'Halal'],
         specs: {
             form: 'Paste',
             shelfLife: '12 Months',
@@ -760,7 +749,7 @@ export const products: Product[] = [
             { icon: '🥜', text: '90% Roasted Peanuts' },
             { icon: '🚫', text: 'Zero Trans Fat' },
             { icon: '🛡️', text: 'Rich in Dietary Fiber' },
-            { icon: '🌿', text: '100% Plant Based' }
+            // { icon: '🌿', text: '100% Plant Based' }
         ],
         ingredients: 'Roasted Peanut (90%), Emulsifier E471 (100% Plant Based), Sugar, Salt.',
         allergenInfo: 'Contains Peanuts',

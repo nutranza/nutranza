@@ -9,7 +9,7 @@ import WhyChooseUs from "@/components/about/WhyChooseUs";
 export const metadata: Metadata = {
     title: "About Us | Nutranza - Premium Healthcare Food Exporters",
     description:
-        "Nutranza is a trusted B2B partner in premium organic food export. We serve 20+ countries with ISO 22000 & HACCP certified products including peanut butter, protein oats, muesli, and more. Discover our export excellence.",
+        "Nutranza is a trusted B2B partner in premium organic food export. We serve 20+ countries with ISO, GMP, FSSAI and FDA certified products including peanut butter, protein oats, muesli, and more. Discover our export excellence.",
     openGraph: {
         title: "About Nutranza - Your Global Partner in Healthcare Food Export",
         description:
@@ -27,7 +27,6 @@ export default function AboutPage() {
                 <WhoWeAreSection />
                 <ExportExperience />
             </div>
-            {/* <QualityCertifications /> */}
             <WhyChooseUs />
         </main>
     );
