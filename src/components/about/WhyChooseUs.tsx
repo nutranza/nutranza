@@ -11,7 +11,7 @@ export default function WhyChooseUs() {
     const strengths: Strength[] = [
         {
             title: "Certified Global Standards",
-            description: "Manufactured in state-of-the-art facilities with ISO, GMP, and HACCP certifications, ensuring international food safety and uncompromised quality for every shipment.",
+            description: "Manufactured in state-of-the-art facilities with ISO, GMP, and FDA certifications, ensuring international food safety and uncompromised quality for every shipment.",
         },
         {
             title: "End-to-End Export Logistics",

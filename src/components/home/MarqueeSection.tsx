@@ -5,15 +5,16 @@ const ATTR_TAGS = [
     { text: 'High fiber', className: 'bg-pink-100 text-pink-900' },
     { text: 'Prebiotic fiber', className: 'bg-orange-400 text-white' },
     { text: 'Non-GMO', className: 'bg-red-600 text-white' },
-    { text: 'No artificial sweeteners', className: 'bg-rose-400 text-white' },
+    // { text: 'No artificial sweeteners', className: 'bg-rose-400 text-white' },
     { text: 'Gluten free', className: 'bg-amber-700 text-white' },
-    { text: 'No added sugar', className: 'bg-orange-100 text-orange-900' },
+    // { text: 'No added sugar', className: 'bg-orange-100 text-orange-900' },
     { text: 'High protein', className: 'bg-orange-600 text-white' },
-    { text: 'Lactose free', className: 'bg-amber-900 text-white' },
+    // { text: 'Lactose free', className: 'bg-amber-900 text-white' },
+    { text: 'Peanut Butter', className: 'bg-yellow-400 text-yellow-900' },
+
 ];
 
 const PRODUCT_TAGS = [
-    { text: 'Peanut Butter', className: 'bg-yellow-400 text-yellow-900' },
     { text: 'Protein Oats', className: 'bg-emerald-600 text-white' },
     { text: 'Muesli', className: 'bg-amber-100 text-amber-900' },
     { text: 'Shilajit', className: 'bg-slate-800 text-white' },

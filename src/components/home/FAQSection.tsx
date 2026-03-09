@@ -16,7 +16,7 @@ const faqs = [
     },
     {
         question: "What quality certifications and standards do your products meet?",
-        answer: "We strictly adhere to international food safety standards, including ISO, HACCP, and GMP certifications. Our export-grade products undergo rigorous quality control, from raw material sourcing to final packaging, ensuring a premium experience for your customers.",
+        answer: "We strictly adhere to international food safety standards, including ISO, FDA, and GMP certifications. Our export-grade products undergo rigorous quality control, from raw material sourcing to final packaging, ensuring a premium experience for your customers.",
     },
     {
         question: "How do you handle international shipping and logistics?",

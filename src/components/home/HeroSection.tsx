@@ -15,7 +15,7 @@ export default function HeroSection() {
                     <div className="lg:max-w-4xl w-full flex flex-col items-center lg:items-start gap-8 text-center lg:text-left relative z-10">
                         <h1 className="text-neutral-900 text-4xl sm:text-6xl lg:text-7xl xl:text-8xl sm:leading-16">
                             <span>Nutrition for a</span>
-                            <span className="block font-black text-secondary leading-tight">premium lifestyle</span>
+                            <span className="block font-black text-secondary leading-tight">Premium lifestyle</span>
                         </h1>
 
                         <p className="text-neutral-900 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
@@ -29,7 +29,7 @@ export default function HeroSection() {
 
                     {/* RIGHT CONTENT (Image) */}
 
-                    <div className="xl:max-w-1/2 lg:max-w-2xl lg:h-4/5 w-full h-full lg:absolute xl:top-1/3 top-[35%] xl:right-20 -right-8 z-10 pointer-events-none">
+                    <div className="xl:max-w-1/2 lg:max-w-2xl lg:h-4/5 w-full h-full lg:absolute xl:top-1/3 top-[35%] xl:right-20 -right-8 z-0 pointer-events-none">
                         <Image
                             src="/assets/images/Hero-(1).png"
                             alt="Dining Experience"
@@ -56,7 +56,7 @@ export default function HeroSection() {
             </div>
 
             {/* Bottom Left - Chocolate */}
-            <div className="lg:absolute bottom-0 left-0 lg:left-20 2xl:left-1/6 z-0 rotate-90 lg:block hidden pointer-events-none">
+            <div className="lg:absolute xl:-bottom-20 -bottom-10 left-0 lg:left-20 2xl:left-1/6 z-0 rotate-90 lg:block hidden pointer-events-none">
                 <Image
                     src="/assets/images/floating-images/Chocolate.png"
                     alt=""

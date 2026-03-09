@@ -11,7 +11,7 @@ export default function ContactInfo() {
                 </div>
                 <h3 className="text-2xl font-bold text-neutral-900">Location Address</h3>
                 <p className="text-lg text-neutral-900 leading-relaxed">
-                    201 Front St, New York, NY 10038, United States
+                    361, Times Trade Center, Punagam, Surat, Gujarat, India - 395010
                 </p>
             </div>
 
@@ -22,10 +22,10 @@ export default function ContactInfo() {
                 </div>
                 <h3 className="text-2xl font-bold text-neutral-900">Phone Number</h3>
                 <Link
-                    href="tel:+1 (555) 123-4567"
+                    href="tel:+918487036026"
                     className="block text-lg text-neutral-900 hover:text-primary transition-colors"
                 >
-                    +1 (555) 123-4567
+                    +91 8487036026
                 </Link>
             </div>
 
@@ -36,10 +36,10 @@ export default function ContactInfo() {
                 </div>
                 <h3 className="text-2xl font-bold text-neutral-900">Email Contact</h3>
                 <Link
-                    href="mailto:support@nutranza.com"
+                    href="mailto:nutranzafoods@gmail.com"
                     className="block text-lg text-neutral-900 hover:text-primary transition-colors"
                 >
-                    support@nutranza.com
+                    nutranzafoods@gmail.com
                 </Link>
             </div>
         </div>
