@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import {
     CONTACT_ADDRESS_DISPLAY,
     CONTACT_EMAIL_ADDRESS,
@@ -9,12 +9,19 @@ import {
     CONTACT_PHONE_TEL_URL,
 } from "@/lib/contact";
 
+const companyLinks = [
+    { label: "Home", href: "/" },
+    { label: "Categories", href: "/categories" },
+    { label: "About Us", href: "/about" },
+    { label: "Contact Us", href: "/contact" },
+] as const;
+
 const Footer = () => {
     return (
         <footer className="bg-[#EBE6DE] pt-20 pb-10 text-neutral-900">
-            <div className="container mx-auto px-4 md:px-8">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-                    <div className="space-y-6 flex flex-col items-start text-left">
+            <div className="container">
+                <div className="mb-16 grid grid-cols-1 gap-12 md:gap-14 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.7fr)_minmax(0,0.9fr)] lg:items-start lg:gap-10 xl:gap-14">
+                    <div className="flex flex-col items-start text-left">
                         <Link href="/" className="inline-block">
                             <Image
                                 src="/Logo.png"
@@ -23,24 +30,17 @@ const Footer = () => {
                                 height={50}
                             />
                         </Link>
-                        <p className="text-base font-medium leading-relaxed max-w-xs text-neutral-900">
+
+                        <p className="mt-6 max-w-xl text-base font-medium leading-relaxed text-neutral-900 lg:max-w-lg">
                             Nutranza offers high-quality, protein-rich and nutritious foods crafted for modern, health-conscious consumers around the world.
                         </p>
-                        <div className="flex gap-4">
-                            <Link
-                                href="#"
-                                className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300"
-                                aria-label="Facebook"
-                            >
-                                <Facebook
-                                    size={22}
-                                    strokeWidth={1.5}
-                                    className="text-secondary group-hover:text-white"
-                                />
-                            </Link>
-                            <Link
+
+                        <div className="mt-6 flex gap-4">
+                            <a
                                 href="https://www.instagram.com/nutranzafoods?igsh=cGk0NndudnA2eWJl&utm_source=qr"
-                                className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="group rounded-full border border-secondary p-3 transition-all duration-300 hover:bg-secondary hover:border-secondary"
                                 aria-label="Instagram"
                             >
                                 <Instagram
@@ -48,57 +48,57 @@ const Footer = () => {
                                     strokeWidth={1.5}
                                     className="text-secondary group-hover:text-white"
                                 />
-                            </Link>
+                            </a>
                         </div>
                     </div>
 
-                    <div className="space-y-5 flex flex-col items-start text-left lg:ml-8">
-                        <h4 className="font-bold text-xl text-secondary mb-4">Company</h4>
+                    <div className="space-y-5 text-left lg:justify-self-center">
+                        <h4 className="mb-4 text-xl font-bold text-secondary">Quick Links</h4>
                         <ul className="space-y-4">
-                            <li><Link href="/" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Home</Link></li>
-                            <li><Link href="/categories" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Categories</Link></li>
-                            <li><Link href="/about" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">About Us</Link></li>
-                            <li><Link href="/contact" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Contact Us</Link></li>
+                            {companyLinks.map((link) => (
+                                <li key={link.href}>
+                                    <Link
+                                        href={link.href}
+                                        className="inline-block text-base font-medium text-neutral-900 transition-colors hover:text-secondary"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
-                    <div className="space-y-5 flex flex-col items-start text-left">
-                        <h4 className="font-bold text-xl text-secondary mb-4">Support</h4>
-                        <ul className="space-y-4">
-                            <li><Link href="/privacy-policy" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Privacy Policy</Link></li>
-                            <li><Link href="/terms-of-service" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Terms of Service</Link></li>
-                            <li><Link href="/faqs" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">FAQs</Link></li>
-                        </ul>
-                    </div>
-
-                    <div className="space-y-5 flex flex-col items-start text-left">
-                        <h4 className="font-bold text-xl text-secondary mb-4">Get In Touch</h4>
+                    <div className="space-y-5 text-left">
+                        <h4 className="mb-4 text-xl font-bold text-secondary">Get In Touch</h4>
                         <ul className="space-y-4">
                             <li>
                                 <a
                                     href={CONTACT_EMAIL_MAILTO_URL}
-                                    className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block"
+                                    className="flex items-start gap-3 text-base font-medium text-neutral-900 transition-colors hover:text-secondary"
                                 >
-                                    {CONTACT_EMAIL_ADDRESS}
+                                    <Mail className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
+                                    <span className="break-all sm:break-normal">{CONTACT_EMAIL_ADDRESS}</span>
                                 </a>
                             </li>
                             <li>
                                 <a
                                     href={CONTACT_PHONE_TEL_URL}
-                                    className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block"
+                                    className="flex items-start gap-3 text-base font-medium text-neutral-900 transition-colors hover:text-secondary"
                                 >
-                                    {CONTACT_PHONE_DISPLAY}
+                                    <Phone className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
+                                    <span>{CONTACT_PHONE_DISPLAY}</span>
                                 </a>
                             </li>
-                            <li className="text-base font-medium text-neutral-900 block">
-                                {CONTACT_ADDRESS_DISPLAY}
+                            <li className="flex items-start gap-3 text-base font-medium leading-relaxed text-neutral-900">
+                                <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-secondary" />
+                                <span>{CONTACT_ADDRESS_DISPLAY}</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                <div className="pt-8 border-t border-neutral-300">
-                    <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left border-t-0">
+                <div className="border-t border-neutral-300 pt-8">
+                    <div className="flex flex-col items-center justify-between gap-4 text-center md:flex-row md:text-left">
                         <p className="text-base font-medium text-neutral-900">
                             &copy; {new Date().getFullYear()} Nutranza. All rights reserved.
                         </p>
@@ -108,7 +108,7 @@ const Footer = () => {
                                 href="https://apexture.in/"
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-secondary hover:underline font-semibold ml-1"
+                                className="ml-1 font-semibold text-secondary hover:underline"
                             >
                                 Apexture Pvt. Ltd.
                             </Link>
