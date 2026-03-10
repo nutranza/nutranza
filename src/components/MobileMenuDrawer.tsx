@@ -1,8 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { Phone, ChevronDown, ArrowDownToLine } from "lucide-react";
+import { MessageCircle, ChevronDown, ArrowDownToLine } from "lucide-react";
 import { useState } from "react";
+import {
+    CONTACT_PHONE_DISPLAY,
+    CONTACT_WHATSAPP_URL,
+} from "@/lib/contact";
 
 export interface LinkItem {
     name: string;
@@ -83,23 +87,26 @@ export default function MobileMenuDrawer({
 
                 {/* Mobile Drawer Footer — Call and Brochure buttons */}
                 <div className="p-6 flex flex-col gap-3">
-                    <Link
+                    <a
                         href="/assets/pdf/CHOCOLATE.pdf"
                         download
                         target="_blank"
+                        rel="noopener noreferrer"
                         className="flex items-center justify-center gap-2 bg-transparent border border-primary text-primary w-full py-4 rounded-full font-bold transition-all duration-300 text-base"
                         onClick={onClose}
                     >
                         <ArrowDownToLine className="w-5 h-5"  />
                         Download Brochure
-                    </Link>
-                    <Link
-                        href="tel:+1234567890"
+                    </a>
+                    <a
+                        href={CONTACT_WHATSAPP_URL}
+                        aria-label={`Chat on WhatsApp at ${CONTACT_PHONE_DISPLAY}`}
                         className="flex items-center justify-center gap-2 bg-primary text-white w-full py-4 rounded-full font-medium shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all duration-300 text-base"
+                        onClick={onClose}
                     >
-                        <Phone className="w-5 h-5" />
-                        <span>Call +1 234 567 890</span>
-                    </Link>
+                        <MessageCircle className="w-5 h-5" />
+                        <span>WhatsApp Now</span>
+                    </a>
                 </div>
             </div>
 

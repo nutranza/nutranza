@@ -4,9 +4,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { Phone, ChevronDown, ArrowDownToLine } from "lucide-react";
+import { MessageCircle, ChevronDown, ArrowDownToLine } from "lucide-react";
 import MobileMenuDrawer from "./MobileMenuDrawer";
 import { getCategories } from "@/data/products";
+import {
+    CONTACT_PHONE_DISPLAY,
+    CONTACT_WHATSAPP_URL,
+} from "@/lib/contact";
 
 export default function Header() {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
@@ -81,7 +85,7 @@ export default function Header() {
 
                     <div className="px-4 bg-[#f5f5f5] rounded-full">
                         {/* --- DESKTOP LAYOUT (lg and up) --- */}
-                        {/* Left: Nav, Center: Logo, Right: Call Now */}
+                        {/* Left: Nav, Center: Logo, Right: WhatsApp CTA */}
                         <div className="hidden lg:flex items-center justify-between w-full gap-4">
 
                             {/* Left Section: Navigation links */}
@@ -142,24 +146,26 @@ export default function Header() {
                                 </Link>
                             </div>
 
-                            {/* Right Section: Call Button and Brochure Button */}
+                            {/* Right Section: WhatsApp Button and Brochure Button */}
                             <div className="flex-1 flex justify-end py-2.5 gap-3">
-                                <Link
+                                <a
                                     href="/assets/pdf/CHOCOLATE.pdf"
                                     download
                                     target="_blank"
+                                    rel="noopener noreferrer"
                                     className="hidden lg:flex items-center gap-2 bg-transparent border border-primary text-primary px-5 py-2 rounded-full font-bold hover:bg-primary hover:text-white transition-all duration-300 text-lg font-roca focus:outline-none"
                                 >
                                     <ArrowDownToLine className="w-5 h-5"  />
                                     Brochure
-                                </Link>
-                                <Link
-                                    href="tel:+1234567890"
+                                </a>
+                                <a
+                                    href={CONTACT_WHATSAPP_URL}
+                                    aria-label={`Chat on WhatsApp at ${CONTACT_PHONE_DISPLAY}`}
                                     className="flex items-center gap-2 bg-primary text-white px-5 py-2 rounded-full font-medium hover:bg-primary/90 transition-all duration-300 text-lg font-roca focus:outline-none"
                                 >
-                                    <Phone className="w-5 h-5" />
-                                    <span>Call Now</span>
-                                </Link>
+                                    <MessageCircle className="w-5 h-5" />
+                                    <span>WhatsApp Now</span>
+                                </a>
                             </div>
 
                         </div>
