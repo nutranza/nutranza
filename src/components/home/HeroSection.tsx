@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function HeroSection() {
     return (
         <section
-            className="relative lg:h-screen sm:pt-36 pt-32 lg:pb-0 pb-16 overflow-hidden"
+            className="relative lg:h-screen pt-32 lg:pb-0 pb-16 overflow-hidden"
             style={{ background: "linear-gradient(#f3cf6e, #f9e2a3 50%)" }}
         >
             {/* MAIN CONTENT CONTAINER */}
@@ -18,8 +18,8 @@ export default function HeroSection() {
                             <span className="block font-black text-secondary leading-tight">Premium lifestyle</span>
                         </h1>
 
-                        <p className="text-neutral-900 text-lg md:text-xl font-medium leading-relaxed max-w-xl">
-                            Experience the perfect blend of taste and health with our Peanut Butter, Protein Oats. No added sugar, 100% natural, and designed for those who demand more.
+                        <p className="text-neutral-900 text-lg md:text-xl font-medium leading-relaxed max-w-2xl">
+                            Experience the perfect blend of taste and health with our Peanut Butter, Protein Oats. natural, and designed for those who demand more.
                         </p>
 
                         <button className="bg-secondary text-white px-10 py-3 rounded-full font-medium text-base hover:bg-secondary/80 transition-all duration-300 cursor-pointer">
@@ -29,7 +29,7 @@ export default function HeroSection() {
 
                     {/* RIGHT CONTENT (Image) */}
 
-                    <div className="xl:max-w-1/2 lg:max-w-2xl lg:h-4/5 w-full h-full lg:absolute xl:top-1/3 top-[35%] xl:right-20 -right-8 z-0 pointer-events-none">
+                    <div className="xl:max-w-1/2 lg:max-w-2xl lg:h-4/5 w-full h-full lg:absolute xl:top-1/3 top-[35%] right-0 z-0 pointer-events-none">
                         <Image
                             src="/assets/images/Hero-(1).png"
                             alt="Dining Experience"

@@ -1,37 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { Send } from "lucide-react";
 import { submitContactForm } from "@/app/contact/actions";
+import {
+    initialContactFormState,
+    type ContactFormFieldName,
+} from "@/app/contact/schema";
 
 export default function ContactForm() {
-    const [isSubmitting, setIsSubmitting] = useState(false);
-    const [message, setMessage] = useState<{
-        type: "success" | "error";
-        text: string;
-    } | null>(null);
+    const formRef = useRef<HTMLFormElement>(null);
+    const [state, formAction, isPending] = useActionState(
+        submitContactForm,
+        initialContactFormState
+    );
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setIsSubmitting(true);
-        setMessage(null);
-
-        const formData = new FormData(e.currentTarget);
-        const result = await submitContactForm(formData);
-
-        setIsSubmitting(false);
-
-        if (result.success) {
-            setMessage({ type: "success", text: result.message });
-            // Reset form
-            e.currentTarget.reset();
-        } else {
-            setMessage({
-                type: "error",
-                text: result.message || "Something went wrong",
-            });
+    useEffect(() => {
+        if (state.status === "success") {
+            formRef.current?.reset();
         }
-    };
+    }, [state]);
+
+    const getFieldError = (fieldName: ContactFormFieldName): string | undefined =>
+        state.fieldErrors[fieldName]?.[0];
+    const nameError = getFieldError("name");
+    const emailError = getFieldError("email");
+    const locationError = getFieldError("location");
+    const subjectError = getFieldError("subject");
+    const messageError = getFieldError("message");
 
     return (
         <div className="lg:p-10 sm:p-6 p-4 bg-primary/10 rounded-2xl">
@@ -44,7 +40,7 @@ export default function ContactForm() {
                 </p>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form ref={formRef} action={formAction} className="space-y-4">
                 {/* Row 1: Name and Email */}
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div className="space-y-2">
@@ -57,8 +53,15 @@ export default function ContactForm() {
                             type="text"
                             placeholder="John Doe"
                             required
+                            aria-invalid={Boolean(nameError)}
+                            aria-describedby={nameError ? "name-error" : undefined}
                             className="w-full px-4 py-3 rounded-full border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                         />
+                        {nameError ? (
+                            <p id="name-error" className="text-sm text-red-700">
+                                {nameError}
+                            </p>
+                        ) : null}
                     </div>
                     <div className="space-y-2">
                         <label htmlFor="email" className="font-semibold block text-neutral-700">
@@ -70,8 +73,15 @@ export default function ContactForm() {
                             type="email"
                             placeholder="john.doe@example.com"
                             required
+                            aria-invalid={Boolean(emailError)}
+                            aria-describedby={emailError ? "email-error" : undefined}
                             className="w-full px-4 py-3 rounded-full border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                         />
+                        {emailError ? (
+                            <p id="email-error" className="text-sm text-red-700">
+                                {emailError}
+                            </p>
+                        ) : null}
                     </div>
                 </div>
 
@@ -87,8 +97,15 @@ export default function ContactForm() {
                             type="text"
                             placeholder="City, Country"
                             required
+                            aria-invalid={Boolean(locationError)}
+                            aria-describedby={locationError ? "location-error" : undefined}
                             className="w-full px-4 py-3 rounded-full border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                         />
+                        {locationError ? (
+                            <p id="location-error" className="text-sm text-red-700">
+                                {locationError}
+                            </p>
+                        ) : null}
                     </div>
                     <div className="space-y-2">
                         <label htmlFor="subject" className="font-semibold block text-neutral-700">
@@ -100,8 +117,15 @@ export default function ContactForm() {
                             type="text"
                             placeholder="How can we help you?"
                             required
+                            aria-invalid={Boolean(subjectError)}
+                            aria-describedby={subjectError ? "subject-error" : undefined}
                             className="w-full px-4 py-3 rounded-full border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                         />
+                        {subjectError ? (
+                            <p id="subject-error" className="text-sm text-red-700">
+                                {subjectError}
+                            </p>
+                        ) : null}
                     </div>
                 </div>
 
@@ -116,31 +140,41 @@ export default function ContactForm() {
                         rows={6}
                         placeholder="Tell us more about your inquiry..."
                         required
+                        aria-invalid={Boolean(messageError)}
+                        aria-describedby={messageError ? "message-error" : undefined}
                         className="w-full px-4 py-3 rounded-xl border border-transparent bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all"
                     />
+                    {messageError ? (
+                        <p id="message-error" className="text-sm text-red-700">
+                            {messageError}
+                        </p>
+                    ) : null}
                 </div>
 
                 {/* Submit Button */}
                 <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-primary/80 transition-all duration-300 cursor-pointer"
+                    disabled={isPending}
+                    aria-disabled={isPending}
+                    className="w-full inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-primary text-white font-medium hover:bg-primary/80 transition-all duration-300 cursor-pointer disabled:cursor-not-allowed disabled:opacity-70"
                 >
-                    {isSubmitting ? "Sending..." : "Send Message"}
+                    {isPending ? "Sending..." : "Send Message"}
                     <Send className="w-5 h-5" />
                 </button>
 
-                {/* Response Message */}
-                {message && (
+                {state.message ? (
                     <div
-                        className={`p-4 rounded-xl text-sm font-medium animate-in fade-in duration-300 ${message.type === "success"
-                            ? "bg-green-50 text-green-800 border border-green-200"
-                            : "bg-red-50 text-red-800 border border-red-200"
-                            }`}
+                        aria-live="polite"
+                        role={state.status === "error" ? "alert" : "status"}
+                        className={`p-4 rounded-xl text-sm font-medium animate-in fade-in duration-300 ${
+                            state.status === "success"
+                                ? "bg-green-50 text-green-800 border border-green-200"
+                                : "bg-red-50 text-red-800 border border-red-200"
+                        }`}
                     >
-                        {message.text}
+                        {state.message}
                     </div>
-                )}
+                ) : null}
 
                 <p className="text-center text-sm text-neutral-900">
                     We typically respond within 24 hours.

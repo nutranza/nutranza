@@ -1,36 +1,54 @@
 "use server";
 
-import { ContactFormSchema } from "./schema";
+import { sendContactEmail } from "./mail";
+import {
+    ContactFormSchema,
+    type ContactFormState,
+} from "./schema";
 
-export async function submitContactForm(formData: FormData) {
-    // Extract form values for all 6 fields
+function getFormValue(formData: FormData, key: string): string {
+    const value = formData.get(key);
+
+    return typeof value === "string" ? value : "";
+}
+
+export async function submitContactForm(
+    _previousState: ContactFormState,
+    formData: FormData
+): Promise<ContactFormState> {
     const rawData = {
-        name: formData.get("name"),
-        email: formData.get("email"),
-        location: formData.get("location"),
-        subject: formData.get("subject"),
-        message: formData.get("message"),
+        name: getFormValue(formData, "name"),
+        email: getFormValue(formData, "email"),
+        location: getFormValue(formData, "location"),
+        subject: getFormValue(formData, "subject"),
+        message: getFormValue(formData, "message"),
     };
 
-    // Validate with Zod
     const validation = ContactFormSchema.safeParse(rawData);
 
     if (!validation.success) {
         return {
-            success: false,
-            errors: validation.error.flatten().fieldErrors,
-            message: "Please correct the form errors",
+            status: "error",
+            fieldErrors: validation.error.flatten().fieldErrors,
+            message: "Please correct the highlighted form errors.",
         };
     }
 
-    // Log the validated data (for prototype - in production this would go to a database/email service)
-    console.log("Contact Form Submission:", validation.data);
+    try {
+        await sendContactEmail(validation.data);
+    } catch (error: unknown) {
+        console.error("Failed to send contact form email:", error);
 
-    // Simulate processing delay
-    await new Promise((resolve) => setTimeout(resolve, 500));
+        return {
+            status: "error",
+            fieldErrors: {},
+            message: "We could not send your message right now. Please try again.",
+        };
+    }
 
     return {
-        success: true,
+        status: "success",
+        fieldErrors: {},
         message: "Thank you! We'll respond within 24 hours.",
     };
 }
