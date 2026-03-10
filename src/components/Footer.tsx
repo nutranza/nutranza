@@ -1,14 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Facebook, Instagram } from "lucide-react";
+import {
+    CONTACT_ADDRESS_DISPLAY,
+    CONTACT_EMAIL_ADDRESS,
+    CONTACT_EMAIL_MAILTO_URL,
+    CONTACT_PHONE_DISPLAY,
+    CONTACT_PHONE_TEL_URL,
+} from "@/lib/contact";
 
 const Footer = () => {
     return (
         <footer className="bg-[#EBE6DE] pt-20 pb-10 text-neutral-900">
             <div className="container mx-auto px-4 md:px-8">
-                {/* Top Section - 4 Columns */}
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
-                    {/* Column 1: Brand */}
                     <div className="space-y-6 flex flex-col items-start text-left">
                         <Link href="/" className="inline-block">
                             <Image
@@ -22,16 +27,31 @@ const Footer = () => {
                             Nutranza offers high-quality, protein-rich and nutritious foods crafted for modern, health-conscious consumers around the world.
                         </p>
                         <div className="flex gap-4">
-                            <Link href="#" className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300" aria-label="Facebook">
-                                <Facebook size={22} strokeWidth={1.5} className="text-secondary group-hover:text-white" />
+                            <Link
+                                href="#"
+                                className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300"
+                                aria-label="Facebook"
+                            >
+                                <Facebook
+                                    size={22}
+                                    strokeWidth={1.5}
+                                    className="text-secondary group-hover:text-white"
+                                />
                             </Link>
-                            <Link href="#" className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300" aria-label="Instagram">
-                                <Instagram size={22} strokeWidth={1.5} className="text-secondary group-hover:text-white" />
+                            <Link
+                                href="https://www.instagram.com/nutranzafoods?igsh=cGk0NndudnA2eWJl&utm_source=qr"
+                                className="p-3 group border border-secondary rounded-full hover:bg-secondary hover:border-secondary transition-all duration-300"
+                                aria-label="Instagram"
+                            >
+                                <Instagram
+                                    size={22}
+                                    strokeWidth={1.5}
+                                    className="text-secondary group-hover:text-white"
+                                />
                             </Link>
                         </div>
                     </div>
 
-                    {/* Column 2: Company */}
                     <div className="space-y-5 flex flex-col items-start text-left lg:ml-8">
                         <h4 className="font-bold text-xl text-secondary mb-4">Company</h4>
                         <ul className="space-y-4">
@@ -42,46 +62,54 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Column 3: Legal & Support */}
                     <div className="space-y-5 flex flex-col items-start text-left">
                         <h4 className="font-bold text-xl text-secondary mb-4">Support</h4>
                         <ul className="space-y-4">
-                            <li><Link href="#" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Privacy Policy</Link></li>
-                            <li><Link href="#" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Terms of Service</Link></li>
-                            <li><Link href="#" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">FAQs</Link></li>
+                            <li><Link href="/privacy-policy" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Privacy Policy</Link></li>
+                            <li><Link href="/terms-of-service" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">Terms of Service</Link></li>
+                            <li><Link href="/faqs" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors inline-block">FAQs</Link></li>
                         </ul>
                     </div>
 
-                    {/* Column 4: Contact Us */}
                     <div className="space-y-5 flex flex-col items-start text-left">
                         <h4 className="font-bold text-xl text-secondary mb-4">Get In Touch</h4>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="mailto:nutranzafoods@gmail.com" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block">
-                                    nutranzafoods@gmail.com
-                                </Link>
+                                <a
+                                    href={CONTACT_EMAIL_MAILTO_URL}
+                                    className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block"
+                                >
+                                    {CONTACT_EMAIL_ADDRESS}
+                                </a>
                             </li>
                             <li>
-                                <Link href="tel:+918487036026" className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block">
-                                    +91 8487036026
-                                </Link>
+                                <a
+                                    href={CONTACT_PHONE_TEL_URL}
+                                    className="text-base font-medium text-neutral-900 hover:text-secondary transition-colors block"
+                                >
+                                    {CONTACT_PHONE_DISPLAY}
+                                </a>
                             </li>
                             <li className="text-base font-medium text-neutral-900 block">
-                                361, Times Trade Center, Punagam, Surat, Gujarat, India - 395010
+                                {CONTACT_ADDRESS_DISPLAY}
                             </li>
                         </ul>
                     </div>
                 </div>
 
-                {/* Bottom Section: Copyright & Credits */}
                 <div className="pt-8 border-t border-neutral-300">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left border-t-0">
                         <p className="text-base font-medium text-neutral-900">
-                            © {new Date().getFullYear()} Nutranza. All rights reserved.
+                            &copy; {new Date().getFullYear()} Nutranza. All rights reserved.
                         </p>
                         <div className="flex items-center gap-1 text-base font-medium text-neutral-900">
                             <span>Powered by</span>
-                            <Link href="https://apexture.in/" target="_blank" rel="noopener noreferrer" className="text-secondary hover:underline font-semibold ml-1">
+                            <Link
+                                href="https://apexture.in/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-secondary hover:underline font-semibold ml-1"
+                            >
                                 Apexture Pvt. Ltd.
                             </Link>
                         </div>
