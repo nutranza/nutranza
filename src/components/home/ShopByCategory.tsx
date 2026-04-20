@@ -12,11 +12,11 @@ const categories = [
     },
     {
         name: "Muesli",
-        image: "/assets/images/categories/Categories-4.png",
+        image: "/assets/images/categories/museli-img.png",
     },
     {
         name: "Rice Cakes",
-        image: "/assets/images/categories/Categories-5.png",
+        image: "/assets/images/categories/rice_cake-img.png",
     },
 ];
 
