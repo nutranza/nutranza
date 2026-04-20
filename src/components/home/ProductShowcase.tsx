@@ -9,13 +9,13 @@ import WaveDecoration from "@/components/ui/WaveDecoration";
 
 export default function ProductShowcase() {
     // Select specific products
-    const selectedProducts = products.filter(p => ['p1', 'p2', 'p3'].includes(p.id));
+    const selectedProducts = products.filter(p => ['p5', 'p1', 'p10'].includes(p.id));
 
     // Custom descriptions mapping (styles now moved to product data)
     const productDescriptions: Record<string, string> = {
+        'p5': 'Roasted Peanuts & Almonds with Premium Cocoa.',
         'p1': 'Rolled Oats with Vegan Protein, Cocoa, and Nuts.',
-        'p2': 'Energizing Coffee infused Oats with High Fiber.',
-        'p3': 'Delicious Strawberry flavored Oats with Vegan Protein.',
+        'p10': 'Classic Peanut Goodness. Pure, Vegan & Protein-Rich.',
     };
 
     return (

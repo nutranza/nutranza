@@ -11,7 +11,7 @@ const FEATURES = [
     {
         icon: FlaskConical,
         title: "Honest Ingredients",
-        description: "We use sugar and artificial flavors for some flavored peanut butter.",
+        description: "Premium roasted peanuts, organic jaggei, cocoa powder, clean and honest.",
     },
     {
         icon: Zap,
